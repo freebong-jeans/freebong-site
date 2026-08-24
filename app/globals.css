@@ -1,0 +1,464 @@
+@import "tailwindcss";
+
+/* ═══════════════════════════════════════════════════════════════
+   FBG JEANS — DESIGN SYSTEM
+   Fonte oficial: Helvetica (brand guide Baza Brands 2026)
+   ═══════════════════════════════════════════════════════════════ */
+
+@theme inline {
+  /* Cores da marca — Pantone oficiais */
+  --color-fbg-black:       #000000;
+  --color-fbg-white:       #FFFFFF;
+  --color-fbg-indigo:      #2D3748; /* Mood Indigo — Pantone 19-4024 TCX */
+  --color-fbg-red:         #6B2033; /* Red Pear   — Pantone 19-1526 TCX */
+  --color-fbg-sand:        #B59672; /* Cuban Sand — Pantone 16-1334 TCX */
+
+  /* Tons de cinza para uso interno (backgrounds, borders) */
+  --color-fbg-gray-100:    #F5F5F3;
+  --color-fbg-gray-200:    #E5E5E3;
+  --color-fbg-gray-500:    #737373;
+  --color-fbg-gray-800:    #1A1A1A;
+  --color-fbg-gray-900:    #0D0D0D;
+
+  /* Fonte — Helvetica Neue como primária, com fallbacks web-safe */
+  --font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  --font-mono: 'Courier New', Courier, monospace;
+
+  /* Espaçamentos customizados */
+  --spacing-section: 6rem;       /* padding entre seções */
+  --spacing-container: 5rem;     /* padding lateral desktop */
+  --spacing-container-sm: 1.5rem;/* padding lateral mobile */
+
+  /* Transições padrão */
+  --ease-brand: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* ── Reset & Base ──────────────────────────────────────────── */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* clip (e não hidden): bloqueia scroll lateral SEM quebrar position: sticky */
+  overflow-x: clip;
+  overscroll-behavior-x: none;
+}
+
+body {
+  background-color: #FFFFFF;
+  color: #111111;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: clip;
+  overscroll-behavior-x: none;
+}
+
+/* ── Skeleton shimmer dourado FBG ───────────────────────────── */
+.fbg-shimmer {
+  position: relative;
+  overflow: hidden;
+  background: #F0F0F0;
+  border-radius: 2px;
+}
+.fbg-shimmer::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(100deg, transparent 32%, rgba(181, 150, 114, 0.12) 50%, transparent 68%);
+  transform: translateX(-100%);
+  animation: fbgShimmer 1.6s ease-in-out infinite;
+}
+@keyframes fbgShimmer {
+  to { transform: translateX(100%); }
+}
+
+/* ── Cascata de entrada (filtros da coleção) ────────────────── */
+@keyframes fbgCascade {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Tipografia — escala da marca ──────────────────────────── */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  text-transform: uppercase;
+}
+
+/* Headline hero — grande e agressiva como Nike */
+.type-hero {
+  font-size: clamp(3rem, 8vw, 7rem);
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 0.95;
+  text-transform: uppercase;
+}
+
+/* Headline de seção */
+.type-section {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+}
+
+/* Eyebrow — texto pequeno acima de headlines */
+.type-eyebrow {
+  font-size: 0.65rem;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--color-fbg-sand);
+}
+
+/* ── Seleção de texto com cor da marca ─────────────────────── */
+::selection {
+  background-color: #6B2033;
+  color: #FFFFFF;
+}
+
+/* ── Scrollbar customizada ─────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #F0F0F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #B59672;
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8a6e4e;
+}
+
+/* ── Utilitários de animação ───────────────────────────────── */
+
+/* Elemento entra com fade + slide vindo de baixo */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Texto aparece letra por letra (usado no hero) */
+@keyframes revealChar {
+  from {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Linha se expande da esquerda pra direita */
+@keyframes expandLine {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* Fade simples */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animate-fade-up {
+  animation: fadeUp 0.8s var(--ease-brand) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease both;
+}
+
+/* ── Classes de container ──────────────────────────────────── */
+
+.container-fbg {
+  width: 100%;
+  max-width: 1440px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--spacing-container-sm);
+  padding-right: var(--spacing-container-sm);
+}
+
+@media (min-width: 768px) {
+  .container-fbg {
+    padding-left: 3rem;
+    padding-right: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container-fbg {
+    padding-left: var(--spacing-container);
+    padding-right: var(--spacing-container);
+  }
+}
+
+/* ── Link base ─────────────────────────────────────────────── */
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  border-radius: 3px;
+}
+
+/* ── Mesh gradient shift — AuthPage left panel ─────────────── */
+
+@keyframes meshShift {
+  0%   { background-position: 0%   50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0%   50%; }
+}
+
+.animate-mesh {
+  background-size: 400% 400%;
+  animation: meshShift 10s ease infinite;
+}
+
+/* ── Neon flicker — FreebongNeon ───────────────────────────── */
+
+@keyframes dimlight {
+  0%, 18%, 20%, 50.1%, 60%, 65.1%, 80%, 90.1%, 92% {
+    color: #0e3742;
+    text-shadow: none;
+  }
+  18.1%, 20.1%, 30%, 50%, 60.1%, 65%, 80.1%, 90%, 92.1%, 100% {
+    color: #fff;
+    text-shadow: 0 0 10px #03bcf4, 0 0 40px #03bcf480, 0 0 80px #03bcf430;
+  }
+}
+
+.animate-dimlight {
+  animation: dimlight 5s infinite;
+}
+
+.box-reflect {
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   ANIMAÇÕES PREMIUM — QUALIDADE MÁXIMA
+═══════════════════════════════════════════════════════════════ */
+
+/* Glow pulse — para elementos premium */
+@keyframes glowPulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(181,150,114,0.3), 0 0 40px rgba(181,150,114,0.1);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(181,150,114,0.5), 0 0 60px rgba(181,150,114,0.2);
+  }
+}
+
+/* Text glow — para headlines */
+@keyframes textGlow {
+  0%, 100% {
+    text-shadow: 0 0 10px rgba(181,150,114,0), 0 0 20px rgba(181,150,114,0);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(181,150,114,0.3), 0 0 20px rgba(181,150,114,0.15);
+  }
+}
+
+/* Ripple effect — ao clicar */
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+/* Float suave — elementos que fluem */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+/* Skew on scroll — distorção ao rolar */
+@keyframes skewY {
+  0% { transform: skewY(0deg); }
+  50% { transform: skewY(2deg); }
+  100% { transform: skewY(0deg); }
+}
+
+/* Shimmer — efeito de brilho */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+/* Magnetic pull — botão segue mouse */
+@keyframes magneticPull {
+  0% { transform: translate(0, 0); }
+}
+
+/* Classe para glow */
+.animate-glow {
+  animation: glowPulse 3s ease-in-out infinite;
+}
+
+/* Classe para float */
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Classe para shimmer */
+.animate-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+  background-size: 1000px 100%;
+  animation: shimmer 2s infinite;
+}
+
+/* ── Glassmorphism base ─────────────────────────────────────── */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+}
+
+.glass-effect-sm {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+}
+
+/* ── Premium button base ─────────────────────────────────────– */
+.btn-premium {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.16,1,0.3,1);
+}
+
+.btn-premium:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(181,150,114,0.3);
+}
+
+/* Ripple effect overlay */
+.btn-premium::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ── Text distortion on hover ────────────────────────────────– */
+.text-premium {
+  transition: all 0.3s ease;
+}
+
+.text-premium:hover {
+  letter-spacing: 0.05em;
+  filter: drop-shadow(0 0 8px rgba(181,150,114,0.4));
+}
+
+/* ── Scroll reveal ────────────────────────────────────────────– */
+.scroll-reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+
+.scroll-reveal.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Cursor nativo (custom cursor removido — usabilidade e tom profissional) ── */
+
+/* ── Oculta controles nativos iOS/Safari nos vídeos ──────────── */
+video::-webkit-media-controls,
+video::-webkit-media-controls-panel,
+video::-webkit-media-controls-play-button,
+video::-webkit-media-controls-start-playback-button,
+video::-webkit-media-controls-overlay-play-button,
+video::-webkit-media-controls-overlay-enclosure {
+  display: none !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  -webkit-appearance: none !important;
+}
+
+/* ── Grid de produtos — responsivo (Hero) ─────────────────────── */
+.fbg-prod-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 clamp(16px, 4vw, 72px);
+}
+
+@media (min-width: 768px) {
+  .fbg-prod-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(12px, 2vw, 24px);
+  }
+}
+
+/* ── Info card de produto ─────────────────────────────────────── */
+.fbg-prod-info {
+  padding: 10px 10px 14px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  transition: box-shadow 0.3s;
+}
+
+@media (min-width: 768px) {
+  .fbg-prod-info {
+    padding: 16px 16px 20px;
+  }
+}
+
+/* ── Linha preço + parcelamento ───────────────────────────────── */
+.fbg-price-row {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 2px;
+}
+
+@media (min-width: 480px) {
+  .fbg-price-row {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
