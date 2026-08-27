@@ -95,7 +95,10 @@ export default function Navbar() {
           </Link>
 
           {/* ── Links desktop ────────────────────────────────── */}
-          <ul className="hidden md:flex items-center gap-10">
+          <ul
+            className="hidden md:flex items-center gap-10"
+            style={{ textShadow: scrolled ? "none" : "0 1px 4px rgba(0,0,0,0.55)" }}
+          >
             {NAV_LINKS.map((link) => (
               <li
                 key={link.href}
@@ -122,7 +125,10 @@ export default function Navbar() {
           </ul>
 
           {/* ── Ações direita ─────────────────────────────────── */}
-          <div className="flex items-center gap-5">
+          <div
+            className="flex items-center gap-5"
+            style={{ filter: scrolled ? "none" : "drop-shadow(0 1px 3px rgba(0,0,0,0.55))" }}
+          >
 
             {/* Ícone de busca */}
             <button
@@ -428,11 +434,21 @@ function FBGLogo({ dark = false }: { dark?: boolean }) {
         width={96}
         height={33}
         priority
-        style={{ width: "clamp(64px, 8vw, 88px)", height: "auto", filter: dark ? "invert(1)" : "none", transition: "filter 0.3s ease" }}
+        style={{
+          width: "clamp(64px, 8vw, 88px)",
+          height: "auto",
+          filter: dark ? "invert(1)" : "drop-shadow(0 1px 3px rgba(0,0,0,0.55))",
+          transition: "filter 0.3s ease",
+        }}
       />
       <span
         className="font-semibold tracking-[0.24em] leading-none mt-1"
-        style={{ fontSize: "0.42rem", color: dark ? "rgba(0,0,0,0.35)" : "rgba(255,255,255,0.4)", transition: "color 0.3s ease" }}
+        style={{
+          fontSize: "0.42rem",
+          color: dark ? "rgba(0,0,0,0.35)" : "rgba(255,255,255,0.4)",
+          textShadow: dark ? "none" : "0 1px 3px rgba(0,0,0,0.55)",
+          transition: "color 0.3s ease",
+        }}
       >
         FREEBONG · JEANS WEAR
       </span>

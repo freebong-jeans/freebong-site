@@ -48,6 +48,23 @@ const SORT_OPTIONS = [
   { id: "price-desc", label: "Maior preço" },
 ];
 
+/* Compara tags/tipo de produto ignorando acento, maiúscula e plural:
+   a equipe da Freebong cadastra isso pela Shopify, então o filtro não pode
+   depender de a tag estar digitada num formato técnico exato. */
+function normalize(s: string) {
+  return s
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .trim();
+}
+
+function productMatches(product: ShopifyProduct, needle: string) {
+  const target = normalize(needle);
+  if (normalize(product.productType).includes(target)) return true;
+  return product.tags.some((t) => normalize(t).includes(target));
+}
+
 /* ─────────────────────────────────────────────────── */
 export default function ColecaoPage() {
   return (
@@ -83,15 +100,15 @@ function ColecaoContent() {
     let result = [...products];
 
     if (activeCategory !== "all") {
-      result = result.filter((p) => p.tags.includes(activeCategory));
+      result = result.filter((p) => productMatches(p, activeCategory));
     }
 
     if (activeFit !== "all") {
-      result = result.filter((p) => p.tags.some((t) => t === activeFit || t === `bermuda-${activeFit}`));
+      result = result.filter((p) => productMatches(p, activeFit));
     }
 
     if (activeAvail !== "all") {
-      result = result.filter((p) => p.tags.includes(activeAvail));
+      result = result.filter((p) => productMatches(p, activeAvail));
     }
 
     if (activePrice !== "all") {
@@ -120,7 +137,7 @@ function ColecaoContent() {
   const categoryCount = useMemo(() => {
     const map: Record<string, number> = { all: products.length };
     for (const c of CATEGORIES) {
-      if (c.id !== "all") map[c.id] = products.filter((p) => p.tags.includes(c.id)).length;
+      if (c.id !== "all") map[c.id] = products.filter((p) => productMatches(p, c.id)).length;
     }
     return map;
   }, [products]);

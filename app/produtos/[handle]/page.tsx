@@ -191,7 +191,7 @@ export default function ProdutoPage() {
     <main style={{ background: "#FFFFFF", minHeight: "100vh", fontFamily: "'Helvetica Neue', Helvetica, sans-serif" }}>
 
       {/* ── Breadcrumb ───────────────────────────────────── */}
-      <div style={{ borderBottom: "1px solid rgba(10,10,10,0.06)" }}>
+      <div>
         <div className="container-fbg" style={{ padding: "16px 1.5rem" }}>
           <nav style={{ display: "flex", alignItems: "center", gap: "8px" }}>
             {[
@@ -680,7 +680,7 @@ export default function ProdutoPage() {
             {related.map((p) => {
               const variantPrice = p.variants[0]
                 ? formatPrice(p.variants[0].price)
-                : "—";
+                : "Sob consulta";
               return (
                 <article
                   key={p.id}

@@ -7,7 +7,7 @@ const img = (file: string, alt: string) => ({
 });
 
 /**
- * CATÁLOGO COMERCIAL FBG — JUNHO 2026
+ * CATÁLOGO COMERCIAL FBG, JUNHO 2026
  * Todas as referências oficiais do catálogo Freebong Jeans.
  * Fotos extraídas do catálogo oficial (uma pasta /public/images/catalog).
  */
@@ -21,9 +21,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "wide", "programacao", "ca-059-01"],
     images: [
-      img("p06_02", "Calça Stratus (CA 059-01) — frente"),
-      img("p06_03", "Calça Stratus (CA 059-01) — detalhe"),
-      img("p06_04", "Calça Stratus (CA 059-01) — costas"),
+      img("p06_02", "Calça Stratus (CA 059-01), frente"),
+      img("p06_03", "Calça Stratus (CA 059-01), detalhe"),
+      img("p06_04", "Calça Stratus (CA 059-01), costas"),
     ],
     variants: [
       { id: "calca-stratus-ca-059-01-38", title: "38", price: "279.99", available: true, image: null },
@@ -43,9 +43,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "wide", "programacao", "ca-059-02"],
     images: [
-      img("p06_05", "Calça Stratus (CA 059-02) — frente"),
-      img("p06_06", "Calça Stratus (CA 059-02) — detalhe"),
-      img("p06_07", "Calça Stratus (CA 059-02) — costas"),
+      img("p06_05", "Calça Stratus (CA 059-02), frente"),
+      img("p06_06", "Calça Stratus (CA 059-02), detalhe"),
+      img("p06_07", "Calça Stratus (CA 059-02), costas"),
     ],
     variants: [
       { id: "calca-stratus-ca-059-02-38", title: "38", price: "279.99", available: true, image: null },
@@ -65,9 +65,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "skinny", "pronta-entrega", "ca-053-02"],
     images: [
-      img("p07_02", "Calça Skinny Legacy (CA 053-02) — frente"),
-      img("p07_03", "Calça Skinny Legacy (CA 053-02) — detalhe"),
-      img("p07_04", "Calça Skinny Legacy (CA 053-02) — costas"),
+      img("p07_02", "Calça Skinny Legacy (CA 053-02), frente"),
+      img("p07_03", "Calça Skinny Legacy (CA 053-02), detalhe"),
+      img("p07_04", "Calça Skinny Legacy (CA 053-02), costas"),
     ],
     variants: [
       { id: "calca-skinny-legacy-ca-053-02-38", title: "38", price: "279.99", available: true, image: null },
@@ -87,9 +87,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "skinny", "pronta-entrega", "ca-053-03"],
     images: [
-      img("p07_05", "Calça Skinny Legacy (CA 053-03) — frente"),
-      img("p07_06", "Calça Skinny Legacy (CA 053-03) — detalhe"),
-      img("p07_07", "Calça Skinny Legacy (CA 053-03) — costas"),
+      img("p07_05", "Calça Skinny Legacy (CA 053-03), frente"),
+      img("p07_06", "Calça Skinny Legacy (CA 053-03), detalhe"),
+      img("p07_07", "Calça Skinny Legacy (CA 053-03), costas"),
     ],
     variants: [
       { id: "calca-skinny-legacy-ca-053-03-38", title: "38", price: "279.99", available: true, image: null },
@@ -109,9 +109,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "skinny", "pronta-entrega", "ca-053-01"],
     images: [
-      img("p08_02", "Calça Legacy 95 — frente"),
-      img("p08_03", "Calça Legacy 95 — detalhe"),
-      img("p08_04", "Calça Legacy 95 — costas"),
+      img("p08_02", "Calça Legacy 95, frente"),
+      img("p08_03", "Calça Legacy 95, detalhe"),
+      img("p08_04", "Calça Legacy 95, costas"),
     ],
     variants: [
       { id: "calca-legacy-95-ca-053-01-38", title: "38", price: "279.99", available: true, image: null },
@@ -131,9 +131,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "skinny", "pronta-entrega", "ca-062-01"],
     images: [
-      img("p08_05", "Calça Legacy Galaxy (CA 062-01) — frente"),
-      img("p08_06", "Calça Legacy Galaxy (CA 062-01) — detalhe"),
-      img("p08_07", "Calça Legacy Galaxy (CA 062-01) — costas"),
+      img("p08_05", "Calça Legacy Galaxy (CA 062-01), frente"),
+      img("p08_06", "Calça Legacy Galaxy (CA 062-01), detalhe"),
+      img("p08_07", "Calça Legacy Galaxy (CA 062-01), costas"),
     ],
     variants: [
       { id: "calca-legacy-galaxy-ca-062-01-38", title: "38", price: "279.99", available: true, image: null },
@@ -153,9 +153,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "skinny", "pronta-entrega", "ca-061-02"],
     images: [
-      img("p09_02", "Calça Skinny Up Black (CA 061-02) — frente"),
-      img("p09_04", "Calça Skinny Up Black (CA 061-02) — detalhe"),
-      img("p09_03", "Calça Skinny Up Black (CA 061-02) — costas"),
+      img("p09_02", "Calça Skinny Up Black (CA 061-02), frente"),
+      img("p09_04", "Calça Skinny Up Black (CA 061-02), detalhe"),
+      img("p09_03", "Calça Skinny Up Black (CA 061-02), costas"),
     ],
     variants: [
       { id: "calca-skinny-up-black-ca-061-02-38", title: "38", price: "279.99", available: true, image: null },
@@ -175,9 +175,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "skinny", "pronta-entrega", "ca-061-01"],
     images: [
-      img("p09_05", "Calça Skinny Up Black (CA 061-01) — frente"),
-      img("p09_06", "Calça Skinny Up Black (CA 061-01) — detalhe"),
-      img("p09_07", "Calça Skinny Up Black (CA 061-01) — costas"),
+      img("p09_05", "Calça Skinny Up Black (CA 061-01), frente"),
+      img("p09_06", "Calça Skinny Up Black (CA 061-01), detalhe"),
+      img("p09_07", "Calça Skinny Up Black (CA 061-01), costas"),
     ],
     variants: [
       { id: "calca-skinny-up-black-ca-061-01-38", title: "38", price: "279.99", available: true, image: null },
@@ -197,9 +197,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "skinny", "pronta-entrega", "ca-057-01"],
     images: [
-      img("p10_01", "Calça Skinny West Plus — frente"),
-      img("p10_02", "Calça Skinny West Plus — detalhe"),
-      img("p10_03", "Calça Skinny West Plus — costas"),
+      img("p10_01", "Calça Skinny West Plus, frente"),
+      img("p10_02", "Calça Skinny West Plus, detalhe"),
+      img("p10_03", "Calça Skinny West Plus, costas"),
     ],
     variants: [
       { id: "calca-skinny-west-plus-ca-057-01-38", title: "38", price: "279.99", available: true, image: null },
@@ -219,9 +219,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "skinny", "pronta-entrega", "ca-062"],
     images: [
-      img("p10_04", "Calça Legacy Galaxy Alto Stretch (CA 062) — frente"),
-      img("p10_05", "Calça Legacy Galaxy Alto Stretch (CA 062) — detalhe"),
-      img("p10_06", "Calça Legacy Galaxy Alto Stretch (CA 062) — costas"),
+      img("p10_04", "Calça Legacy Galaxy Alto Stretch (CA 062), frente"),
+      img("p10_05", "Calça Legacy Galaxy Alto Stretch (CA 062), detalhe"),
+      img("p10_06", "Calça Legacy Galaxy Alto Stretch (CA 062), costas"),
     ],
     variants: [
       { id: "calca-legacy-galaxy-alto-stretch-ca-062-38", title: "38", price: "279.99", available: true, image: null },
@@ -241,9 +241,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "skinny", "pronta-entrega", "ca-052-02"],
     images: [
-      img("p11_02", "Calça Skinny Up Black (CA 052-02) — frente"),
-      img("p11_04", "Calça Skinny Up Black (CA 052-02) — detalhe"),
-      img("p11_03", "Calça Skinny Up Black (CA 052-02) — costas"),
+      img("p11_02", "Calça Skinny Up Black (CA 052-02), frente"),
+      img("p11_04", "Calça Skinny Up Black (CA 052-02), detalhe"),
+      img("p11_03", "Calça Skinny Up Black (CA 052-02), costas"),
     ],
     variants: [
       { id: "calca-skinny-up-black-ca-052-02-38", title: "38", price: "279.99", available: true, image: null },
@@ -263,9 +263,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "skinny", "pronta-entrega", "ca-056"],
     images: [
-      img("p12_02", "Calça Skinny Tec-White Denim — frente"),
-      img("p12_03", "Calça Skinny Tec-White Denim — detalhe"),
-      img("p12_04", "Calça Skinny Tec-White Denim — costas"),
+      img("p12_02", "Calça Skinny Tec-White Denim, frente"),
+      img("p12_03", "Calça Skinny Tec-White Denim, detalhe"),
+      img("p12_04", "Calça Skinny Tec-White Denim, costas"),
     ],
     variants: [
       { id: "calca-skinny-tec-white-denim-ca-056-38", title: "38", price: "279.99", available: true, image: null },
@@ -285,9 +285,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "skinny", "pronta-entrega", "ca-064-01"],
     images: [
-      img("p12_05", "Calça Skinny Up Black (CA 064-01) — frente"),
-      img("p12_06", "Calça Skinny Up Black (CA 064-01) — detalhe"),
-      img("p12_07", "Calça Skinny Up Black (CA 064-01) — costas"),
+      img("p12_05", "Calça Skinny Up Black (CA 064-01), frente"),
+      img("p12_06", "Calça Skinny Up Black (CA 064-01), detalhe"),
+      img("p12_07", "Calça Skinny Up Black (CA 064-01), costas"),
     ],
     variants: [
       { id: "calca-skinny-up-black-ca-064-01-38", title: "38", price: "279.99", available: true, image: null },
@@ -307,9 +307,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "skinny", "pronta-entrega", "ca-51002"],
     images: [
-      img("p13_03", "Calça Skinny Queen Triblend (CA 51002) — frente"),
-      img("p13_04", "Calça Skinny Queen Triblend (CA 51002) — detalhe"),
-      img("p13_05", "Calça Skinny Queen Triblend (CA 51002) — costas"),
+      img("p13_03", "Calça Skinny Queen Triblend (CA 51002), frente"),
+      img("p13_04", "Calça Skinny Queen Triblend (CA 51002), detalhe"),
+      img("p13_05", "Calça Skinny Queen Triblend (CA 51002), costas"),
     ],
     variants: [
       { id: "calca-skinny-queen-triblend-ca-51002-38", title: "38", price: "279.99", available: true, image: null },
@@ -329,10 +329,10 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "skinny", "pronta-entrega", "ca-51003"],
     images: [
-      img("p13_06", "Calça Skinny Queen Triblend (CA 51003) — frente"),
-      img("p13_07", "Calça Skinny Queen Triblend (CA 51003) — detalhe"),
-      img("p13_08", "Calça Skinny Queen Triblend (CA 51003) — costas"),
-      img("p13_01", "Calça Skinny Queen Triblend (CA 51003) — close"),
+      img("p13_06", "Calça Skinny Queen Triblend (CA 51003), frente"),
+      img("p13_07", "Calça Skinny Queen Triblend (CA 51003), detalhe"),
+      img("p13_08", "Calça Skinny Queen Triblend (CA 51003), costas"),
+      img("p13_01", "Calça Skinny Queen Triblend (CA 51003), close"),
     ],
     variants: [
       { id: "calca-skinny-queen-triblend-ca-51003-38", title: "38", price: "279.99", available: true, image: null },
@@ -352,9 +352,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "skinny", "pronta-entrega", "ca-060"],
     images: [
-      img("p14_02", "Calça Skinny New Sandler — frente"),
-      img("p14_03", "Calça Skinny New Sandler — detalhe"),
-      img("p14_04", "Calça Skinny New Sandler — costas"),
+      img("p14_02", "Calça Skinny New Sandler, frente"),
+      img("p14_03", "Calça Skinny New Sandler, detalhe"),
+      img("p14_04", "Calça Skinny New Sandler, costas"),
     ],
     variants: [
       { id: "calca-skinny-new-sandler-ca-060-38", title: "38", price: "279.99", available: true, image: null },
@@ -374,9 +374,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "slim", "pronta-entrega", "novidade", "ca-52004"],
     images: [
-      img("p15_06", "Calça Slim Megaflex Total (CA 52004) — frente"),
-      img("p15_07", "Calça Slim Megaflex Total (CA 52004) — detalhe"),
-      img("p15_05", "Calça Slim Megaflex Total (CA 52004) — costas"),
+      img("p15_06", "Calça Slim Megaflex Total (CA 52004), frente"),
+      img("p15_07", "Calça Slim Megaflex Total (CA 52004), detalhe"),
+      img("p15_05", "Calça Slim Megaflex Total (CA 52004), costas"),
     ],
     variants: [
       { id: "calca-slim-megaflex-total-ca-52004-38", title: "38", price: "289.99", available: true, image: null },
@@ -396,9 +396,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "slim", "pronta-entrega", "novidade", "ca-52005"],
     images: [
-      img("p15_08", "Calça Slim Megaflex Total (CA 52005) — frente"),
-      img("p15_10", "Calça Slim Megaflex Total (CA 52005) — detalhe"),
-      img("p15_09", "Calça Slim Megaflex Total (CA 52005) — costas"),
+      img("p15_08", "Calça Slim Megaflex Total (CA 52005), frente"),
+      img("p15_10", "Calça Slim Megaflex Total (CA 52005), detalhe"),
+      img("p15_09", "Calça Slim Megaflex Total (CA 52005), costas"),
     ],
     variants: [
       { id: "calca-slim-megaflex-total-ca-52005-38", title: "38", price: "289.99", available: true, image: null },
@@ -418,9 +418,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "slim", "pronta-entrega", "ca-52003"],
     images: [
-      img("p16_02", "Calça Slim New Glui Mix Black — frente"),
-      img("p16_03", "Calça Slim New Glui Mix Black — detalhe"),
-      img("p16_04", "Calça Slim New Glui Mix Black — costas"),
+      img("p16_02", "Calça Slim New Glui Mix Black, frente"),
+      img("p16_03", "Calça Slim New Glui Mix Black, detalhe"),
+      img("p16_04", "Calça Slim New Glui Mix Black, costas"),
     ],
     variants: [
       { id: "calca-slim-new-glui-mix-black-ca-52003-38", title: "38", price: "279.99", available: true, image: null },
@@ -440,9 +440,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "slim", "pronta-entrega", "ca-52001-c-1"],
     images: [
-      img("p17_02", "Calça Masculina Slim (CA 52001 C-1) — frente"),
-      img("p17_03", "Calça Masculina Slim (CA 52001 C-1) — detalhe"),
-      img("p17_04", "Calça Masculina Slim (CA 52001 C-1) — costas"),
+      img("p17_02", "Calça Masculina Slim (CA 52001 C-1), frente"),
+      img("p17_03", "Calça Masculina Slim (CA 52001 C-1), detalhe"),
+      img("p17_04", "Calça Masculina Slim (CA 52001 C-1), costas"),
     ],
     variants: [
       { id: "calca-masculina-slim-ca-52001-c1-38", title: "38", price: "279.99", available: true, image: null },
@@ -462,10 +462,10 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "slim", "pronta-entrega", "ca-52006-e-ca-520006-01"],
     images: [
-      img("p18_03", "Calça Masculina Slim Legacy (CA 52006) — frente"),
-      img("p18_01", "Calça Masculina Slim Legacy (CA 52006) — detalhe"),
-      img("p18_04", "Calça Masculina Slim Legacy (CA 52006) — costas"),
-      img("p18_02", "Calça Masculina Slim Legacy (CA 52006) — close"),
+      img("p18_03", "Calça Masculina Slim Legacy (CA 52006), frente"),
+      img("p18_01", "Calça Masculina Slim Legacy (CA 52006), detalhe"),
+      img("p18_04", "Calça Masculina Slim Legacy (CA 52006), costas"),
+      img("p18_02", "Calça Masculina Slim Legacy (CA 52006), close"),
     ],
     variants: [
       { id: "calca-masculina-slim-legacy-ca-52006-38", title: "38", price: "279.99", available: true, image: null },
@@ -485,9 +485,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "reta", "pronta-entrega", "ca-53001"],
     images: [
-      img("p19_01", "Calça Masculina Reta (CA 53001) — frente"),
-      img("p19_02", "Calça Masculina Reta (CA 53001) — detalhe"),
-      img("p19_03", "Calça Masculina Reta (CA 53001) — costas"),
+      img("p19_01", "Calça Masculina Reta (CA 53001), frente"),
+      img("p19_02", "Calça Masculina Reta (CA 53001), detalhe"),
+      img("p19_03", "Calça Masculina Reta (CA 53001), costas"),
     ],
     variants: [
       { id: "calca-masculina-reta-ca-53001-38", title: "38", price: "279.99", available: true, image: null },
@@ -507,9 +507,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Jeans",
     tags: ["calca", "reta", "pronta-entrega", "ca-53003"],
     images: [
-      img("p20_02", "Calça Masculina Reta (CA 53003) — frente"),
-      img("p20_03", "Calça Masculina Reta (CA 53003) — detalhe"),
-      img("p20_01", "Calça Masculina Reta (CA 53003) — costas"),
+      img("p20_02", "Calça Masculina Reta (CA 53003), frente"),
+      img("p20_03", "Calça Masculina Reta (CA 53003), detalhe"),
+      img("p20_01", "Calça Masculina Reta (CA 53003), costas"),
     ],
     variants: [
       { id: "calca-masculina-reta-ca-53003-38", title: "38", price: "279.99", available: true, image: null },
@@ -529,9 +529,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Sport Fino",
     tags: ["calca", "sport-fino", "pronta-entrega", "ca-51005"],
     images: [
-      img("p21_03", "Calça Sport Fino (CA 51005) — frente"),
-      img("p21_01", "Calça Sport Fino (CA 51005) — detalhe"),
-      img("p21_02", "Calça Sport Fino (CA 51005) — costas"),
+      img("p21_03", "Calça Sport Fino (CA 51005), frente"),
+      img("p21_01", "Calça Sport Fino (CA 51005), detalhe"),
+      img("p21_02", "Calça Sport Fino (CA 51005), costas"),
     ],
     variants: [
       { id: "calca-sport-fino-ca-51005-38", title: "38", price: "269.99", available: true, image: null },
@@ -551,8 +551,8 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Sport Fino",
     tags: ["calca", "sport-fino", "programacao", "ca-058"],
     images: [
-      img("p22_02", "Calça Freebong Sport Fino (CA 058) — frente"),
-      img("p22_03", "Calça Freebong Sport Fino (CA 058) — detalhe"),
+      img("p22_02", "Calça Freebong Sport Fino (CA 058), frente"),
+      img("p22_03", "Calça Freebong Sport Fino (CA 058), detalhe"),
     ],
     variants: [
       { id: "calca-freebong-sport-fino-ca-058-38", title: "38", price: "269.99", available: true, image: null },
@@ -572,9 +572,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Calça Alfaiataria",
     tags: ["calca", "alfaiataria", "pronta-entrega", "ca-054"],
     images: [
-      img("p23_02", "Calça FBG Roma Tec — frente"),
-      img("p23_03", "Calça FBG Roma Tec — detalhe"),
-      img("p23_04", "Calça FBG Roma Tec — costas"),
+      img("p23_02", "Calça FBG Roma Tec, frente"),
+      img("p23_03", "Calça FBG Roma Tec, detalhe"),
+      img("p23_04", "Calça FBG Roma Tec, costas"),
     ],
     variants: [
       { id: "calca-fbg-roma-tec-ca-054-38", title: "38", price: "269.99", available: true, image: null },
@@ -595,9 +595,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     tags: ["calca", "cargo", "pronta-entrega", "ca-006"],
     images: [
 
-      img("p24_02", "Calça Cargo Freebong — frente"),
-      img("p24_04", "Calça Cargo Freebong — detalhe"),
-      img("p24_03", "Calça Cargo Freebong — costas"),
+      img("p24_02", "Calça Cargo Freebong, frente"),
+      img("p24_04", "Calça Cargo Freebong, detalhe"),
+      img("p24_03", "Calça Cargo Freebong, costas"),
     ],
     variants: [
       { id: "calca-cargo-freebong-ca-006-38", title: "38", price: "279.99", available: true, image: null },
@@ -617,9 +617,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Bermuda Jeans",
     tags: ["bermuda", "bermuda-jeans", "programacao", "be-062-03"],
     images: [
-      img("p27_01", "Bermuda Queen Triblend (BE 062-03) — frente"),
-      img("p27_02", "Bermuda Queen Triblend (BE 062-03) — detalhe"),
-      img("p27_03", "Bermuda Queen Triblend (BE 062-03) — costas"),
+      img("p27_01", "Bermuda Queen Triblend (BE 062-03), frente"),
+      img("p27_02", "Bermuda Queen Triblend (BE 062-03), detalhe"),
+      img("p27_03", "Bermuda Queen Triblend (BE 062-03), costas"),
     ],
     variants: [
       { id: "bermuda-queen-triblend-be-062-03-38", title: "38", price: "229.99", available: true, image: null },
@@ -639,9 +639,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Bermuda Jeans",
     tags: ["bermuda", "bermuda-jeans", "programacao", "be-062-01"],
     images: [
-      img("p27_04", "Bermuda Queen Triblend (BE 062-01) — frente"),
-      img("p27_05", "Bermuda Queen Triblend (BE 062-01) — detalhe"),
-      img("p27_06", "Bermuda Queen Triblend (BE 062-01) — costas"),
+      img("p27_04", "Bermuda Queen Triblend (BE 062-01), frente"),
+      img("p27_05", "Bermuda Queen Triblend (BE 062-01), detalhe"),
+      img("p27_06", "Bermuda Queen Triblend (BE 062-01), costas"),
     ],
     variants: [
       { id: "bermuda-queen-triblend-be-062-01-38", title: "38", price: "229.99", available: true, image: null },
@@ -661,9 +661,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Bermuda Jeans",
     tags: ["bermuda", "bermuda-jeans", "programacao", "be-063-01"],
     images: [
-      img("p28_01", "Bermuda Legacy — frente"),
-      img("p28_02", "Bermuda Legacy — detalhe"),
-      img("p28_03", "Bermuda Legacy — costas"),
+      img("p28_01", "Bermuda Legacy, frente"),
+      img("p28_02", "Bermuda Legacy, detalhe"),
+      img("p28_03", "Bermuda Legacy, costas"),
     ],
     variants: [
       { id: "bermuda-legacy-be-063-01-38", title: "38", price: "229.99", available: true, image: null },
@@ -683,9 +683,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Bermuda Jeans",
     tags: ["bermuda", "bermuda-jeans", "programacao", "be-051"],
     images: [
-      img("p29_01", "Bermuda Black — frente"),
-      img("p29_02", "Bermuda Black — detalhe"),
-      img("p29_03", "Bermuda Black — costas"),
+      img("p29_01", "Bermuda Black, frente"),
+      img("p29_02", "Bermuda Black, detalhe"),
+      img("p29_03", "Bermuda Black, costas"),
     ],
     variants: [
       { id: "bermuda-black-be-051-38", title: "38", price: "229.99", available: true, image: null },
@@ -705,9 +705,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Bermuda Jeans",
     tags: ["bermuda", "bermuda-jeans", "pronta-entrega", "be-54001"],
     images: [
-      img("p29_04", "Bermuda Up Black — frente"),
-      img("p29_05", "Bermuda Up Black — detalhe"),
-      img("p29_06", "Bermuda Up Black — costas"),
+      img("p29_04", "Bermuda Up Black, frente"),
+      img("p29_05", "Bermuda Up Black, detalhe"),
+      img("p29_06", "Bermuda Up Black, costas"),
     ],
     variants: [
       { id: "bermuda-up-black-be-54001-38", title: "38", price: "229.99", available: true, image: null },
@@ -727,9 +727,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Bermuda Jeans",
     tags: ["bermuda", "bermuda-jeans", "pronta-entrega", "be-012-02"],
     images: [
-      img("p30_01", "Bermuda Blackout (BE 012-02) — frente"),
-      img("p30_02", "Bermuda Blackout (BE 012-02) — detalhe"),
-      img("p30_03", "Bermuda Blackout (BE 012-02) — costas"),
+      img("p30_01", "Bermuda Blackout (BE 012-02), frente"),
+      img("p30_02", "Bermuda Blackout (BE 012-02), detalhe"),
+      img("p30_03", "Bermuda Blackout (BE 012-02), costas"),
     ],
     variants: [
       { id: "bermuda-blackout-be-012-02-38", title: "38", price: "229.99", available: true, image: null },
@@ -749,9 +749,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Bermuda Jeans",
     tags: ["bermuda", "bermuda-jeans", "pronta-entrega", "be-045-02"],
     images: [
-      img("p30_04", "Bermuda Masc. Tec Craquelada — frente"),
-      img("p30_05", "Bermuda Masc. Tec Craquelada — detalhe"),
-      img("p30_06", "Bermuda Masc. Tec Craquelada — costas"),
+      img("p30_04", "Bermuda Masc. Tec Craquelada, frente"),
+      img("p30_05", "Bermuda Masc. Tec Craquelada, detalhe"),
+      img("p30_06", "Bermuda Masc. Tec Craquelada, costas"),
     ],
     variants: [
       { id: "bermuda-masc-tec-craquelada-be-045-02-38", title: "38", price: "229.99", available: true, image: null },
@@ -771,9 +771,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Bermuda Jeans",
     tags: ["bermuda", "bermuda-jeans", "pronta-entrega", "be-045-01"],
     images: [
-      img("p31_01", "Bermuda Blackout (BE 045-01) — frente"),
-      img("p31_02", "Bermuda Blackout (BE 045-01) — detalhe"),
-      img("p31_03", "Bermuda Blackout (BE 045-01) — costas"),
+      img("p31_01", "Bermuda Blackout (BE 045-01), frente"),
+      img("p31_02", "Bermuda Blackout (BE 045-01), detalhe"),
+      img("p31_03", "Bermuda Blackout (BE 045-01), costas"),
     ],
     variants: [
       { id: "bermuda-blackout-be-045-01-38", title: "38", price: "229.99", available: true, image: null },
@@ -793,9 +793,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Bermuda Jeans",
     tags: ["bermuda", "bermuda-jeans", "pronta-entrega", "be-055"],
     images: [
-      img("p31_04", "Bermuda Tec White Denim — frente"),
-      img("p31_05", "Bermuda Tec White Denim — detalhe"),
-      img("p31_06", "Bermuda Tec White Denim — costas"),
+      img("p31_04", "Bermuda Tec White Denim, frente"),
+      img("p31_05", "Bermuda Tec White Denim, detalhe"),
+      img("p31_06", "Bermuda Tec White Denim, costas"),
     ],
     variants: [
       { id: "bermuda-tec-white-denim-be-055-38", title: "38", price: "229.99", available: true, image: null },
@@ -815,9 +815,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Bermuda Jeans",
     tags: ["bermuda", "bermuda-jeans", "pronta-entrega", "be-010-02"],
     images: [
-      img("p32_01", "Bermuda Trad (BE 010-02) — frente"),
-      img("p32_02", "Bermuda Trad (BE 010-02) — detalhe"),
-      img("p32_03", "Bermuda Trad (BE 010-02) — costas"),
+      img("p32_01", "Bermuda Trad (BE 010-02), frente"),
+      img("p32_02", "Bermuda Trad (BE 010-02), detalhe"),
+      img("p32_03", "Bermuda Trad (BE 010-02), costas"),
     ],
     variants: [
       { id: "bermuda-trad-be-010-02-38", title: "38", price: "229.99", available: true, image: null },
@@ -837,9 +837,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Bermuda Jeans",
     tags: ["bermuda", "bermuda-jeans", "pronta-entrega", "be-010-10"],
     images: [
-      img("p32_04", "Bermuda Trad (BE 010-10) — frente"),
-      img("p32_05", "Bermuda Trad (BE 010-10) — detalhe"),
-      img("p32_06", "Bermuda Trad (BE 010-10) — costas"),
+      img("p32_04", "Bermuda Trad (BE 010-10), frente"),
+      img("p32_05", "Bermuda Trad (BE 010-10), detalhe"),
+      img("p32_06", "Bermuda Trad (BE 010-10), costas"),
     ],
     variants: [
       { id: "bermuda-trad-be-010-10-38", title: "38", price: "229.99", available: true, image: null },
@@ -860,9 +860,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     tags: ["bermuda", "bermuda-cargo", "pronta-entrega", "be-009"],
     images: [
 
-      img("p33_02", "Bermuda Cargo Freebong — frente"),
-      img("p33_04", "Bermuda Cargo Freebong — detalhe"),
-      img("p33_03", "Bermuda Cargo Freebong — costas"),
+      img("p33_02", "Bermuda Cargo Freebong, frente"),
+      img("p33_04", "Bermuda Cargo Freebong, detalhe"),
+      img("p33_03", "Bermuda Cargo Freebong, costas"),
     ],
     variants: [
       { id: "bermuda-cargo-freebong-be-009-38", title: "38", price: "229.99", available: true, image: null },
@@ -877,14 +877,14 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     id: "bermuda-sport-fino-be-056",
     title: "Bermuda Sport Fino",
     handle: "bermuda-sport-fino-be-056",
-    description: "Bermuda confeccionada em sarja de alta qualidade, com toque macio e excelente resistência. Caimento alinhado e acabamento refinado — transita facilmente entre o casual e o mais arrumado. Referência: BE 056. Composição: 67% Algodão · 31% Poliéster · 2% Elastano. Cores disponíveis: Preto · Cinza · Bege. Disponibilidade: Pronta Entrega.",
-    descriptionHtml: "<p>Bermuda confeccionada em sarja de alta qualidade, com toque macio e excelente resistência. Caimento alinhado e acabamento refinado — transita facilmente entre o casual e o mais arrumado.</p><p><strong>Referência:</strong> BE 056<br/><strong>Composição:</strong> 67% Algodão · 31% Poliéster · 2% Elastano<br/><strong>Cores:</strong> Preto · Cinza · Bege<br/><strong>Disponibilidade:</strong> Pronta Entrega</p>",
+    description: "Bermuda confeccionada em sarja de alta qualidade, com toque macio e excelente resistência. Caimento alinhado e acabamento refinado, transita facilmente entre o casual e o mais arrumado. Referência: BE 056. Composição: 67% Algodão · 31% Poliéster · 2% Elastano. Cores disponíveis: Preto · Cinza · Bege. Disponibilidade: Pronta Entrega.",
+    descriptionHtml: "<p>Bermuda confeccionada em sarja de alta qualidade, com toque macio e excelente resistência. Caimento alinhado e acabamento refinado, transita facilmente entre o casual e o mais arrumado.</p><p><strong>Referência:</strong> BE 056<br/><strong>Composição:</strong> 67% Algodão · 31% Poliéster · 2% Elastano<br/><strong>Cores:</strong> Preto · Cinza · Bege<br/><strong>Disponibilidade:</strong> Pronta Entrega</p>",
     productType: "Bermuda Sarja",
     tags: ["bermuda", "bermuda-sarja", "pronta-entrega", "be-056"],
     images: [
-      img("p34_02", "Bermuda Sport Fino — frente"),
-      img("p34_03", "Bermuda Sport Fino — detalhe"),
-      img("p34_04", "Bermuda Sport Fino — costas"),
+      img("p34_02", "Bermuda Sport Fino, frente"),
+      img("p34_03", "Bermuda Sport Fino, detalhe"),
+      img("p34_04", "Bermuda Sport Fino, costas"),
     ],
     variants: [
       { id: "bermuda-sport-fino-be-056-38", title: "38", price: "219.99", available: true, image: null },
@@ -904,9 +904,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Bermuda Alfaiataria",
     tags: ["bermuda", "bermuda-alfaiataria", "pronta-entrega", "be-053"],
     images: [
-      img("p35_02", "Bermuda Roma Tec — frente"),
-      img("p35_03", "Bermuda Roma Tec — detalhe"),
-      img("p35_04", "Bermuda Roma Tec — costas"),
+      img("p35_02", "Bermuda Roma Tec, frente"),
+      img("p35_03", "Bermuda Roma Tec, detalhe"),
+      img("p35_04", "Bermuda Roma Tec, costas"),
     ],
     variants: [
       { id: "bermuda-roma-tec-be-053-m", title: "M", price: "219.99", available: true, image: null },
@@ -923,8 +923,8 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Jaqueta Jeans",
     tags: ["jaqueta", "jaqueta-jeans", "pronta-entrega", "jq-002-c2"],
     images: [
-      img("p37_01", "Jaqueta New Park Lazuli Clara — frente"),
-      img("p37_02", "Jaqueta New Park Lazuli Clara — detalhe"),
+      img("p37_01", "Jaqueta New Park Lazuli Clara, frente"),
+      img("p37_02", "Jaqueta New Park Lazuli Clara, detalhe"),
     ],
     variants: [
       { id: "jaqueta-new-park-lazuli-clara-jq-002-c2-p", title: "P", price: "369.99", available: true, image: null },
@@ -942,8 +942,8 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Jaqueta Jeans",
     tags: ["jaqueta", "jaqueta-jeans", "pronta-entrega", "jq-002-c2"],
     images: [
-      img("p38_01", "Jaqueta New Park Lazuli Escura — frente"),
-      img("p38_03", "Jaqueta New Park Lazuli Escura — detalhe"),
+      img("p38_01", "Jaqueta New Park Lazuli Escura, frente"),
+      img("p38_03", "Jaqueta New Park Lazuli Escura, detalhe"),
     ],
     variants: [
       { id: "jaqueta-new-park-lazuli-escura-jq-002-c2-p", title: "P", price: "369.99", available: true, image: null },
@@ -961,9 +961,9 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Jaqueta Jeans",
     tags: ["jaqueta", "jaqueta-jeans", "pronta-entrega", "jq-001-c2"],
     images: [
-      img("p39_03", "Jaqueta Up Black (JQ 001-C2) — frente"),
-      img("p39_04", "Jaqueta Up Black (JQ 001-C2) — detalhe"),
-      img("p39_05", "Jaqueta Up Black (JQ 001-C2) — costas"),
+      img("p39_03", "Jaqueta Up Black (JQ 001-C2), frente"),
+      img("p39_04", "Jaqueta Up Black (JQ 001-C2), detalhe"),
+      img("p39_05", "Jaqueta Up Black (JQ 001-C2), costas"),
     ],
     variants: [
       { id: "jaqueta-up-black-jq-001-c2-p", title: "P", price: "369.99", available: true, image: null },
@@ -981,8 +981,8 @@ export const MOCK_PRODUCTS: ShopifyProduct[] = [
     productType: "Jaqueta Jeans",
     tags: ["jaqueta", "jaqueta-jeans", "pronta-entrega", "jq-001"],
     images: [
-      img("p40_07", "Jaqueta Up Black (JQ 001) — frente"),
-      img("p40_08", "Jaqueta Up Black (JQ 001) — detalhe"),
+      img("p40_07", "Jaqueta Up Black (JQ 001), frente"),
+      img("p40_08", "Jaqueta Up Black (JQ 001), detalhe"),
     ],
     variants: [
       { id: "jaqueta-up-black-jq-001-p", title: "P", price: "369.99", available: true, image: null },

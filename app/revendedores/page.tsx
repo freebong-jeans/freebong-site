@@ -41,7 +41,7 @@ function SplitChar({
   text, delay = 0, inView, style,
 }: { text: string; delay?: number; inView: boolean; style?: React.CSSProperties }) {
   return (
-    <span style={{ display: "block", ...style }}>
+    <span style={{ display: "block", whiteSpace: "nowrap", ...style }}>
       {[...text].map((ch, i) =>
         ch === " " ? (
           <span key={i} style={{ display: "inline-block", width: "0.28em" }} />
@@ -125,7 +125,7 @@ const LINHAS = [
 ];
 
 const PASSOS = [
-  { num: "01", title: "Preencha o formulário", body: "Conte sobre sua loja, cidade e como pretende vender — físico, online ou ambos." },
+  { num: "01", title: "Preencha o formulário", body: "Conte sobre sua loja, cidade e como pretende vender: físico, online ou ambos." },
   { num: "02", title: "Conversa com nosso time", body: "Entramos em contato pelo WhatsApp para entender seu perfil e apresentar as condições." },
   { num: "03", title: "Primeiro pedido", body: "Catálogo, tabela de preços e condições de pagamento liberados. Você começa a vender." },
 ];
@@ -155,7 +155,10 @@ export default function RevendedoresPage() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const DISPLAY = "clamp(2.2rem,4.8vw,4.6rem)";
+  // Fica ao lado do globo (coluna com ~metade da largura da página),
+  // por isso o tamanho usa uma fração menor da viewport: do contrário
+  // a frase estoura a coluna e quebra no meio da palavra.
+  const DISPLAY = "clamp(1.8rem,3.4vw,3.4rem)";
 
   return (
     <div className="bg-[#FAF9F7] text-[#141414] overflow-x-hidden">
@@ -265,9 +268,9 @@ export default function RevendedoresPage() {
             </FadeUp>
             <div style={{ marginTop: "clamp(20px,2.5vw,32px)" }}>
               <SplitChar text="VOCÊ VENDE" delay={60} inView={s1.inView} style={hn({ fontSize: DISPLAY, color: "#0E0E0E" })} />
-              <SplitChar text="A IDENTIDADE." delay={160} inView={s1.inView} style={hn({ fontSize: DISPLAY, WebkitTextStroke: "1.5px rgba(10,10,10,0.35)", color: "transparent", paddingLeft: "clamp(1.5rem,4vw,5rem)" })} />
+              <SplitChar text="A IDENTIDADE." delay={160} inView={s1.inView} style={hn({ fontSize: DISPLAY, WebkitTextStroke: "1.5px rgba(10,10,10,0.35)", color: "transparent", paddingLeft: "clamp(0.8rem,1.8vw,2rem)" })} />
               <SplitChar text="A GENTE CUIDA" delay={250} inView={s1.inView} style={hn({ fontSize: DISPLAY, color: "#0E0E0E" })} />
-              <SplitChar text="DO RESTO." delay={340} inView={s1.inView} style={hn({ fontSize: DISPLAY, color: "#B59672", paddingLeft: "clamp(1.5rem,6vw,8rem)" })} />
+              <SplitChar text="DO RESTO." delay={340} inView={s1.inView} style={hn({ fontSize: DISPLAY, color: "#B59672", paddingLeft: "clamp(0.8rem,2.5vw,2.8rem)" })} />
             </div>
             <FadeUp inView={s1.inView} delay={560}>
               <p style={{ fontSize: "0.88rem", lineHeight: 1.8, color: "rgba(10,10,10,0.38)", maxWidth: "420px", marginTop: "clamp(24px,3vw,40px)" }}>
@@ -468,7 +471,7 @@ function RevendedorForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!nome || !whatsapp) return;
-    const msg = `Olá! Quero ser revendedor FBG.\n\nNome: ${nome}\nLoja: ${loja || "—"}\nCidade/Estado: ${cidade || "—"}\nWhatsApp: ${whatsapp}`;
+    const msg = `Olá! Quero ser revendedor FBG.\n\nNome: ${nome}\nLoja: ${loja || "não informado"}\nCidade/Estado: ${cidade || "não informado"}\nWhatsApp: ${whatsapp}`;
     navigator.clipboard.writeText(msg).catch(() => {});
     setSubmitted(true);
     window.open(WHATSAPP_BASE, "_blank");
@@ -506,7 +509,7 @@ function RevendedorForm() {
           Recebemos seus dados!
         </p>
         <p style={{ fontSize: "0.8rem", color: "rgba(10,10,10,0.4)", lineHeight: 1.7 }}>
-          Copiamos seu resumo — cole na conversa do WhatsApp que abrimos pra você. Nosso time responde em até 24h úteis.
+          Copiamos seu resumo. Cole na conversa do WhatsApp que abrimos pra você. Nosso time responde em até 24h úteis.
         </p>
       </div>
     );

@@ -12,7 +12,7 @@ const BASE_URL = "https://fbg-jeans.vercel.app";
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),
   title: {
-    default: "FBG Jeans — Liberdade que se Veste",
+    default: "FBG Jeans · Liberdade que se Veste",
     template: "%s | FBG Jeans",
   },
   description:
@@ -25,20 +25,20 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: BASE_URL,
     siteName: "FBG Jeans",
-    title: "FBG Jeans — Liberdade que se Veste",
+    title: "FBG Jeans · Liberdade que se Veste",
     description: "Jeans premium, streetwear e identidade. Premium Quality Since 2013.",
     images: [
       {
         url: "/images/freebong-instagram.jpg",
         width: 1200,
         height: 630,
-        alt: "FBG Jeans — Liberdade que se Veste",
+        alt: "FBG Jeans · Liberdade que se Veste",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "FBG Jeans — Liberdade que se Veste",
+    title: "FBG Jeans · Liberdade que se Veste",
     description: "Jeans premium, streetwear e identidade. Premium Quality Since 2013.",
     images: ["/images/freebong-instagram.jpg"],
   },

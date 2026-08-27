@@ -223,7 +223,7 @@ export default function CartDrawer() {
               rel="noopener noreferrer"
               onClick={() => {
                 const msg = "Olá! Quero finalizar meu pedido FBG:\n\n" +
-                  items.map(i => `• ${i.title} — ${i.variantTitle} × ${i.quantity}`).join("\n") +
+                  items.map(i => `• ${i.title} (${i.variantTitle}) × ${i.quantity}`).join("\n") +
                   `\n\nTotal: ${total.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}`;
                 navigator.clipboard.writeText(msg).catch(() => {});
               }}

@@ -47,7 +47,7 @@ export default function VistaEm3D() {
             <div style={{ width: "32px", height: "2px", background: "#B59672", marginBottom: "20px" }} />
 
             <p style={{ fontSize: "0.88rem", lineHeight: 1.75, color: "rgba(0,0,0,0.5)", maxWidth: "380px", marginBottom: "24px", fontFamily: "'Helvetica Neue', Helvetica, sans-serif" }}>
-              Calça, jaqueta, blusa e cueca FBG — o outfit completo em visualização 3D interativa. Arraste para ver cada detalhe do tecido, costura e acabamento premium.
+              Calça, jaqueta, blusa e cueca FBG: o outfit completo em visualização 3D interativa. Arraste para ver cada detalhe do tecido, costura e acabamento premium.
             </p>
 
             {/* Itens do kit */}

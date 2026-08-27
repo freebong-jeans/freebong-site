@@ -33,7 +33,7 @@ export default function CookieBanner() {
         right: 0,
         zIndex: 900,
         background: "rgba(10,10,10,0.97)",
-        borderTop: "1px solid rgba(10,10,10,0.08)",
+        borderTop: "1px solid rgba(255,255,255,0.08)",
         backdropFilter: "blur(16px)",
         padding: "clamp(16px,2.5vw,24px) clamp(20px,5vw,80px)",
         transform: (visible && !closing) ? "translateY(0)" : "translateY(100%)",
@@ -57,7 +57,7 @@ export default function CookieBanner() {
               fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
               fontWeight: 700,
               fontSize: "0.84rem",
-              color: "#0E0E0E",
+              color: "#FFFFFF",
               marginBottom: "6px",
             }}
           >
@@ -66,7 +66,7 @@ export default function CookieBanner() {
           <p
             style={{
               fontSize: "0.76rem",
-              color: "rgba(10,10,10,0.4)",
+              color: "rgba(255,255,255,0.55)",
               lineHeight: 1.7,
               maxWidth: "520px",
             }}
@@ -92,19 +92,19 @@ export default function CookieBanner() {
               textTransform: "uppercase",
               fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
               padding: "11px 22px",
-              border: "1px solid rgba(10,10,10,0.15)",
+              border: "1px solid rgba(255,255,255,0.2)",
               background: "transparent",
-              color: "rgba(10,10,10,0.45)",
+              color: "rgba(255,255,255,0.6)",
               cursor: "pointer",
               transition: "border-color 0.2s ease, color 0.2s ease",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(10,10,10,0.35)";
-              (e.currentTarget as HTMLButtonElement).style.color = "rgba(10,10,10,0.75)";
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.5)";
+              (e.currentTarget as HTMLButtonElement).style.color = "rgba(255,255,255,0.9)";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(10,10,10,0.15)";
-              (e.currentTarget as HTMLButtonElement).style.color = "rgba(10,10,10,0.45)";
+              (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(255,255,255,0.2)";
+              (e.currentTarget as HTMLButtonElement).style.color = "rgba(255,255,255,0.6)";
             }}
           >
             Rejeitar
@@ -119,16 +119,18 @@ export default function CookieBanner() {
               fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
               padding: "11px 22px",
               border: "none",
-              background: "#0E0E0E",
-              color: "#FFFFFF",
+              background: "#FFFFFF",
+              color: "#0E0E0E",
               cursor: "pointer",
               transition: "background 0.2s ease, color 0.2s ease",
             }}
             onMouseEnter={(e) => {
               (e.currentTarget as HTMLButtonElement).style.background = "#B59672";
+              (e.currentTarget as HTMLButtonElement).style.color = "#FFFFFF";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = "#0E0E0E";
+              (e.currentTarget as HTMLButtonElement).style.background = "#FFFFFF";
+              (e.currentTarget as HTMLButtonElement).style.color = "#0E0E0E";
             }}
           >
             Aceitar

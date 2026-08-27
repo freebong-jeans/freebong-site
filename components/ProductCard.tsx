@@ -62,8 +62,13 @@ export default function ProductCard({ product, onViewMore }: ProductCardProps) {
   const imageAlt = image?.altText ?? product.title;
   const isAvailable = product.variants.some((v) => v.available);
 
-  const tagBadge = product.tags.find((t) => t === "novidade");
-  const isProgramacao = product.tags.includes("programacao");
+  // Comparação tolerante a acento/maiúscula: as tags vêm de quem cadastra na Shopify,
+  // não dá pra depender de estarem digitadas num formato técnico exato.
+  const normalizedTags = product.tags.map((t) =>
+    t.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim()
+  );
+  const tagBadge = normalizedTags.some((t) => t.includes("novidade"));
+  const isProgramacao = normalizedTags.some((t) => t.includes("programacao"));
 
   /* ── Tilt 3D ── */
   const handleMove = (e: React.MouseEvent) => {
@@ -289,7 +294,7 @@ export default function ProductCard({ product, onViewMore }: ProductCardProps) {
                 letterSpacing: "-0.01em",
               }}
             >
-              {price ?? "—"}
+              {price ?? "Sob consulta"}
             </span>
 
             <button
