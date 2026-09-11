@@ -1,12 +1,13 @@
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import AnnouncementBar from "@/components/AnnouncementBar";
 import SearchOverlay from "@/components/SearchOverlay";
 import { useCart } from "@/context/CartContext";
+import { useProducts } from "@/lib/hooks/useProducts";
 
 /* ─── Estrutura do menu ────────────────────────────────────── */
 const NAV_LINKS = [
@@ -17,10 +18,13 @@ const NAV_LINKS = [
 ];
 
 /* ─── Mega menu: categorias com foto (catálogo Junho 2026) ── */
+/* As fotos de cada linha sao material da marca; a quantidade de pecas e
+   contada no catalogo da Shopify, para o menu nunca anunciar um numero
+   diferente do que a loja realmente tem. */
 const MEGA_CATEGORIES = [
-  { label: "Calças",   count: 27, href: "/colecao?categoria=calca",   img: "/images/campaign/dsc01573.jpg" },
-  { label: "Bermudas", count: 14, href: "/colecao?categoria=bermuda", img: "/images/campaign/dsc01800.jpg" },
-  { label: "Jaquetas", count: 4,  href: "/colecao?categoria=jaqueta", img: "/images/campaign/dsc01662.jpg" },
+  { label: "Calças",   termo: "cal",     href: "/colecao?categoria=calca",   img: "/images/campaign/dsc01573.jpg" },
+  { label: "Bermudas", termo: "bermuda", href: "/colecao?categoria=bermuda", img: "/images/campaign/dsc01800.jpg" },
+  { label: "Jaquetas", termo: "jaqueta", href: "/colecao?categoria=jaqueta", img: "/images/campaign/dsc01662.jpg" },
 ];
 
 export default function Navbar() {
@@ -33,6 +37,18 @@ export default function Navbar() {
   const pathname                  = usePathname();
   const onContaPage               = pathname === "/conta";
   const { count, openDrawer }     = useCart();
+  const { products }              = useProducts();
+
+  const megaCategorias = useMemo(
+    () =>
+      MEGA_CATEGORIES.map((cat) => ({
+        ...cat,
+        count: products.filter((p) =>
+          `${p.productType} ${p.title}`.toLowerCase().includes(cat.termo)
+        ).length,
+      })).filter((cat) => cat.count > 0),
+    [products]
+  );
 
   /* Detecta direção e posição do scroll */
   useEffect(() => {
@@ -210,7 +226,7 @@ export default function Navbar() {
               alignItems: "stretch",
             }}
           >
-            {MEGA_CATEGORIES.map((cat, i) => (
+            {megaCategorias.map((cat, i) => (
               <Link
                 key={cat.href}
                 href={cat.href}
@@ -274,7 +290,7 @@ export default function Navbar() {
                   Catálogo Junho 2026
                 </span>
                 <p style={{ fontSize: "0.78rem", lineHeight: 1.6, color: "rgba(0,0,0,0.50)", margin: 0, fontFamily: "'Helvetica Neue', Helvetica, sans-serif" }}>
-                  45 referências oficiais. Denim premium, desde 2013.
+                  {products.length} {products.length === 1 ? "referência oficial" : "referências oficiais"}. Denim premium, desde 2013.
                 </p>
               </div>
               <Link

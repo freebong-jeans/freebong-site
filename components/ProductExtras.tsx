@@ -11,7 +11,7 @@
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { useRouter } from "next/navigation";
-import { MOCK_PRODUCTS } from "@/lib/mockProducts";
+import { useProducts } from "@/lib/hooks/useProducts";
 import type { ShopifyProduct } from "@/lib/hooks/useProducts";
 
 const FONT = "'Helvetica Neue', Helvetica, sans-serif";
@@ -235,20 +235,45 @@ export function CompleteLook({
   onAdd: (p: ShopifyProduct) => void;
 }) {
   const router = useRouter();
+  const { products: catalogo } = useProducts();
 
+  /* Sugestoes tiradas do catalogo real: uma peca de cada linha diferente da
+     que o cliente esta vendo, priorizando o que tem estoque. */
   const picks = useMemo(() => {
-    const cat = product.tags.includes("calca") ? "calca" : product.tags.includes("bermuda") ? "bermuda" : "jaqueta";
-    /* complementos por categoria — sempre 3 peças de linhas diferentes */
-    const order: string[] = cat === "calca" ? ["jaqueta", "bermuda", "calca"] : cat === "bermuda" ? ["jaqueta", "calca", "bermuda"] : ["calca", "bermuda", "jaqueta"];
+    const linhaAtual = (product.productType || "").trim().toLowerCase();
+    const candidatos = catalogo.filter((p) => p.handle !== product.handle && p.images.length > 0);
+
     const out: ShopifyProduct[] = [];
-    for (const c of order) {
-      const found = MOCK_PRODUCTS.find(
-        (p) => p.handle !== product.handle && p.tags.includes(c) && !out.some((o) => o.handle === p.handle)
-      );
-      if (found) out.push(found);
+    const linhasUsadas = new Set<string>();
+
+    const ordenados = [...candidatos].sort((a, b) => {
+      const aOutra = (a.productType || "").trim().toLowerCase() !== linhaAtual ? 0 : 1;
+      const bOutra = (b.productType || "").trim().toLowerCase() !== linhaAtual ? 0 : 1;
+      if (aOutra !== bOutra) return aOutra - bOutra;
+      const aEstoque = a.variants.some((v) => v.available) ? 0 : 1;
+      const bEstoque = b.variants.some((v) => v.available) ? 0 : 1;
+      return aEstoque - bEstoque;
+    });
+
+    for (const p of ordenados) {
+      const linha = (p.productType || "").trim().toLowerCase();
+      if (linhasUsadas.has(linha)) continue;
+      linhasUsadas.add(linha);
+      out.push(p);
+      if (out.length === 3) break;
     }
+
+    /* Se a loja so tiver uma linha cadastrada, completa com o que houver. */
+    if (out.length < 3) {
+      for (const p of ordenados) {
+        if (out.some((o) => o.handle === p.handle)) continue;
+        out.push(p);
+        if (out.length === 3) break;
+      }
+    }
+
     return out;
-  }, [product]);
+  }, [product, catalogo]);
 
   if (picks.length === 0) return null;
 

@@ -5,7 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { useProduct } from "@/lib/hooks/useProduct";
-import { MOCK_PRODUCTS } from "@/lib/mockProducts";
+import { useProducts } from "@/lib/hooks/useProducts";
 import type { ShopifyProductVariant } from "@/lib/hooks/useProducts";
 import Footer from "@/components/Footer";
 import ProductGallery3D from "@/components/ProductGallery3D";
@@ -71,6 +71,7 @@ export default function ProdutoPage() {
   const handle  = typeof params.handle === "string" ? params.handle : "";
 
   const { product, loading } = useProduct(handle);
+  const { products: catalogo } = useProducts();
   const { addItem } = useCart();
 
   const [selectedVariant, setSelectedVariant] = useState<ShopifyProductVariant | null>(null);
@@ -104,7 +105,7 @@ export default function ProdutoPage() {
   /* Comprar agora: monta o pedido e abre o WhatsApp comercial */
   function handleBuyNow() {
     if (!selectedVariant || !selectedVariant.available || !product) return;
-    const ref = product.tags[product.tags.length - 1]?.toUpperCase().replace(/-/g, " ") ?? "";
+    const ref = product.productType || product.tags[0] || "";
     const msg =
       `Olá! Quero comprar:\n\n` +
       `▸ ${product.title}\n` +
@@ -114,11 +115,14 @@ export default function ProdutoPage() {
     window.open(`https://wa.me/message/3ROGXK7TIP7TC1?text=${encodeURIComponent(msg)}`, "_blank");
   }
 
-  /* Produtos relacionados — mesma categoria primeiro */
-  const cat = product?.tags.find(t => ["calca", "bermuda", "jaqueta"].includes(t));
-  const sameCat = MOCK_PRODUCTS.filter(p => p.handle !== handle && cat && p.tags.includes(cat));
-  const others  = MOCK_PRODUCTS.filter(p => p.handle !== handle && (!cat || !p.tags.includes(cat)));
-  const related = [...sameCat, ...others].slice(0, 8);
+  /* Produtos relacionados: vem do catalogo real da Shopify, mesma linha
+     primeiro. Antes saiam de uma lista fixa no codigo, entao o cliente
+     clicava e caia numa pagina de produto inexistente. */
+  const linha = (product?.productType ?? "").trim().toLowerCase();
+  const outros = catalogo.filter((p) => p.handle !== handle);
+  const mesmaLinha = outros.filter((p) => p.productType.trim().toLowerCase() === linha && linha);
+  const demais = outros.filter((p) => p.productType.trim().toLowerCase() !== linha || !linha);
+  const related = [...mesmaLinha, ...demais].slice(0, 8);
 
   /* ── Loading ── */
   if (loading) {
@@ -163,34 +167,35 @@ export default function ProdutoPage() {
 
   const price     = selectedVariant ? formatPrice(selectedVariant.price) : "";
   const available = selectedVariant?.available ?? false;
-  const isNew     = product.tags.includes("novidade");
+  const norm      = (t: string) => t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
+  const isNew     = product.tags.some((t) => norm(t) === "novidade");
 
   /* Ficha técnica extraída da descrição do catálogo */
+  /* Ficha tecnica montada com o que a Shopify realmente tem cadastrado.
+     Campo sem informacao na loja simplesmente nao aparece, em vez de exibir
+     um valor inventado. */
   const composicao = product.description.match(/Composição: ([^.]+)\./)?.[1] ?? null;
-  const refSlug    = product.tags[product.tags.length - 1] ?? "";
-  const [refPre, ...refRest] = refSlug.toUpperCase().split("-");
-  const referencia = refRest.length ? `${refPre} ${refRest.join("-")}` : refPre;
-  const modelagem  = product.tags.find(t =>
-    ["skinny", "slim", "reta", "wide", "cargo", "sport-fino", "alfaiataria", "jaqueta-jeans", "bermuda-jeans", "bermuda-cargo", "bermuda-sarja", "bermuda-alfaiataria"].includes(t)
-  );
-  const modLabel   = modelagem
-    ? modelagem.replace("bermuda-", "").replace("jaqueta-", "").replace("-", " ").replace(/^\w/, c => c.toUpperCase())
-    : "Regular";
-  const pronta     = product.tags.includes("pronta-entrega");
+  const referencia = product.variants.find(v => v.sku)?.sku ?? "";
+  const MODELAGENS = ["skinny", "slim", "reta", "wide", "cargo", "sport fino", "alfaiataria"];
+  const alvoModelagem = [product.title, ...product.tags].map(norm).join(" ");
+  const modelagem  = MODELAGENS.find(m => alvoModelagem.includes(norm(m)));
+  const modLabel   = modelagem ? modelagem.replace(/^\w/, c => c.toUpperCase()) : "";
+  const pronta     = product.variants.some(v => v.available);
 
   const specs = [
-    { label: "Referência",     value: referencia },
-    { label: "Modelagem",      value: modLabel },
-    { label: "Disponibilidade", value: pronta ? "Pronta entrega" : "Programação" },
-    { label: "Composição",     value: composicao ?? "Denim premium" },
-    { label: "Grade",          value: product.variants.map(v => v.title).join(" · ") },
-    { label: "Categoria",      value: product.productType },
-  ];
+    { label: "Referência",      value: referencia },
+    { label: "Modelagem",       value: modLabel },
+    { label: "Disponibilidade", value: pronta ? "Pronta entrega" : "" },
+    { label: "Composição",      value: composicao ?? "" },
+    { label: "Grade",           value: product.variants.map(v => v.title).join(" · ") },
+    { label: "Categoria",       value: product.productType },
+  ].filter((s) => s.value);
 
   return (
-    <main style={{ background: "#FFFFFF", minHeight: "100vh", fontFamily: "'Helvetica Neue', Helvetica, sans-serif" }}>
+    <main style={{ background: "#FFFFFF", minHeight: "100vh", paddingTop: "clamp(96px, 12vw, 124px)", fontFamily: "'Helvetica Neue', Helvetica, sans-serif" }}>
 
-      {/* ── Breadcrumb ───────────────────────────────────── */}
+      {/* ── Breadcrumb (o paddingTop acima reserva o espaço do cabeçalho fixo,
+             senão ele fica por cima desta linha) ─────────── */}
       <div>
         <div className="container-fbg" style={{ padding: "16px 1.5rem" }}>
           <nav style={{ display: "flex", alignItems: "center", gap: "8px" }}>

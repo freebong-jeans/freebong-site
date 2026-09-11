@@ -7,7 +7,7 @@ import CartDrawer from "@/components/CartDrawer";
 import ClientPopups from "@/components/ClientPopups";
 import "./globals.css";
 
-const BASE_URL = "https://fbg-jeans.vercel.app";
+const BASE_URL = "https://www.freebong.com.br";
 
 export const metadata: Metadata = {
   metadataBase: new URL(BASE_URL),

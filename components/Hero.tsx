@@ -3,26 +3,18 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { MOCK_PRODUCTS } from "@/lib/mockProducts";
+import { useProducts } from "@/lib/hooks/useProducts";
 import DenimWaves from "@/components/DenimWaves";
 import Magnetic from "@/components/Magnetic";
 
 /* Destaques curados — mix de linhas do catálogo Junho 2026 */
-const FEATURED_HANDLES = [
-  "jaqueta-new-park-lazuli-clara-jq-002-c2",
-  "calca-slim-megaflex-total-ca-52004",
-  "calca-cargo-freebong-ca-006",
-  "calca-skinny-up-black-ca-061-01",
-  "bermuda-cargo-freebong-be-009",
-  "calca-skinny-tec-white-denim-ca-056",
-  "jaqueta-up-black-jq-001-c2",
-  "bermuda-up-black-be-54001",
-];
-const FEATURED = FEATURED_HANDLES
-  .map(h => MOCK_PRODUCTS.find(p => p.handle === h))
-  .filter((p): p is NonNullable<typeof p> => Boolean(p));
+/* A vitrine da home mostra pecas reais da loja. Antes vinha de uma lista
+   fixa de handles no codigo: os cards levavam para paginas de produto que
+   nao existem mais na Shopify. */
 
 export default function Hero() {
+  const { products } = useProducts();
+  const FEATURED = products.filter((p) => p.images.length > 0).slice(0, 6);
   const videoRef = useRef<HTMLVideoElement>(null);
   const [ready, setReady] = useState(false);
 
@@ -415,8 +407,8 @@ export default function Hero() {
                 style: "currency",
                 currency: "BRL",
               });
-              const isPremium = product.tags?.includes("pronta-entrega");
-              const line = isPremium ? "Pronta Entrega" : "Programação";
+              const isPremium = product.variants.some((v) => v.available);
+              const line = isPremium ? "Pronta Entrega" : "Sob consulta";
 
               return (
                 <Link

@@ -11,17 +11,17 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { MOCK_PRODUCTS } from "@/lib/mockProducts";
+import { useProducts } from "@/lib/hooks/useProducts";
 
 /* Looks do desfile — fotos 4K do ensaio oficial (pasta Fotos/),
    mapeadas por peça. Processadas para web em /images/campaign. */
-const RUNWAY_ITEMS: { handle: string; src: string }[] = [
-  { handle: "jaqueta-new-park-lazuli-clara-jq-002-c2",  src: "/images/campaign/dsc01659.jpg" },
-  { handle: "calca-skinny-up-black-ca-061-01",          src: "/images/campaign/dsc01573.jpg" },
-  { handle: "bermuda-up-black-be-54001",                src: "/images/campaign/dsc01595.jpg" },
-  { handle: "jaqueta-up-black-jq-001-c2",               src: "/images/campaign/dsc01582.jpg" },
-  { handle: "calca-skinny-new-sandler-ca-060",          src: "/images/campaign/dsc01675.jpg" },
-  { handle: "jaqueta-new-park-lazuli-escura-jq-002-c2", src: "/images/campaign/dsc01468.jpg" },
+const RUNWAY_PHOTOS: string[] = [
+  "/images/campaign/dsc01659.jpg",
+  "/images/campaign/dsc01573.jpg",
+  "/images/campaign/dsc01595.jpg",
+  "/images/campaign/dsc01582.jpg",
+  "/images/campaign/dsc01675.jpg",
+  "/images/campaign/dsc01468.jpg",
 ];
 
 /* vh de scroll por troca de card */
@@ -65,9 +65,13 @@ export default function DenimRunway() {
   const [isMobile, setIsMobile] = useState(false);
   const touchRef = useRef({ startX: 0, startY: 0 });
 
-  const items = RUNWAY_ITEMS
-    .map(({ handle, src }) => {
-      const p = MOCK_PRODUCTS.find(pp => pp.handle === handle);
+  /* As fotos do ensaio continuam sendo material da marca; o nome, o preco e
+     o link de cada card vem da loja, entao nenhum card leva para uma peca
+     que nao existe mais. */
+  const { products } = useProducts();
+  const items = RUNWAY_PHOTOS
+    .map((src, i) => {
+      const p = products[i];
       return p ? { ...p, runwayImg: { src } } : null;
     })
     .filter((p): p is NonNullable<typeof p> => Boolean(p));

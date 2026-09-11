@@ -1,107 +1,66 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { getShopifyClient } from "@/lib/shopifyClient";
-import { MOCK_PRODUCTS } from "@/lib/mockProducts";
+import { useState, useEffect, useCallback } from "react";
+import { fetchAllProducts } from "@/lib/shopifyProducts";
 
-export interface ShopifyImage {
-  id: string;
-  src: string;
-  altText: string | null;
-}
+export type {
+  ShopifyImage,
+  ShopifyProductVariant,
+  ShopifyProduct,
+} from "@/lib/shopifyProducts";
 
-export interface ShopifyProductVariant {
-  id: string;
-  title: string;
-  price: string;
-  available: boolean;
-  image: ShopifyImage | null;
-}
-
-export interface ShopifyProduct {
-  id: string;
-  title: string;
-  handle: string;
-  description: string;
-  descriptionHtml: string;
-  productType: string;
-  tags: string[];
-  images: ShopifyImage[];
-  variants: ShopifyProductVariant[];
-}
+import type { ShopifyProduct } from "@/lib/shopifyProducts";
 
 interface UseProductsResult {
   products: ShopifyProduct[];
   loading: boolean;
   error: Error | null;
+  retry: () => void;
 }
 
-// Normaliza o retorno do shopify-buy para o formato interno
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function normalizeProduct(raw: any): ShopifyProduct {
-  return {
-    id: String(raw.id ?? ""),
-    title: raw.title ?? "",
-    handle: raw.handle ?? "",
-    description: raw.description ?? "",
-    descriptionHtml: raw.descriptionHtml ?? "",
-    productType: raw.productType ?? "",
-    tags: Array.isArray(raw.tags) ? raw.tags : [],
-    images: (raw.images ?? []).map((img: any) => ({  // eslint-disable-line @typescript-eslint/no-explicit-any
-      id: String(img.id ?? ""),
-      src: img.src ?? "",
-      altText: img.altText ?? null,
-    })),
-    variants: (raw.variants ?? []).map((v: any) => ({  // eslint-disable-line @typescript-eslint/no-explicit-any
-      id: String(v.id ?? ""),
-      title: v.title ?? "",
-      // shopify-buy v3 retorna price como objeto {amount, currencyCode}
-      price: typeof v.price === "object" && v.price !== null
-        ? String(v.price.amount ?? "0")
-        : String(v.price ?? "0"),
-      available: Boolean(v.available),
-      image: v.image
-        ? { id: String(v.image.id ?? ""), src: v.image.src ?? "", altText: v.image.altText ?? null }
-        : null,
-    })),
-  };
-}
-
+/**
+ * Catalogo da loja, sempre vindo da Shopify.
+ *
+ * Nao existe catalogo de reserva: se a Shopify nao responder, a pagina
+ * mostra um aviso com opcao de tentar de novo. Antes o site trocava o
+ * catalogo real por uma lista fixa embutida no codigo, o que fazia
+ * aparecerem pecas que nao existiam na loja sempre que a conexao falhava.
+ */
 export function useProducts(): UseProductsResult {
   const [products, setProducts] = useState<ShopifyProduct[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<Error | null>(null);
+  const [tentativa, setTentativa] = useState(0);
+
+  const retry = useCallback(() => setTentativa((n) => n + 1), []);
 
   useEffect(() => {
+    const controller = new AbortController();
     let cancelled = false;
 
-    async function fetchProducts() {
-      try {
-        const client = getShopifyClient();
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        const raw = (await client.product.fetchAll(250)) as unknown as any[];
+    setLoading(true);
+    setError(null);
 
-        if (!cancelled) {
-          const normalized = raw && raw.length > 0
-            ? raw.map(normalizeProduct)
-            : MOCK_PRODUCTS;
-          setProducts(normalized);
-        }
-      } catch {
-        if (!cancelled) {
-          setProducts(MOCK_PRODUCTS);
-          setError(null);
-        }
-      } finally {
-        if (!cancelled) setLoading(false);
-      }
-    }
+    fetchAllProducts(controller.signal)
+      .then((lista) => {
+        if (cancelled) return;
+        setProducts(lista);
+        setLoading(false);
+      })
+      .catch((err) => {
+        if (cancelled || controller.signal.aborted) return;
+        setProducts([]);
+        setError(err instanceof Error ? err : new Error("Falha ao carregar o catalogo"));
+        setLoading(false);
+      });
 
-    fetchProducts();
-    return () => { cancelled = true; };
-  }, []);
+    return () => {
+      cancelled = true;
+      controller.abort();
+    };
+  }, [tentativa]);
 
-  return { products, loading, error };
+  return { products, loading, error, retry };
 }
 
 export default useProducts;

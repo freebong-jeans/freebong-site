@@ -9,12 +9,9 @@ import Footer from "@/components/Footer";
 import CollectionHero from "@/components/CollectionHero";
 
 /* ─────────────────────────────────────────────────── */
-const CATEGORIES = [
-  { id: "all", label: "Todas as Peças" },
-  { id: "calca", label: "Calças" },
-  { id: "bermuda", label: "Bermudas" },
-  { id: "jaqueta", label: "Jaquetas" },
-];
+/* As categorias nao sao mais fixas no codigo: elas sao montadas a partir do
+   "Tipo de produto" que a equipe preenche na Shopify. Assim, criar uma linha
+   nova la (Camisas, Moletom, etc.) faz a aba aparecer aqui sozinha. */
 
 const FITS = [
   { id: "all", label: "Todas as modelagens" },
@@ -56,13 +53,41 @@ function normalize(s: string) {
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "")
     .toLowerCase()
-    .trim();
+    .replace(/[^a-z0-9]+/g, "");
 }
 
 function productMatches(product: ShopifyProduct, needle: string) {
   const target = normalize(needle);
   if (normalize(product.productType).includes(target)) return true;
+  if (normalize(product.title).includes(target)) return true;
   return product.tags.some((t) => normalize(t).includes(target));
+}
+
+/* Monta a lista de categorias a partir do catalogo real da loja. */
+function buildCategories(products: ShopifyProduct[]) {
+  const vistos = new Map<string, { id: string; label: string; count: number }>();
+
+  for (const p of products) {
+    const label = (p.productType || "").trim();
+    if (!label) continue;
+    const id = normalize(label);
+    const atual = vistos.get(id);
+    if (atual) atual.count += 1;
+    else vistos.set(id, { id, label, count: 1 });
+  }
+
+  const lista = Array.from(vistos.values()).sort((a, b) => b.count - a.count);
+  return [{ id: "all", label: "Todas as Peças", count: products.length }, ...lista];
+}
+
+/* Aceita /colecao?categoria=calca mesmo que na Shopify esteja "Calças". */
+function resolveCategoria(param: string | null, categorias: { id: string }[]) {
+  if (!param) return null;
+  const alvo = normalize(param);
+  const achou = categorias.find(
+    (c) => c.id === alvo || c.id.includes(alvo) || alvo.includes(c.id)
+  );
+  return achou ? achou.id : null;
 }
 
 /* ─────────────────────────────────────────────────── */
@@ -75,26 +100,37 @@ export default function ColecaoPage() {
 }
 
 function ColecaoContent() {
-  const { products, loading } = useProducts();
+  const { products, loading, error, retry } = useProducts();
   const router = useRouter();
   const searchParams = useSearchParams();
 
-  const [activeCategory, setActiveCategory] = useState(() => {
-    const cat = searchParams.get("categoria");
-    return CATEGORIES.find(c => c.id === cat) ? cat! : "all";
-  });
+  const [activeCategory, setActiveCategory] = useState("all");
   const [activePrice, setActivePrice] = useState("all");
   const [activeFit, setActiveFit] = useState("all");
   const [activeAvail, setActiveAvail] = useState("all");
   const [sort, setSort] = useState("featured");
 
+  /* Categorias e filtros saem do catalogo real: nada de opcao na tela que
+     nao tenha nenhuma peca por tras dela. */
+  const categories = useMemo(() => buildCategories(products), [products]);
+
+  const fitsDisponiveis = useMemo(
+    () => FITS.filter((f) => f.id === "all" || products.some((p) => productMatches(p, f.id))),
+    [products]
+  );
+
+  const availDisponiveis = useMemo(
+    () => AVAILABILITY.filter((a) => a.id === "all" || products.some((p) => productMatches(p, a.id))),
+    [products]
+  );
+
   useEffect(() => {
-    const cat = searchParams.get("categoria");
-    if (cat && CATEGORIES.find(c => c.id === cat)) {
+    const cat = resolveCategoria(searchParams.get("categoria"), categories);
+    if (cat) {
       const id = requestAnimationFrame(() => setActiveCategory(cat));
       return () => cancelAnimationFrame(id);
     }
-  }, [searchParams]);
+  }, [searchParams, categories]);
 
   const filtered = useMemo(() => {
     let result = [...products];
@@ -133,15 +169,6 @@ function ColecaoContent() {
     return result;
   }, [products, activeCategory, activeFit, activeAvail, activePrice, sort]);
 
-  /* Contagem por categoria (pra exibir nos chips) */
-  const categoryCount = useMemo(() => {
-    const map: Record<string, number> = { all: products.length };
-    for (const c of CATEGORIES) {
-      if (c.id !== "all") map[c.id] = products.filter((p) => productMatches(p, c.id)).length;
-    }
-    return map;
-  }, [products]);
-
   const handleView = useCallback(
     (p: ShopifyProduct) => router.push(`/produtos/${p.handle}`),
     [router]
@@ -159,7 +186,7 @@ function ColecaoContent() {
         <div className="container-fbg">
           {/* Categorias */}
           <div style={{ display: "flex", gap: "clamp(8px, 2vw, 16px)", marginBottom: "clamp(24px, 3vw, 40px)", flexWrap: "wrap" }}>
-            {CATEGORIES.map((cat) => (
+            {categories.map((cat) => (
               <button
                 key={cat.id}
                 onClick={() => setActiveCategory(cat.id)}
@@ -202,7 +229,7 @@ function ColecaoContent() {
                     color: activeCategory === cat.id ? "rgba(10,10,10,0.55)" : "#B59672",
                   }}
                 >
-                  {categoryCount[cat.id] ?? 0}
+                  {cat.count}
                 </span>
               </button>
             ))}
@@ -210,7 +237,8 @@ function ColecaoContent() {
 
           {/* Filtros */}
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))", gap: "clamp(16px, 2vw, 24px)" }}>
-            {/* Modelagem */}
+            {/* Modelagem (some quando nenhuma peca tem modelagem identificavel) */}
+            {fitsDisponiveis.length > 1 && (
             <div>
               <select
                 value={activeFit}
@@ -228,7 +256,7 @@ function ColecaoContent() {
                   cursor: "pointer",
                 }}
               >
-                {FITS.map((f) => (
+                {fitsDisponiveis.map((f) => (
                   <option key={f.id} value={f.id}>
                     {f.label}
                   </option>
@@ -236,7 +264,10 @@ function ColecaoContent() {
               </select>
             </div>
 
-            {/* Disponibilidade */}
+            )}
+
+            {/* Disponibilidade (aparece quando a equipe marca isso na Shopify) */}
+            {availDisponiveis.length > 1 && (
             <div>
               <select
                 value={activeAvail}
@@ -254,13 +285,14 @@ function ColecaoContent() {
                   cursor: "pointer",
                 }}
               >
-                {AVAILABILITY.map((a) => (
+                {availDisponiveis.map((a) => (
                   <option key={a.id} value={a.id}>
                     {a.label}
                   </option>
                 ))}
               </select>
             </div>
+            )}
 
             {/* Preço */}
             <div>
@@ -322,11 +354,42 @@ function ColecaoContent() {
       ══════════════════════════════════════════════════════════════ */}
       <div style={{ paddingTop: "clamp(48px, 7vw, 100px)", paddingBottom: "clamp(64px, 10vw, 120px)" }}>
         <div className="container-fbg">
-          <p style={{ fontSize: "0.85rem", color: "rgba(10,10,10,0.45)", marginTop: 0, marginBottom: "clamp(28px, 4vw, 48px)" }}>
-            {filtered.length} produto{filtered.length !== 1 ? "s" : ""} encontrado{filtered.length !== 1 ? "s" : ""}
-          </p>
+          {!error && (
+            <p style={{ fontSize: "0.85rem", color: "rgba(10,10,10,0.45)", marginTop: 0, marginBottom: "clamp(28px, 4vw, 48px)" }}>
+              {filtered.length} produto{filtered.length !== 1 ? "s" : ""} encontrado{filtered.length !== 1 ? "s" : ""}
+            </p>
+          )}
 
-          {loading ? (
+          {error ? (
+            /* Sem catalogo de reserva: avisamos de verdade em vez de exibir
+               pecas que nao existem na loja. */
+            <div style={{ textAlign: "center", padding: "72px 20px" }}>
+              <p style={{ fontSize: "1rem", color: "#141414", marginBottom: "10px", fontWeight: 600 }}>
+                Não foi possível carregar a coleção
+              </p>
+              <p style={{ fontSize: "0.85rem", color: "rgba(10,10,10,0.45)", marginBottom: "28px" }}>
+                Verifique sua conexão e tente novamente.
+              </p>
+              <button
+                onClick={retry}
+                style={{
+                  padding: "14px 34px",
+                  background: "#141414",
+                  color: "#FAF9F7",
+                  border: "none",
+                  borderRadius: "3px",
+                  fontSize: "0.72rem",
+                  fontWeight: 700,
+                  letterSpacing: "0.18em",
+                  textTransform: "uppercase",
+                  cursor: "pointer",
+                  fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
+                }}
+              >
+                Tentar novamente
+              </button>
+            </div>
+          ) : loading ? (
             /* Skeleton shimmer dourado */
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(clamp(140px, 20vw, 200px), 1fr))", gap: "clamp(12px, 2vw, 24px)" }}>
               {Array.from({ length: 8 }).map((_, i) => (

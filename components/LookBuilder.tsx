@@ -1,30 +1,30 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import * as THREE from "three";
 import { OrbitControls } from "three/examples/jsm/controls/OrbitControls.js";
 import Image from "next/image";
 import Link from "next/link";
-import { MOCK_PRODUCTS } from "@/lib/mockProducts";
+import { useProducts } from "@/lib/hooks/useProducts";
+import type { ShopifyProduct } from "@/lib/hooks/useProducts";
 
 /* ── Data ──────────────────────────────────────────────────────── */
-const CLOTHING_ITEMS: Record<string, { name: string; available: boolean; products: typeof MOCK_PRODUCTS }> = {
-  calca: {
-    name: "Calças",
-    available: true,
-    products: MOCK_PRODUCTS.filter((p) => p.tags.includes("calca")).slice(0, 6),
-  },
-  bermuda: {
-    name: "Bermudas",
-    available: false,
-    products: [],
-  },
-  jaqueta: {
-    name: "Jaquetas",
-    available: false,
-    products: [],
-  },
-};
+type CategoriaLook = { name: string; available: boolean; products: ShopifyProduct[] };
+
+/* As pecas do montador vem da loja. A escolha de quais linhas estao
+   habilitadas segue a mesma de antes (so calca tem modelo 3D). */
+function montarCategorias(catalogo: ShopifyProduct[]): Record<string, CategoriaLook> {
+  const daLinha = (termo: string) =>
+    catalogo
+      .filter((p) => `${p.productType} ${p.title}`.toLowerCase().includes(termo))
+      .slice(0, 6);
+
+  return {
+    calca:   { name: "Calças",   available: true,  products: daLinha("cal") },
+    bermuda: { name: "Bermudas", available: false, products: [] },
+    jaqueta: { name: "Jaquetas", available: false, products: [] },
+  };
+}
 
 const JEANS_COLORS: Record<string, string> = {
   "calca-stratus-ca-059-01": "#8A8D91",
@@ -169,7 +169,10 @@ export default function LookBuilder() {
   const [ready, setReady] = useState(false);
   const [showMobileMenu, setShowMobileMenu] = useState(false);
 
-  const currentCategory = CLOTHING_ITEMS[activeCategory];
+  const { products: catalogo } = useProducts();
+  const clothingItems = useMemo(() => montarCategorias(catalogo), [catalogo]);
+
+  const currentCategory = clothingItems[activeCategory];
   const currentProduct = currentCategory.products[selectedIdx];
   const price = currentProduct
     ? parseFloat(currentProduct.variants[0]?.price ?? "0").toLocaleString("pt-BR", {
@@ -377,7 +380,7 @@ export default function LookBuilder() {
         >
           {/* Category Tabs */}
           <div style={{ display: "flex", gap: "4px", padding: "8px", borderBottom: "1px solid rgba(181,150,114,0.1)", background: "rgba(0,0,0,0.1)" }}>
-            {Object.entries(CLOTHING_ITEMS).map(([key, cat]) => (
+            {Object.entries(clothingItems).map(([key, cat]) => (
               <button
                 key={key}
                 onClick={() => cat.available && setActiveCategory(key)}
