@@ -11,6 +11,7 @@ import Footer from "@/components/Footer";
 import ProductGallery3D from "@/components/ProductGallery3D";
 import { SizeGuideModal, TrustBadges, CompleteLook } from "@/components/ProductExtras";
 import { useCart } from "@/context/CartContext";
+import { linkWhatsApp } from "@/lib/whatsapp";
 
 /* ─── Helpers ──────────────────────────────────────────── */
 function formatPrice(price: string) {
@@ -112,7 +113,7 @@ export default function ProdutoPage() {
       `▸ Referência: ${ref}\n` +
       `▸ Tamanho: ${selectedVariant.title}\n` +
       `▸ Valor: ${formatPrice(selectedVariant.price)}`;
-    window.open(`https://wa.me/message/3ROGXK7TIP7TC1?text=${encodeURIComponent(msg)}`, "_blank");
+    window.open(linkWhatsApp(msg), "_blank");
   }
 
   /* Produtos relacionados: vem do catalogo real da Shopify, mesma linha
