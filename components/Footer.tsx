@@ -79,15 +79,15 @@ export default function Footer() {
   return (
     <footer
       style={{
-        background: "#F5F5F3",
-        borderTop: "1px solid rgba(0,0,0,0.08)",
+        background: "#6B2033",
+        borderTop: "1px solid rgba(0,0,0,0.25)",
         fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
       }}
     >
       {/* ── Faixa superior — email capture ─────────────────── */}
       <div
         style={{
-          borderBottom: "1px solid rgba(0,0,0,0.07)",
+          borderBottom: "1px solid rgba(255,255,255,0.14)",
           padding: "clamp(32px,5vw,48px) 0",
         }}
       >
@@ -111,7 +111,7 @@ export default function Footer() {
                   fontWeight: 700,
                   letterSpacing: "0.22em",
                   textTransform: "uppercase",
-                  color: "rgba(0,0,0,0.42)",
+                  color: "#E9CFA6",
                   marginBottom: "8px",
                 }}
               >
@@ -124,7 +124,7 @@ export default function Footer() {
                   fontStyle: "italic",
                   textTransform: "uppercase",
                   letterSpacing: "-0.02em",
-                  color: "#111111",
+                  color: "#FFFFFF",
                   lineHeight: 1.1,
                 }}
               >
@@ -140,15 +140,15 @@ export default function Footer() {
                   alignItems: "center",
                   gap: "10px",
                   padding: "14px 20px",
-                  border: "1px solid rgba(166,124,61,0.3)",
+                  border: "1px solid rgba(233,207,166,0.45)",
                   minWidth: "340px",
                 }}
               >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <circle cx="7" cy="7" r="6" stroke="#A67C3D" strokeWidth="1"/>
-                  <path d="M4.5 7L6.5 9L9.5 5" stroke="#A67C3D" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="7" cy="7" r="6" stroke="#E9CFA6" strokeWidth="1"/>
+                  <path d="M4.5 7L6.5 9L9.5 5" stroke="#E9CFA6" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <span style={{ fontSize: "0.72rem", letterSpacing: "0.12em", color: "#A67C3D", fontWeight: 600, textTransform: "uppercase" }}>
+                <span style={{ fontSize: "0.72rem", letterSpacing: "0.12em", color: "#E9CFA6", fontWeight: 600, textTransform: "uppercase" }}>
                   Cadastrado com sucesso!
                 </span>
               </div>
@@ -159,14 +159,15 @@ export default function Footer() {
                   display: "flex",
                   minWidth: "clamp(280px,40vw,420px)",
                   maxWidth: "100%",
-                  border: "1px solid rgba(0,0,0,0.15)",
+                  border: "1px solid rgba(255,255,255,0.28)",
                   transition: "border-color 0.2s ease",
                 }}
-                onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(166,124,61,0.4)")}
-                onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(0,0,0,0.15)")}
+                onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(233,207,166,0.65)")}
+                onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(255,255,255,0.28)")}
               >
                 <input
                   type="email"
+                  className="fbg-rodape-email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   placeholder="seu@email.com"
@@ -178,7 +179,7 @@ export default function Footer() {
                     outline: "none",
                     padding: "14px 16px",
                     fontSize: "0.78rem",
-                    color: "#111111",
+                    color: "#FFFFFF",
                     fontFamily: "inherit",
                     letterSpacing: "0.02em",
                   }}
@@ -194,7 +195,7 @@ export default function Footer() {
                     fontWeight: 700,
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
-                    color: "#000",
+                    color: "#0E0E0E",
                     fontFamily: "inherit",
                     transition: "background 0.2s ease",
                     whiteSpace: "nowrap",
@@ -229,12 +230,12 @@ export default function Footer() {
                   fontStyle: "italic",
                   letterSpacing: "-0.04em",
                   textTransform: "uppercase",
-                  color: "#111111",
+                  color: "#FFFFFF",
                   lineHeight: 1.04,
                 }}
               >
                 FREEBONG
-                <span style={{ color: "#A67C3D" }}>.</span>
+                <span style={{ color: "#E9CFA6" }}>.</span>
               </span>
             </div>
 
@@ -242,7 +243,7 @@ export default function Footer() {
               style={{
                 fontSize: "0.8rem",
                 lineHeight: 1.75,
-                color: "rgba(0,0,0,0.5)",
+                color: "rgba(255,255,255,0.62)",
                 maxWidth: "260px",
                 marginBottom: "28px",
               }}
@@ -265,20 +266,20 @@ export default function Footer() {
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    border: "1px solid rgba(0,0,0,0.12)",
-                    color: "rgba(0,0,0,0.5)",
+                    border: "1px solid rgba(255,255,255,0.22)",
+                    color: "rgba(255,255,255,0.62)",
                     transition: "border-color 0.2s, color 0.2s",
                     textDecoration: "none",
                   }}
                   onMouseEnter={(e) => {
                     const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = "rgba(166,124,61,0.5)";
-                    el.style.color = "#A67C3D";
+                    el.style.borderColor = "rgba(233,207,166,0.6)";
+                    el.style.color = "#E9CFA6";
                   }}
                   onMouseLeave={(e) => {
                     const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = "rgba(0,0,0,0.12)";
-                    el.style.color = "rgba(0,0,0,0.5)";
+                    el.style.borderColor = "rgba(255,255,255,0.22)";
+                    el.style.color = "rgba(255,255,255,0.62)";
                   }}
                 >
                   {s.icon}
@@ -295,7 +296,7 @@ export default function Footer() {
                 fontWeight: 700,
                 letterSpacing: "0.22em",
                 textTransform: "uppercase",
-                color: "rgba(0,0,0,0.4)",
+                color: "#E9CFA6",
                 marginBottom: "16px",
               }}
             >
@@ -308,13 +309,13 @@ export default function Footer() {
                     href={l.href}
                     style={{
                       fontSize: "0.8rem",
-                      color: "rgba(0,0,0,0.6)",
+                      color: "rgba(255,255,255,0.74)",
                       textDecoration: "none",
                       transition: "color 0.2s",
                       letterSpacing: "0.01em",
                     }}
-                    onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#111111")}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(0,0,0,0.6)")}
+                    onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#FFFFFF")}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.74)")}
                   >
                     {l.label}
                   </Link>
@@ -331,7 +332,7 @@ export default function Footer() {
                 fontWeight: 700,
                 letterSpacing: "0.22em",
                 textTransform: "uppercase",
-                color: "rgba(0,0,0,0.4)",
+                color: "#E9CFA6",
                 marginBottom: "16px",
               }}
             >
@@ -344,13 +345,13 @@ export default function Footer() {
                     href={l.href}
                     style={{
                       fontSize: "0.8rem",
-                      color: "rgba(0,0,0,0.6)",
+                      color: "rgba(255,255,255,0.74)",
                       textDecoration: "none",
                       transition: "color 0.2s",
                       letterSpacing: "0.01em",
                     }}
-                    onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#111111")}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(0,0,0,0.6)")}
+                    onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#FFFFFF")}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.74)")}
                   >
                     {l.label}
                   </Link>
@@ -367,7 +368,7 @@ export default function Footer() {
                 fontWeight: 700,
                 letterSpacing: "0.22em",
                 textTransform: "uppercase",
-                color: "rgba(0,0,0,0.4)",
+                color: "#E9CFA6",
                 marginBottom: "16px",
               }}
             >
@@ -380,13 +381,13 @@ export default function Footer() {
                     href={l.href}
                     style={{
                       fontSize: "0.8rem",
-                      color: "rgba(0,0,0,0.6)",
+                      color: "rgba(255,255,255,0.74)",
                       textDecoration: "none",
                       transition: "color 0.2s",
                       letterSpacing: "0.01em",
                     }}
-                    onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#111111")}
-                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(0,0,0,0.6)")}
+                    onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "#FFFFFF")}
+                    onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.74)")}
                   >
                     {l.label}
                   </Link>
@@ -400,7 +401,8 @@ export default function Footer() {
       {/* ── Rodapé legal ───────────────────────────────────── */}
       <div
         style={{
-          borderTop: "1px solid rgba(0,0,0,0.07)",
+          borderTop: "none",
+          background: "#0E0E0E",
           padding: "20px 0",
         }}
       >
@@ -411,7 +413,7 @@ export default function Footer() {
           <p
             style={{
               fontSize: "0.62rem",
-              color: "rgba(0,0,0,0.38)",
+              color: "rgba(255,255,255,0.42)",
               letterSpacing: "0.06em",
               lineHeight: 1.6,
             }}
@@ -428,13 +430,13 @@ export default function Footer() {
                 href={`/${l.toLowerCase()}`}
                 style={{
                   fontSize: "0.62rem",
-                  color: "rgba(0,0,0,0.38)",
+                  color: "rgba(255,255,255,0.42)",
                   textDecoration: "none",
                   letterSpacing: "0.06em",
                   transition: "color 0.2s",
                 }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(0,0,0,0.7)")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(0,0,0,0.38)")}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.85)")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.42)")}
               >
                 {l}
               </Link>
@@ -442,6 +444,10 @@ export default function Footer() {
           </div>
         </div>
       </div>
+
+      {/* Sem isto o placeholder fica no cinza padrao do navegador, que
+          some sobre o vinho. */}
+      <style>{`.fbg-rodape-email::placeholder { color: rgba(255,255,255,0.45); }`}</style>
 
       {/* ── Assinatura FBG 3D ─────────────────────────────── */}
       <FooterLogo3D />

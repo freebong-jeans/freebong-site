@@ -69,7 +69,7 @@ export default function FooterLogo3D() {
           letterSpacing: "-0.05em",
           lineHeight: 1.0,
           color: "#0E0E0E",
-          WebkitTextStroke: "1px rgba(166,124,61,0.35)",
+          WebkitTextStroke: "1.5px rgba(233,207,166,0.55)",
           textShadow: depth,
           transform: `rotateX(${12 + tilt.x}deg) rotateY(${tilt.y}deg)`,
           transformStyle: "preserve-3d",

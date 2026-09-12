@@ -107,7 +107,7 @@ const BENEFICIOS = [
   {
     num: "03",
     title: "Produto Premium",
-    color: "#2D3748",
+    color: "#0E0E0E",
     body: "Tecido selecionado, costura reforçada e acabamento que justifica o preço. Cliente satisfeito volta.",
   },
   {
@@ -120,7 +120,7 @@ const BENEFICIOS = [
 
 const LINHAS = [
   { nome: "Basic",    cor: "#A67C3D", desc: "Entrada premium. Volume e giro rápido para o dia a dia da loja." },
-  { nome: "Standard", cor: "#2D3748", desc: "Equilíbrio entre estilo e margem. O carro-chefe de quem revende FBG." },
+  { nome: "Standard", cor: "#0E0E0E", desc: "Equilíbrio entre estilo e margem. O carro-chefe de quem revende FBG." },
   { nome: "Premium",  cor: "#6B2033", desc: "Linha de alto padrão. Ticket médio maior, cliente fiel à marca." },
 ];
 

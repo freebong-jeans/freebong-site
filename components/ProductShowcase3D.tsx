@@ -22,8 +22,8 @@ const LINES = [
     name: "Calça Standard",
     price: "R$ 199,90",
     desc: "Estilo limpo, atual e versátil. O jeans que acompanha sua rotina sem esforço.",
-    accent: "#2D3748",
-    bg: ["#060D1A", "#0F1C2E"],
+    accent: "#2E2E2E",
+    bg: ["#0A0A0A", "#1F1F1F"],
     image: "/images/products/DSC01007.jpg",
   },
   {

@@ -391,7 +391,7 @@ export default function AuthPage() {
                   cursor: "pointer",
                   transition: "background 0.2s ease, transform 0.15s ease",
                 }}
-                onMouseEnter={(e) => (e.currentTarget.style.background = "#2D3748")}
+                onMouseEnter={(e) => (e.currentTarget.style.background = "#6B2033")}
                 onMouseLeave={(e) => (e.currentTarget.style.background = "#F1EFEA")}
                 onMouseDown={(e) => (e.currentTarget.style.transform = "scale(0.98)")}
                 onMouseUp={(e) => (e.currentTarget.style.transform = "scale(1)")}

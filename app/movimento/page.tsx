@@ -181,7 +181,7 @@ const PILARES = [
   {
     num: "03",
     title: "Identidade",
-    color: "#2D3748",
+    color: "#0E0E0E",
     image: "/images/products/DSC01622.jpg",
     body: "Você não veste uma calça. Você veste uma declaração. A FBG é para quem entende que estilo é posicionamento.",
   },

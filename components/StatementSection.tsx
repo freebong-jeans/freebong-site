@@ -61,7 +61,7 @@ export default function StatementSection() {
       style={{
         position: "relative",
         padding: "clamp(88px, 13vw, 160px) 0",
-        background: "#141C28",
+        background: "#1E090F",
         color: "#fff",
         overflow: "hidden",
         isolation: "isolate",
@@ -83,9 +83,9 @@ export default function StatementSection() {
           }}
         />
         {/* véu azul-noite */}
-        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg, rgba(20,28,40,0.9) 0%, rgba(20,28,40,0.72) 45%, rgba(12,17,25,0.94) 100%)" }} />
+        <div style={{ position: "absolute", inset: 0, background: "linear-gradient(160deg, rgba(107,32,51,0.88) 0%, rgba(107,32,51,0.6) 45%, rgba(22,7,12,0.95) 100%)" }} />
         {/* brilho dourado difuso */}
-        <div style={{ position: "absolute", top: "-10%", right: "-8%", width: "55%", height: "70%", background: "radial-gradient(circle, rgba(189,165,142,0.16) 0%, transparent 62%)", filter: "blur(30px)" }} />
+        <div style={{ position: "absolute", top: "-10%", right: "-8%", width: "55%", height: "70%", background: "radial-gradient(circle, rgba(233,207,166,0.18) 0%, transparent 62%)", filter: "blur(30px)" }} />
         {/* grain */}
         <div
           style={{
