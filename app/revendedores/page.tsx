@@ -95,7 +95,7 @@ const BENEFICIOS = [
   {
     num: "01",
     title: "Margem Competitiva",
-    color: "#B59672",
+    color: "#A67C3D",
     body: "Preços de atacado pensados para que sua margem seja real. Quanto maior o volume, melhor a condição.",
   },
   {
@@ -113,13 +113,13 @@ const BENEFICIOS = [
   {
     num: "04",
     title: "Exclusividade Territorial",
-    color: "#B59672",
+    color: "#A67C3D",
     body: "Para parceiros de maior volume, garantimos exclusividade por região. Sem concorrência interna na sua praça.",
   },
 ];
 
 const LINHAS = [
-  { nome: "Basic",    cor: "#B59672", desc: "Entrada premium. Volume e giro rápido para o dia a dia da loja." },
+  { nome: "Basic",    cor: "#A67C3D", desc: "Entrada premium. Volume e giro rápido para o dia a dia da loja." },
   { nome: "Standard", cor: "#2D3748", desc: "Equilíbrio entre estilo e margem. O carro-chefe de quem revende FBG." },
   { nome: "Premium",  cor: "#6B2033", desc: "Linha de alto padrão. Ticket médio maior, cliente fiel à marca." },
 ];
@@ -208,7 +208,7 @@ export default function RevendedoresPage() {
             </h1>
             <h1 style={hn({
               fontSize: "clamp(2.6rem,8vw,7.2rem)",
-              color: "#B59672",
+              color: "#A67C3D",
               paddingLeft: "clamp(1rem,5vw,6rem)",
             })}>
               FUTURO.
@@ -229,13 +229,13 @@ export default function RevendedoresPage() {
             <div style={{ width: "1px", height: "40px", background: "rgba(255,255,255,0.15)" }} />
             <Link href="#formulario" style={{
               fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.22em",
-              textTransform: "uppercase", color: "#B59672",
+              textTransform: "uppercase", color: "#A67C3D",
               fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
               textDecoration: "none", display: "flex", alignItems: "center", gap: "8px",
             }}>
               Quero ser parceiro
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ animation: "bounce-down 1.6s ease-in-out infinite" }}>
-                <path d="M8 3v10M3 9l5 5 5-5" stroke="#B59672" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M8 3v10M3 9l5 5 5-5" stroke="#A67C3D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </Link>
           </div>
@@ -270,7 +270,7 @@ export default function RevendedoresPage() {
               <SplitChar text="VOCÊ VENDE" delay={60} inView={s1.inView} style={hn({ fontSize: DISPLAY, color: "#0E0E0E" })} />
               <SplitChar text="A IDENTIDADE." delay={160} inView={s1.inView} style={hn({ fontSize: DISPLAY, WebkitTextStroke: "1.5px rgba(10,10,10,0.35)", color: "transparent", paddingLeft: "clamp(0.8rem,1.8vw,2rem)" })} />
               <SplitChar text="A GENTE CUIDA" delay={250} inView={s1.inView} style={hn({ fontSize: DISPLAY, color: "#0E0E0E" })} />
-              <SplitChar text="DO RESTO." delay={340} inView={s1.inView} style={hn({ fontSize: DISPLAY, color: "#B59672", paddingLeft: "clamp(0.8rem,2.5vw,2.8rem)" })} />
+              <SplitChar text="DO RESTO." delay={340} inView={s1.inView} style={hn({ fontSize: DISPLAY, color: "#6B2033", paddingLeft: "clamp(0.8rem,2.5vw,2.8rem)" })} />
             </div>
             <FadeUp inView={s1.inView} delay={560}>
               <p style={{ fontSize: "0.88rem", lineHeight: 1.8, color: "rgba(10,10,10,0.38)", maxWidth: "420px", marginTop: "clamp(24px,3vw,40px)" }}>
@@ -412,7 +412,7 @@ export default function RevendedoresPage() {
                 <span style={{
                   fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
                   fontWeight: 900, fontStyle: "italic", fontSize: "2.2rem",
-                  letterSpacing: "-0.04em", color: "#B59672", display: "block", marginBottom: "16px",
+                  letterSpacing: "-0.04em", color: "#A67C3D", display: "block", marginBottom: "16px",
                 }}>{p.num}</span>
                 <h4 style={{
                   fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
@@ -439,7 +439,7 @@ export default function RevendedoresPage() {
             </FadeUp>
             <div style={{ marginTop: "clamp(16px,2.5vw,24px)" }}>
               <SplitChar text="VAMOS" delay={100} inView={s6.inView} style={hn({ fontSize: "clamp(2rem,4.5vw,3.6rem)", color: "#0E0E0E" })} />
-              <SplitChar text="CONVERSAR?" delay={220} inView={s6.inView} style={hn({ fontSize: "clamp(2rem,4.5vw,3.6rem)", color: "#B59672" })} />
+              <SplitChar text="CONVERSAR?" delay={220} inView={s6.inView} style={hn({ fontSize: "clamp(2rem,4.5vw,3.6rem)", color: "#A67C3D" })} />
             </div>
             <FadeUp inView={s6.inView} delay={420}>
               <p style={{ fontSize: "0.86rem", lineHeight: 1.8, color: "rgba(10,10,10,0.38)", maxWidth: "360px", marginTop: "24px" }}>
@@ -500,10 +500,10 @@ function RevendedorForm() {
 
   if (submitted) {
     return (
-      <div style={{ border: "1px solid rgba(181,150,114,0.3)", padding: "clamp(28px,4vw,40px)", textAlign: "center" }}>
+      <div style={{ border: "1px solid rgba(166,124,61,0.3)", padding: "clamp(28px,4vw,40px)", textAlign: "center" }}>
         <svg width="40" height="40" viewBox="0 0 24 24" fill="none" style={{ margin: "0 auto 16px" }}>
-          <circle cx="12" cy="12" r="11" stroke="#B59672" strokeWidth="1.5" />
-          <path d="M7 12.5l3 3 7-7" stroke="#B59672" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
+          <circle cx="12" cy="12" r="11" stroke="#A67C3D" strokeWidth="1.5" />
+          <path d="M7 12.5l3 3 7-7" stroke="#A67C3D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
         </svg>
         <p style={{ fontSize: "0.86rem", color: "#0E0E0E", marginBottom: "8px", fontWeight: 600 }}>
           Recebemos seus dados!
@@ -537,9 +537,9 @@ function RevendedorForm() {
       <button
         type="submit"
         className="group relative inline-flex items-center justify-center gap-3 overflow-hidden"
-        style={{ padding: "16px 36px", background: "#0E0E0E", marginTop: "8px" }}
+        style={{ padding: "16px 36px", background: "#6B2033", marginTop: "8px" }}
       >
-        <span className="absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" style={{ background: "#B59672" }} />
+        <span className="absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" style={{ background: "#A67C3D" }} />
         <span className="relative text-[11px] font-black tracking-[0.25em] uppercase text-white group-hover:text-black transition-colors duration-200"
           style={{ fontFamily: "'Helvetica Neue', Helvetica, sans-serif" }}>
           Enviar e Falar no WhatsApp

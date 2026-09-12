@@ -35,7 +35,7 @@ export default function Catalog() {
       <section style={{ background: "#fff" }} className="w-full container-fbg py-24">
         <CatalogHeader />
         <div className="mt-16 flex flex-col items-center gap-3 text-center">
-          <span className="text-xs font-semibold tracking-[0.2em] uppercase" style={{ color: "#B59672" }}>Erro ao carregar</span>
+          <span className="text-xs font-semibold tracking-[0.2em] uppercase" style={{ color: "#A67C3D" }}>Erro ao carregar</span>
           <p className="text-sm max-w-xs" style={{ color: "rgba(0,0,0,0.4)" }}>
             {error.message || "Não foi possível buscar os produtos. Tente novamente em instantes."}
           </p>
@@ -136,7 +136,7 @@ function CatalogHeader({ count }: { count?: number }) {
   return (
     <header style={{ display: "flex", alignItems: "flex-end", justifyContent: "space-between", borderBottom: "1px solid #e8e3dc", paddingBottom: "20px", gap: "16px", flexWrap: "wrap" }}>
       <div>
-        <span style={{ display: "block", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#B59672", marginBottom: "6px", fontFamily: "'Helvetica Neue', Helvetica, sans-serif" }}>
+        <span style={{ display: "block", fontSize: "0.68rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#A67C3D", marginBottom: "6px", fontFamily: "'Helvetica Neue', Helvetica, sans-serif" }}>
           Coleção FBG
         </span>
         <h2 style={{ fontSize: "clamp(1.4rem,3vw,2.2rem)", fontWeight: 800, letterSpacing: "-0.02em", color: "#111", fontFamily: "'Helvetica Neue', Helvetica, sans-serif", margin: 0, lineHeight: 1.1 }}>

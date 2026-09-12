@@ -119,7 +119,7 @@ export default function ProductCard({ product, onViewMore }: ProductCardProps) {
           transition: "transform 0.35s cubic-bezier(0.16,1,0.3,1), border-color 0.35s ease, box-shadow 0.35s ease",
           transformStyle: "preserve-3d",
           willChange: "transform",
-          borderColor: hovering ? "rgba(181,150,114,0.35)" : "rgba(10,10,10,0.06)",
+          borderColor: hovering ? "rgba(166,124,61,0.35)" : "rgba(10,10,10,0.06)",
           boxShadow: hovering ? "0 24px 48px -16px rgba(0,0,0,0.65)" : "0 0 0 rgba(0,0,0,0)",
         }}
       >
@@ -160,7 +160,7 @@ export default function ProductCard({ product, onViewMore }: ProductCardProps) {
                   fontStyle: "italic",
                   fontSize: "clamp(2.5rem,5vw,3.5rem)",
                   letterSpacing: "-0.04em",
-                  WebkitTextStroke: "1px rgba(181,150,114,0.25)",
+                  WebkitTextStroke: "1px rgba(166,124,61,0.25)",
                   color: "transparent",
                   userSelect: "none",
                 }}
@@ -194,7 +194,7 @@ export default function ProductCard({ product, onViewMore }: ProductCardProps) {
             {tagBadge && (
               <span
                 className="text-[9px] font-bold tracking-[0.18em] uppercase px-2 py-1"
-                style={{ background: "#B59672", color: "#0E0E0E" }}
+                style={{ background: "#A67C3D", color: "#0E0E0E" }}
               >
                 Novidade
               </span>
@@ -202,7 +202,7 @@ export default function ProductCard({ product, onViewMore }: ProductCardProps) {
             {isProgramacao && (
               <span
                 className="text-[9px] font-bold tracking-[0.18em] uppercase px-2 py-1"
-                style={{ background: "rgba(0,0,0,0.75)", color: "#B59672", backdropFilter: "blur(8px)", border: "1px solid rgba(181,150,114,0.35)" }}
+                style={{ background: "rgba(0,0,0,0.75)", color: "#A67C3D", backdropFilter: "blur(8px)", border: "1px solid rgba(166,124,61,0.35)" }}
               >
                 Programação
               </span>
@@ -237,7 +237,7 @@ export default function ProductCard({ product, onViewMore }: ProductCardProps) {
                     width: "5px",
                     height: "5px",
                     borderRadius: "50%",
-                    background: i === displayIndex ? "#B59672" : "rgba(10,10,10,0.3)",
+                    background: i === displayIndex ? "#A67C3D" : "rgba(10,10,10,0.3)",
                     transition: "background 0.2s ease",
                     border: "none",
                     cursor: "pointer",
@@ -252,7 +252,7 @@ export default function ProductCard({ product, onViewMore }: ProductCardProps) {
           <div
             className="absolute bottom-0 left-0 h-px w-0 group-hover:w-full z-10"
             style={{
-              background: "linear-gradient(90deg, #B59672, #6B2033)",
+              background: "linear-gradient(90deg, #A67C3D, #6B2033)",
               transition: "width 0.5s cubic-bezier(0.16,1,0.3,1)",
             }}
           />
@@ -307,7 +307,7 @@ export default function ProductCard({ product, onViewMore }: ProductCardProps) {
                 letterSpacing: "0.2em",
                 textTransform: "uppercase",
                 fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
-                color: isAvailable ? "#B59672" : "rgba(10,10,10,0.2)",
+                color: isAvailable ? "#A67C3D" : "rgba(10,10,10,0.2)",
                 background: "none",
                 border: "none",
                 cursor: isAvailable ? "pointer" : "not-allowed",

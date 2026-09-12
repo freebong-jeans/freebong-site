@@ -16,8 +16,8 @@ export default function TickerBar() {
   return (
     <div
       style={{
-        background: "#111111",
-        borderBottom: "1px solid rgba(181,150,114,0.22)",
+        background: "#6B2033",
+        borderBottom: "1px solid rgba(166,124,61,0.22)",
         overflow: "hidden",
         height: "40px",
         display: "flex",
@@ -45,14 +45,14 @@ export default function TickerBar() {
               fontWeight: 700,
               letterSpacing: "0.22em",
               textTransform: "uppercase",
-              color: "#B59672",
+              color: "#E9CFA6",
               fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
             }}
           >
             {item}
             <span
               style={{
-                color: "rgba(181,150,114,0.35)",
+                color: "rgba(233,207,166,0.4)",
                 fontSize: "0.45rem",
               }}
             >

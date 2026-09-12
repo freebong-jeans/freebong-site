@@ -145,7 +145,7 @@ export default function ModelViewer3D({ src }: { src: string }) {
             metalness: 0,
           }),
           accent: new THREE.MeshStandardMaterial({
-            color: new THREE.Color("#B59672"), // Cuban Sand (cinto/acessórios)
+            color: new THREE.Color("#A67C3D"), // Cuban Sand (cinto/acessórios)
             roughness: 0.65,
             metalness: 0.22,
           }),
@@ -327,7 +327,7 @@ export default function ModelViewer3D({ src }: { src: string }) {
                 position: "absolute",
                 inset: 0,
                 border: "1px solid rgba(146,144,195,0.08)",
-                borderTopColor: "#B59672",
+                borderTopColor: "#A67C3D",
                 borderRadius: "50%",
                 animation: "fbg3d-spin 1s linear infinite",
               }}

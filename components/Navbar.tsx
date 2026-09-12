@@ -89,11 +89,12 @@ export default function Navbar() {
     <>
       <header
         onMouseLeave={() => setMegaOpen(false)}
+        style={{ background: scrolled ? "#6B2033" : undefined }}
         className={`
           fixed top-0 left-0 right-0 z-50
           transition-all duration-500 ease-out
           ${scrolled
-            ? "bg-white/95 backdrop-blur-md border-b border-black/[0.08]"
+            ? "backdrop-blur-md border-b border-white/10"
             : "bg-gradient-to-b from-black/70 via-black/30 to-transparent border-b-0"}
           ${hidden && !menuOpen ? "-translate-y-full" : "translate-y-0"}
         `}
@@ -107,7 +108,7 @@ export default function Navbar() {
             className="flex flex-col leading-none select-none group"
             aria-label="FBG Jeans · Página inicial"
           >
-            <FBGLogo dark={scrolled} />
+            <FBGLogo dark={false} />
           </Link>
 
           {/* ── Links desktop ────────────────────────────────── */}
@@ -126,12 +127,10 @@ export default function Navbar() {
                     relative text-[11px] font-semibold tracking-[0.18em] uppercase
                     transition-colors duration-300
                     after:absolute after:bottom-0 after:left-0
-                    after:h-[1px] after:w-0 after:bg-[#B59672]
+                    after:h-[1px] after:w-0 after:bg-[#A67C3D]
                     after:transition-[width] after:duration-300
                     hover:after:w-full
-                    ${scrolled
-                      ? "text-black/70 hover:text-black"
-                      : "text-white hover:text-white"}
+                    text-white hover:text-white
                   `}
                 >
                   {link.label}
@@ -150,7 +149,7 @@ export default function Navbar() {
             <button
               aria-label="Buscar"
               onClick={() => setSearchOpen(true)}
-              className={`hidden md:flex transition-colors duration-300 ${scrolled ? "text-black/60 hover:text-black" : "text-white/65 hover:text-white"}`}
+              className="hidden md:flex transition-colors duration-300 text-white/70 hover:text-white"
             >
               <SearchIcon />
             </button>
@@ -159,7 +158,7 @@ export default function Navbar() {
             <Link
               href="/conta"
               aria-label="Minha conta"
-              className={`flex transition-colors duration-300 ${onContaPage ? "text-[#B59672]" : scrolled ? "text-black/60 hover:text-black" : "text-white/65 hover:text-white"}`}
+              className={`flex transition-colors duration-300 ${onContaPage ? "text-[#A67C3D]" : "text-white/70 hover:text-white"}`}
             >
               <PersonIcon />
             </Link>
@@ -168,7 +167,7 @@ export default function Navbar() {
             <button
               aria-label="Carrinho de compras"
               onClick={openDrawer}
-              className={`relative transition-colors duration-300 ${scrolled ? "text-black/60 hover:text-black" : "text-white/65 hover:text-white"}`}
+              className="relative transition-colors duration-300 text-white/70 hover:text-white"
             >
               <CartIcon />
               {count > 0 && (
@@ -190,9 +189,9 @@ export default function Navbar() {
               onClick={() => setMenuOpen((v) => !v)}
               className="md:hidden flex flex-col gap-[5px] p-1 group"
             >
-              <span className={`block h-[1.5px] w-6 origin-center transition-all duration-300 ${scrolled ? "bg-black" : "bg-white"} ${menuOpen ? "rotate-45 translate-y-[6.5px]" : ""}`} />
-              <span className={`block h-[1.5px] origin-center transition-all duration-300 ${scrolled ? "bg-black" : "bg-white"} ${menuOpen ? "w-0 opacity-0" : "w-6 opacity-100"}`} />
-              <span className={`block h-[1.5px] w-6 origin-center transition-all duration-300 ${scrolled ? "bg-black" : "bg-white"} ${menuOpen ? "-rotate-45 -translate-y-[6.5px]" : ""}`} />
+              <span className={`block h-[1.5px] w-6 origin-center transition-all duration-300 bg-white ${menuOpen ? "rotate-45 translate-y-[6.5px]" : ""}`} />
+              <span className={`block h-[1.5px] origin-center transition-all duration-300 bg-white ${menuOpen ? "w-0 opacity-0" : "w-6 opacity-100"}`} />
+              <span className={`block h-[1.5px] w-6 origin-center transition-all duration-300 bg-white ${menuOpen ? "-rotate-45 -translate-y-[6.5px]" : ""}`} />
             </button>
           </div>
         </nav>
@@ -267,7 +266,7 @@ export default function Navbar() {
                   <span style={{ fontFamily: "'Helvetica Neue', Helvetica, sans-serif", fontWeight: 900, fontSize: "1.1rem", letterSpacing: "-0.02em", textTransform: "uppercase", color: "#111" }}>
                     {cat.label}
                   </span>
-                  <span style={{ fontFamily: "'Helvetica Neue', Helvetica, sans-serif", fontWeight: 700, fontSize: "0.6rem", letterSpacing: "0.14em", color: "#B59672" }}>
+                  <span style={{ fontFamily: "'Helvetica Neue', Helvetica, sans-serif", fontWeight: 700, fontSize: "0.6rem", letterSpacing: "0.14em", color: "#A67C3D" }}>
                     {cat.count} REFS
                   </span>
                 </div>
@@ -304,7 +303,7 @@ export default function Navbar() {
                   fontWeight: 700,
                   letterSpacing: "0.18em",
                   textTransform: "uppercase",
-                  color: "#B59672",
+                  color: "#A67C3D",
                   textDecoration: "none",
                   fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
                 }}
@@ -383,7 +382,7 @@ export default function Navbar() {
                 fontSize: "0.58rem",
                 fontWeight: 700,
                 letterSpacing: "0.2em",
-                color: "#B59672",
+                color: "#A67C3D",
                 fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
               }}>
                 {String(i + 1).padStart(2, "0")}

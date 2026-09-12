@@ -174,7 +174,7 @@ export function Eyebrow({
         fontWeight: 700,
         letterSpacing: "0.26em",
         textTransform: "uppercase",
-        color: "#B59672",
+        color: "#A67C3D",
         opacity: shown ? 1 : 0,
         transition: `opacity 0.7s ease ${delay}ms`,
         ...style,

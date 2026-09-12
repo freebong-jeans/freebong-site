@@ -77,7 +77,7 @@ export default function BrandSection() {
               }}
             >
               Freebong é<br />
-              <span style={{ color: "#B59672" }}>identidade.</span>
+              <span style={{ color: "#6B2033" }}>identidade.</span>
             </h2>
 
             <div

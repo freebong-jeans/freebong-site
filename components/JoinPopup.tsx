@@ -103,7 +103,7 @@ export default function JoinPopup() {
             }}
           >
             FBG
-            <span style={{ color: "#B59672", fontSize: "0.5em", verticalAlign: "super", fontStyle: "normal" }}>›</span>
+            <span style={{ color: "#A67C3D", fontSize: "0.5em", verticalAlign: "super", fontStyle: "normal" }}>›</span>
           </span>
         </div>
 
@@ -178,17 +178,17 @@ export default function JoinPopup() {
               fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
               padding: "14px",
               border: "none",
-              background: "#0E0E0E",
+              background: "#6B2033",
               color: "#FFFFFF",
               cursor: "pointer",
               position: "relative",
               transition: "color 0.2s ease",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = "#B59672";
+              (e.currentTarget as HTMLButtonElement).style.background = "#A67C3D";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = "#0E0E0E";
+              (e.currentTarget as HTMLButtonElement).style.background = "#6B2033";
             }}
           >
             Sim
@@ -203,7 +203,7 @@ export default function JoinPopup() {
             left: 0,
             right: 0,
             height: "2px",
-            background: "linear-gradient(90deg, #B59672, #6B2033)",
+            background: "linear-gradient(90deg, #A67C3D, #6B2033)",
           }}
         />
       </div>

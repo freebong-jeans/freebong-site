@@ -103,14 +103,14 @@ export default function CartDrawer() {
               <button
                 onClick={closeDrawer}
                 style={{
-                  background: "#0E0E0E", border: "none",
+                  background: "#6B2033", border: "none",
                   padding: "12px 24px", cursor: "pointer",
                   fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.18em",
                   textTransform: "uppercase", fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
                   color: "#FFFFFF", transition: "background 0.2s ease",
                 }}
-                onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#B59672"}
-                onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "#0E0E0E"}
+                onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#A67C3D"}
+                onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "#6B2033"}
               >
                 Ver coleção
               </button>
@@ -140,7 +140,7 @@ export default function CartDrawer() {
                     <p style={{ fontSize: "0.62rem", color: "rgba(10,10,10,0.35)", letterSpacing: "0.06em", margin: 0 }}>
                       <span style={{ color: "rgba(10,10,10,0.2)", marginRight: "4px" }}>TAM</span>{item.variantTitle}
                     </p>
-                    <p style={{ fontSize: "0.84rem", fontWeight: 800, color: "#B59672", letterSpacing: "-0.01em", fontFamily: "'Helvetica Neue', Helvetica, sans-serif", marginTop: "2px", marginBottom: 0 }}>
+                    <p style={{ fontSize: "0.84rem", fontWeight: 800, color: "#A67C3D", letterSpacing: "-0.01em", fontFamily: "'Helvetica Neue', Helvetica, sans-serif", marginTop: "2px", marginBottom: 0 }}>
                       {parseFloat(item.price).toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
                     </p>
                     <div style={{ display: "flex", alignItems: "center", gap: "10px", marginTop: "6px" }}>
@@ -180,12 +180,12 @@ export default function CartDrawer() {
             {total < 299 && (
               <div style={{ marginBottom: "16px" }}>
                 <p style={{ fontSize: "0.62rem", color: "rgba(10,10,10,0.35)", marginBottom: "6px", letterSpacing: "0.06em", margin: "0 0 6px" }}>
-                  Falta <span style={{ color: "#B59672" }}>
+                  Falta <span style={{ color: "#A67C3D" }}>
                     {(299 - total).toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
                   </span> para frete grátis
                 </p>
                 <div style={{ height: "2px", background: "rgba(10,10,10,0.07)", borderRadius: "2px" }}>
-                  <div style={{ height: "100%", borderRadius: "2px", background: "#B59672", width: `${Math.min((total / 299) * 100, 100)}%`, transition: "width 0.4s ease" }} />
+                  <div style={{ height: "100%", borderRadius: "2px", background: "#A67C3D", width: `${Math.min((total / 299) * 100, 100)}%`, transition: "width 0.4s ease" }} />
                 </div>
               </div>
             )}

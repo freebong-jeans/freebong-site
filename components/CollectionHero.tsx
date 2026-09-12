@@ -6,19 +6,33 @@
  * Minimalista: uma headline, um CTA, três portas de entrada.
  */
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useProducts } from "@/lib/hooks/useProducts";
 
 const FONT = "'Helvetica Neue', Helvetica, sans-serif";
 
 const DOORS = [
-  { label: "Calças",   count: 27, href: "/colecao?categoria=calca",   img: "/images/campaign/dsc01573.jpg" },
-  { label: "Bermudas", count: 14, href: "/colecao?categoria=bermuda", img: "/images/campaign/dsc01800.jpg" },
-  { label: "Jaquetas", count: 4,  href: "/colecao?categoria=jaqueta", img: "/images/campaign/dsc01662.jpg" },
+  { label: "Calças",   termo: "cal",     href: "/colecao?categoria=calca",   img: "/images/campaign/dsc01573.jpg" },
+  { label: "Bermudas", termo: "bermuda", href: "/colecao?categoria=bermuda", img: "/images/campaign/dsc01800.jpg" },
+  { label: "Jaquetas", termo: "jaqueta", href: "/colecao?categoria=jaqueta", img: "/images/campaign/dsc01662.jpg" },
 ];
 
-export default function CollectionHero({ total = 45 }: { total?: number }) {
+export default function CollectionHero({ total = 0 }: { total?: number }) {
+  /* As portas de categoria contam o catalogo real da loja, em vez de numeros
+     fixos no codigo que ficavam desatualizados a cada mudanca na Shopify. */
+  const { products } = useProducts();
+  const portas = useMemo(
+    () =>
+      DOORS.map((d) => ({
+        ...d,
+        count: products.filter((pr) =>
+          `${pr.productType} ${pr.title}`.toLowerCase().includes(d.termo)
+        ).length,
+      })).filter((d) => d.count > 0),
+    [products]
+  );
   const videoRef = useRef<HTMLVideoElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
   const [ready, setReady] = useState(false);
@@ -60,7 +74,7 @@ export default function CollectionHero({ total = 45 }: { total?: number }) {
   }, []);
 
   return (
-    <section ref={sectionRef} style={{ position: "relative", background: "#0A0A0A", overflow: "hidden" }}>
+    <section ref={sectionRef} style={{ position: "relative", background: "#0E0E0E", overflow: "hidden" }}>
       {/* ── Banner em vídeo ── */}
       <div style={{ position: "relative", height: "clamp(440px, 66vh, 680px)", overflow: "hidden" }}>
         <video
@@ -113,7 +127,7 @@ export default function CollectionHero({ total = 45 }: { total?: number }) {
               fontWeight: 700,
               letterSpacing: "0.28em",
               textTransform: "uppercase",
-              color: "#B59672",
+              color: "#A67C3D",
               marginBottom: "16px",
               opacity: ready ? 1 : 0,
               transition: "opacity 0.8s ease 0.15s",
@@ -142,7 +156,7 @@ export default function CollectionHero({ total = 45 }: { total?: number }) {
               </span>
             </span>
             <span style={{ display: "block", overflow: "hidden", paddingBottom: "0.06em" }}>
-              <span style={{ display: "block", color: "#B59672", transform: ready ? "translateY(0)" : "translateY(106%)", transition: "transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.32s" }}>
+              <span style={{ display: "block", color: "#A67C3D", transform: ready ? "translateY(0)" : "translateY(106%)", transition: "transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.32s" }}>
                 Um padrão só.
               </span>
             </span>
@@ -181,7 +195,7 @@ export default function CollectionHero({ total = 45 }: { total?: number }) {
               }}
               onMouseEnter={e => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.background = "#B59672";
+                el.style.background = "#A67C3D";
                 el.style.transform = "translateY(-2px)";
               }}
               onMouseLeave={e => {
@@ -208,8 +222,8 @@ export default function CollectionHero({ total = 45 }: { total?: number }) {
 
       {/* ── Tríptico 3D de categorias ── */}
       <div className="fbg-doors">
-        {DOORS.map((d, i) => (
-          <DoorCard key={d.href} {...d} index={i} ready={ready} />
+        {portas.map((d, i) => (
+          <DoorCard key={d.href} label={d.label} count={d.count} href={d.href} img={d.img} index={i} ready={ready} />
         ))}
       </div>
 
@@ -264,7 +278,7 @@ function DoorCard({
         display: "block",
         aspectRatio: "16/10",
         overflow: "hidden",
-        background: "#0A0A0A",
+        background: "#0E0E0E",
         textDecoration: "none",
         transformStyle: "preserve-3d",
         transition: "transform 0.5s cubic-bezier(0.16,1,0.3,1)",
@@ -300,7 +314,7 @@ function DoorCard({
         }}
       >
         <div>
-          <span style={{ display: "block", fontFamily: FONT, fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#B59672", marginBottom: "6px" }}>
+          <span style={{ display: "block", fontFamily: FONT, fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#A67C3D", marginBottom: "6px" }}>
             {count} referências
           </span>
           <span style={{ fontFamily: FONT, fontWeight: 900, fontSize: "clamp(1.3rem,2.4vw,2rem)", letterSpacing: "-0.03em", textTransform: "uppercase", color: "#FFFFFF", lineHeight: 1 }}>

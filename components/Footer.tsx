@@ -140,15 +140,15 @@ export default function Footer() {
                   alignItems: "center",
                   gap: "10px",
                   padding: "14px 20px",
-                  border: "1px solid rgba(181,150,114,0.3)",
+                  border: "1px solid rgba(166,124,61,0.3)",
                   minWidth: "340px",
                 }}
               >
                 <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                  <circle cx="7" cy="7" r="6" stroke="#B59672" strokeWidth="1"/>
-                  <path d="M4.5 7L6.5 9L9.5 5" stroke="#B59672" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
+                  <circle cx="7" cy="7" r="6" stroke="#A67C3D" strokeWidth="1"/>
+                  <path d="M4.5 7L6.5 9L9.5 5" stroke="#A67C3D" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
-                <span style={{ fontSize: "0.72rem", letterSpacing: "0.12em", color: "#B59672", fontWeight: 600, textTransform: "uppercase" }}>
+                <span style={{ fontSize: "0.72rem", letterSpacing: "0.12em", color: "#A67C3D", fontWeight: 600, textTransform: "uppercase" }}>
                   Cadastrado com sucesso!
                 </span>
               </div>
@@ -162,7 +162,7 @@ export default function Footer() {
                   border: "1px solid rgba(0,0,0,0.15)",
                   transition: "border-color 0.2s ease",
                 }}
-                onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(181,150,114,0.4)")}
+                onFocus={(e) => (e.currentTarget.style.borderColor = "rgba(166,124,61,0.4)")}
                 onBlur={(e) => (e.currentTarget.style.borderColor = "rgba(0,0,0,0.15)")}
               >
                 <input
@@ -186,7 +186,7 @@ export default function Footer() {
                 <button
                   type="submit"
                   style={{
-                    background: "#B59672",
+                    background: "#A67C3D",
                     border: "none",
                     padding: "14px 20px",
                     cursor: "pointer",
@@ -200,7 +200,7 @@ export default function Footer() {
                     whiteSpace: "nowrap",
                   }}
                   onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#c8a882")}
-                  onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#B59672")}
+                  onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#A67C3D")}
                 >
                   Inscrever
                 </button>
@@ -234,7 +234,7 @@ export default function Footer() {
                 }}
               >
                 FREEBONG
-                <span style={{ color: "#B59672" }}>.</span>
+                <span style={{ color: "#A67C3D" }}>.</span>
               </span>
             </div>
 
@@ -272,8 +272,8 @@ export default function Footer() {
                   }}
                   onMouseEnter={(e) => {
                     const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = "rgba(181,150,114,0.5)";
-                    el.style.color = "#B59672";
+                    el.style.borderColor = "rgba(166,124,61,0.5)";
+                    el.style.color = "#A67C3D";
                   }}
                   onMouseLeave={(e) => {
                     const el = e.currentTarget as HTMLElement;

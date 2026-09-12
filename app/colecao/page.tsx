@@ -192,7 +192,7 @@ function ColecaoContent() {
                 onClick={() => setActiveCategory(cat.id)}
                 style={{
                   padding: "clamp(10px, 1.5vw, 14px) clamp(20px, 3vw, 32px)",
-                  background: activeCategory === cat.id ? "#141414" : "#F1EFEA",
+                  background: activeCategory === cat.id ? "#6B2033" : "#F1EFEA",
                   color: activeCategory === cat.id ? "#FAF9F7" : "rgba(10,10,10,0.65)",
                   border: "1px solid rgba(10,10,10,0.08)",
                   borderRadius: "3px",
@@ -226,7 +226,7 @@ function ColecaoContent() {
                     marginLeft: "8px",
                     fontSize: "0.68em",
                     fontWeight: 700,
-                    color: activeCategory === cat.id ? "rgba(10,10,10,0.55)" : "#B59672",
+                    color: activeCategory === cat.id ? "#E9CFA6" : "#A67C3D",
                   }}
                 >
                   {cat.count}
@@ -247,12 +247,12 @@ function ColecaoContent() {
                   width: "100%",
                   padding: "10px 12px",
                   background: "#FFFFFF",
-                  border: `1px solid ${activeFit !== "all" ? "rgba(181,150,114,0.5)" : "rgba(10,10,10,0.12)"}`,
+                  border: `1px solid ${activeFit !== "all" ? "rgba(166,124,61,0.5)" : "rgba(10,10,10,0.12)"}`,
                   borderRadius: "3px",
                   fontSize: "0.8rem",
                   fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
                   fontWeight: 500,
-                  color: activeFit !== "all" ? "#B59672" : "#141414",
+                  color: activeFit !== "all" ? "#A67C3D" : "#141414",
                   cursor: "pointer",
                 }}
               >
@@ -276,12 +276,12 @@ function ColecaoContent() {
                   width: "100%",
                   padding: "10px 12px",
                   background: "#FFFFFF",
-                  border: `1px solid ${activeAvail !== "all" ? "rgba(181,150,114,0.5)" : "rgba(10,10,10,0.12)"}`,
+                  border: `1px solid ${activeAvail !== "all" ? "rgba(166,124,61,0.5)" : "rgba(10,10,10,0.12)"}`,
                   borderRadius: "3px",
                   fontSize: "0.8rem",
                   fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
                   fontWeight: 500,
-                  color: activeAvail !== "all" ? "#B59672" : "#141414",
+                  color: activeAvail !== "all" ? "#A67C3D" : "#141414",
                   cursor: "pointer",
                 }}
               >
@@ -374,7 +374,7 @@ function ColecaoContent() {
                 onClick={retry}
                 style={{
                   padding: "14px 34px",
-                  background: "#141414",
+                  background: "#6B2033",
                   color: "#FAF9F7",
                   border: "none",
                   borderRadius: "3px",
@@ -432,7 +432,7 @@ function ColecaoContent() {
       ══════════════════════════════════════════════════════════════ */}
       <div style={{ background: "#F1EFEA", paddingTop: "clamp(64px, 10vw, 120px)", paddingBottom: "clamp(64px, 10vw, 120px)", borderTop: "1px solid rgba(10,10,10,0.07)" }}>
         <div className="container-fbg" style={{ textAlign: "center" }}>
-          <p style={{ fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#B59672", margin: 0, marginBottom: "12px" }}>
+          <p style={{ fontSize: "0.65rem", fontWeight: 600, letterSpacing: "0.2em", textTransform: "uppercase", color: "#A67C3D", margin: 0, marginBottom: "12px" }}>
             Não achou o que procura?
           </p>
           <h2 style={{ fontFamily: "'Helvetica Neue', Helvetica, sans-serif", fontWeight: 900, fontSize: "clamp(1.8rem, 3.5vw, 2.8rem)", color: "#141414", textTransform: "uppercase", margin: "0 0 16px", letterSpacing: "-0.03em" }}>
@@ -448,7 +448,7 @@ function ColecaoContent() {
               alignItems: "center",
               gap: "8px",
               padding: "clamp(12px, 1.8vw, 16px) clamp(32px, 5vw, 56px)",
-              background: "#141414",
+              background: "#6B2033",
               color: "#FAF9F7",
               textDecoration: "none",
               borderRadius: "3px",
@@ -460,10 +460,10 @@ function ColecaoContent() {
               fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "#B59672";
+              (e.currentTarget as HTMLElement).style.background = "#A67C3D";
             }}
             onMouseLeave={(e) => {
-              (e.currentTarget as HTMLElement).style.background = "#141414";
+              (e.currentTarget as HTMLElement).style.background = "#6B2033";
             }}
           >
             Contatar via WhatsApp

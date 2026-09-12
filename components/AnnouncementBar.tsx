@@ -33,8 +33,8 @@ export default function AnnouncementBar({ scrolled = false }: { scrolled?: boole
   return (
     <div
       style={{
-        background: scrolled ? "#0A0A0A" : "transparent",
-        color: scrolled ? "#B59672" : "#fff",
+        background: scrolled ? "#6B2033" : "transparent",
+        color: scrolled ? "#E9CFA6" : "#fff",
         height: "36px",
         display: "flex",
         alignItems: "center",

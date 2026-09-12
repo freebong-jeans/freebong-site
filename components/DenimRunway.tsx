@@ -166,7 +166,7 @@ export default function DenimRunway() {
               fontWeight: 700,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
-              color: "#B59672",
+              color: "#A67C3D",
               background: "rgba(0,0,0,0.6)",
               backdropFilter: "blur(8px)",
               padding: "5px 9px",
@@ -193,7 +193,7 @@ export default function DenimRunway() {
               fontWeight: 700,
               letterSpacing: "0.26em",
               textTransform: "uppercase",
-              color: "#B59672",
+              color: "#A67C3D",
               marginBottom: "8px",
               fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
             }}
@@ -224,7 +224,7 @@ export default function DenimRunway() {
                 textTransform: "uppercase",
                 color: "#141414",
                 textDecoration: "none",
-                borderBottom: "1.5px solid rgba(181,150,114,0.6)",
+                borderBottom: "1.5px solid rgba(166,124,61,0.6)",
                 paddingBottom: "2px",
                 fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
               }}
@@ -244,7 +244,7 @@ export default function DenimRunway() {
                   width: i === mobileIdx ? "20px" : "6px",
                   height: "3px",
                   borderRadius: "2px",
-                  background: i === mobileIdx ? "#B59672" : "rgba(0,0,0,0.2)",
+                  background: i === mobileIdx ? "#A67C3D" : "rgba(0,0,0,0.2)",
                   border: "none",
                   cursor: "pointer",
                   padding: 0,
@@ -348,7 +348,7 @@ export default function DenimRunway() {
               lineHeight: 1.04,
               letterSpacing: "-0.06em",
               color: "transparent",
-              WebkitTextStroke: "1.5px rgba(181,150,114,0.1)",
+              WebkitTextStroke: "1.5px rgba(166,124,61,0.1)",
               userSelect: "none",
               animation: "rwNumIn 0.8s cubic-bezier(0.16,1,0.3,1)",
               transform: "translateY(-4vh)",
@@ -368,7 +368,7 @@ export default function DenimRunway() {
             transform: "translate(-50%, -50%)",
             width: "min(80vw, 60vh)",
             height: "min(80vw, 60vh)",
-            background: "radial-gradient(circle, rgba(181,150,114,0.09) 0%, transparent 62%)",
+            background: "radial-gradient(circle, rgba(166,124,61,0.09) 0%, transparent 62%)",
             zIndex: 2,
             pointerEvents: "none",
           }}
@@ -411,9 +411,9 @@ export default function DenimRunway() {
                       height: "100%",
                       overflow: "hidden",
                       border: "1px solid rgba(10,10,10,0.1)",
-                      borderTop: isFront ? "2px solid rgba(181,150,114,0.7)" : "1px solid rgba(10,10,10,0.1)",
+                      borderTop: isFront ? "2px solid rgba(166,124,61,0.7)" : "1px solid rgba(10,10,10,0.1)",
                       boxShadow: isFront
-                        ? "0 40px 90px -25px rgba(0,0,0,0.9), 0 0 60px -20px rgba(181,150,114,0.25)"
+                        ? "0 40px 90px -25px rgba(0,0,0,0.9), 0 0 60px -20px rgba(166,124,61,0.25)"
                         : "0 40px 90px -25px rgba(0,0,0,0.9)",
                       background: "#FFFFFF",
                       transition: "border-top-color 0.4s ease, box-shadow 0.4s ease",
@@ -441,7 +441,7 @@ export default function DenimRunway() {
                         fontSize: "0.55rem",
                         fontWeight: 700,
                         letterSpacing: "0.2em",
-                        color: "#B59672",
+                        color: "#A67C3D",
                         background: "rgba(0,0,0,0.6)",
                         backdropFilter: "blur(8px)",
                         padding: "5px 9px",
@@ -486,7 +486,7 @@ export default function DenimRunway() {
                 fontWeight: 700,
                 letterSpacing: "0.24em",
                 textTransform: "uppercase",
-                color: "#B59672",
+                color: "#A67C3D",
                 marginBottom: "8px",
                 fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
               }}
@@ -528,7 +528,7 @@ export default function DenimRunway() {
                   alignItems: "center",
                   gap: "8px",
                   padding: "11px 20px",
-                  background: "#0E0E0E",
+                  background: "#6B2033",
                   color: "#FFFFFF",
                   fontSize: "0.6rem",
                   fontWeight: 700,
@@ -568,7 +568,7 @@ export default function DenimRunway() {
               style={{
                 width: i === textIdx ? "3px" : "2px",
                 height: i === textIdx ? "22px" : "8px",
-                background: i === textIdx ? "#B59672" : "rgba(0,0,0,0.2)",
+                background: i === textIdx ? "#A67C3D" : "rgba(0,0,0,0.2)",
                 transition: "all 0.35s cubic-bezier(0.16,1,0.3,1)",
                 borderRadius: "2px",
               }}
@@ -606,7 +606,7 @@ export default function DenimRunway() {
           >
             Deslize para trocar o look
           </span>
-          <span style={{ display: "block", width: "1px", height: "22px", background: "linear-gradient(180deg, #B59672, transparent)", animation: "rwHint 1.6s ease-in-out infinite" }} />
+          <span style={{ display: "block", width: "1px", height: "22px", background: "linear-gradient(180deg, #A67C3D, transparent)", animation: "rwHint 1.6s ease-in-out infinite" }} />
         </div>
 
         <style>{`
@@ -702,7 +702,7 @@ function Eyebrow() {
         fontWeight: 700,
         letterSpacing: "0.26em",
         textTransform: "uppercase",
-        color: "#B59672",
+        color: "#A67C3D",
         display: "block",
         fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
       }}

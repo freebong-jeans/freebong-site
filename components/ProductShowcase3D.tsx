@@ -32,7 +32,7 @@ const LINES = [
     name: "Calça Basic",
     price: "R$ 169,90",
     desc: "O básico bem feito que faz toda a diferença. Qualidade que se sente no uso.",
-    accent: "#B59672",
+    accent: "#A67C3D",
     bg: ["#140E06", "#2A1E0E"],
     image: "/images/products/DSC01208.jpg",
   },

@@ -158,7 +158,7 @@ export default function ProdutoPage() {
           <p style={{ fontSize: "0.65rem", letterSpacing: "0.22em", color: "rgba(10,10,10,0.25)", textTransform: "uppercase", marginBottom: "16px" }}>
             Produto não encontrado
           </p>
-          <Link href="/" style={{ color: "#B59672", fontSize: "0.8rem", textDecoration: "none", letterSpacing: "0.1em" }}>
+          <Link href="/" style={{ color: "#A67C3D", fontSize: "0.8rem", textDecoration: "none", letterSpacing: "0.1em" }}>
             ← Voltar para a coleção
           </Link>
         </div>
@@ -249,7 +249,7 @@ export default function ProdutoPage() {
                 fontWeight: 800,
                 letterSpacing: "0.24em",
                 textTransform: "uppercase",
-                color: "#B59672",
+                color: "#A67C3D",
                 display: "block",
                 marginBottom: "16px",
               }}
@@ -278,7 +278,7 @@ export default function ProdutoPage() {
               style={{
                 width: "36px",
                 height: "2px",
-                background: "linear-gradient(90deg,#B59672,#6B2033)",
+                background: "linear-gradient(90deg,#A67C3D,#6B2033)",
                 marginBottom: "20px",
               }}
             />
@@ -290,7 +290,7 @@ export default function ProdutoPage() {
                   fontSize: "clamp(2rem,3.5vw,2.8rem)",
                   fontWeight: 900,
                   letterSpacing: "-0.02em",
-                  color: available ? "#B59672" : "rgba(10,10,10,0.3)",
+                  color: available ? "#A67C3D" : "rgba(10,10,10,0.3)",
                   display: "block",
                 }}
               >
@@ -333,7 +333,7 @@ export default function ProdutoPage() {
                 >
                   Escolha seu tamanho
                   {selectedVariant && (
-                    <span style={{ color: "#B59672", marginLeft: "12px", fontSize: "1.1em" }}>
+                    <span style={{ color: "#A67C3D", marginLeft: "12px", fontSize: "1.1em" }}>
                       {selectedVariant.title}
                     </span>
                   )}
@@ -344,7 +344,7 @@ export default function ProdutoPage() {
                     fontSize: "clamp(0.65rem, 1.8vw, 0.8rem)",
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
-                    color: "#B59672",
+                    color: "#A67C3D",
                     textDecoration: "underline",
                     textUnderlineOffset: "4px",
                     transition: "opacity 0.2s",
@@ -372,14 +372,14 @@ export default function ProdutoPage() {
                       style={{
                         width: "clamp(52px, 12vw, 72px)",
                         height: "clamp(52px, 12vw, 72px)",
-                        border: `2px solid ${isSelected ? "#B59672" : v.available ? "rgba(10,10,10,0.15)" : "rgba(10,10,10,0.08)"}`,
+                        border: `2px solid ${isSelected ? "#A67C3D" : v.available ? "rgba(10,10,10,0.15)" : "rgba(10,10,10,0.08)"}`,
                         background: isSelected
-                          ? "linear-gradient(135deg, rgba(181,150,114,0.15) 0%, rgba(107,32,51,0.08) 100%)"
+                          ? "linear-gradient(135deg, rgba(166,124,61,0.15) 0%, rgba(107,32,51,0.08) 100%)"
                           : "rgba(10,10,10,0.02)",
                         color: !v.available
                           ? "rgba(10,10,10,0.12)"
                           : isSelected
-                          ? "#B59672"
+                          ? "#A67C3D"
                           : "rgba(10,10,10,0.6)",
                         fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)",
                         fontWeight: 800,
@@ -388,13 +388,13 @@ export default function ProdutoPage() {
                         transition: "all 0.3s cubic-bezier(0.16,1,0.3,1)",
                         position: "relative",
                         borderRadius: "4px",
-                        boxShadow: isSelected ? "0 8px 20px rgba(181,150,114,0.25)" : "none",
+                        boxShadow: isSelected ? "0 8px 20px rgba(166,124,61,0.25)" : "none",
                       }}
                       onMouseEnter={e => {
                         if (v.available && !isSelected) {
-                          (e.currentTarget as HTMLElement).style.borderColor = "#B59672";
+                          (e.currentTarget as HTMLElement).style.borderColor = "#A67C3D";
                           (e.currentTarget as HTMLElement).style.color = "#0E0E0E";
-                          (e.currentTarget as HTMLElement).style.background = "rgba(181,150,114,0.08)";
+                          (e.currentTarget as HTMLElement).style.background = "rgba(166,124,61,0.08)";
                           (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
                         }
                       }}
@@ -440,7 +440,7 @@ export default function ProdutoPage() {
                 style={{
                   width: "100%",
                   padding: "20px",
-                  background: available ? "#0E0E0E" : "rgba(10,10,10,0.06)",
+                  background: available ? "#6B2033" : "rgba(10,10,10,0.06)",
                   color: available ? "#FFFFFF" : "rgba(10,10,10,0.25)",
                   border: "none",
                   borderRadius: "4px",
@@ -476,10 +476,10 @@ export default function ProdutoPage() {
                 style={{
                   width: "100%",
                   padding: "19px",
-                  background: addedToCart ? "rgba(181,150,114,0.12)" : "transparent",
-                  border: `1.5px solid ${addedToCart ? "#B59672" : available ? "rgba(10,10,10,0.18)" : "rgba(10,10,10,0.08)"}`,
+                  background: addedToCart ? "rgba(166,124,61,0.12)" : "transparent",
+                  border: `1.5px solid ${addedToCart ? "#A67C3D" : available ? "rgba(10,10,10,0.18)" : "rgba(10,10,10,0.08)"}`,
                   borderRadius: "4px",
-                  color: addedToCart ? "#B59672" : available ? "#141414" : "rgba(10,10,10,0.25)",
+                  color: addedToCart ? "#A67C3D" : available ? "#141414" : "rgba(10,10,10,0.25)",
                   fontFamily: "inherit",
                   fontSize: "clamp(0.7rem, 1.4vw, 0.78rem)",
                   fontWeight: 700,
@@ -494,7 +494,7 @@ export default function ProdutoPage() {
                 }}
                 onMouseEnter={e => {
                   if (!available || addedToCart) return;
-                  (e.currentTarget as HTMLElement).style.borderColor = "#B59672";
+                  (e.currentTarget as HTMLElement).style.borderColor = "#A67C3D";
                 }}
                 onMouseLeave={e => {
                   if (addedToCart) return;
@@ -667,7 +667,7 @@ export default function ProdutoPage() {
                 fontWeight: 700,
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "#B59672",
+                color: "#A67C3D",
                 textDecoration: "none",
                 display: "flex",
                 alignItems: "center",
@@ -699,7 +699,7 @@ export default function ProdutoPage() {
                   }}
                   onMouseEnter={e => {
                     const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = "rgba(181,150,114,0.4)";
+                    el.style.borderColor = "rgba(166,124,61,0.4)";
                     el.style.transform = "translateY(-3px)";
                     const im = el.querySelector(".fbg-rel-img") as HTMLElement | null;
                     if (im) im.style.transform = "scale(1.06)";
@@ -735,7 +735,7 @@ export default function ProdutoPage() {
                             fontStyle: "italic",
                             fontSize: "clamp(1.8rem,4vw,2.8rem)",
                             letterSpacing: "-0.04em",
-                            WebkitTextStroke: "1px rgba(181,150,114,0.18)",
+                            WebkitTextStroke: "1px rgba(166,124,61,0.18)",
                             color: "transparent",
                           }}
                         >

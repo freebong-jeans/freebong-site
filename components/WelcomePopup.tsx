@@ -106,7 +106,7 @@ export default function WelcomePopup() {
             padding: "18px 8px",
             background: "rgba(14,14,14,0.88)",
             backdropFilter: "blur(10px)",
-            color: "#B59672",
+            color: "#A67C3D",
             border: "none",
             borderRadius: "0 6px 6px 0",
             fontFamily: FONT,
@@ -155,7 +155,7 @@ export default function WelcomePopup() {
             }}
           >
             {/* Foto */}
-            <div className="fbg-pop-img" style={{ position: "relative", background: "#0E0E0E", minHeight: "220px" }}>
+            <div className="fbg-pop-img" style={{ position: "relative", background: "#6B2033", minHeight: "220px" }}>
               <Image
                 src="/images/campaign/dsc01659.jpg"
                 alt="Freebong Jeans Wear"
@@ -194,7 +194,7 @@ export default function WelcomePopup() {
                   width: "38px",
                   height: "38px",
                   borderRadius: "50%",
-                  background: "#0E0E0E",
+                  background: "#6B2033",
                   border: "none",
                   color: "#FFFFFF",
                   cursor: "pointer",
@@ -204,11 +204,11 @@ export default function WelcomePopup() {
                   transition: "background 0.25s ease, transform 0.25s ease",
                 }}
                 onMouseEnter={e => {
-                  (e.currentTarget as HTMLElement).style.background = "#B59672";
+                  (e.currentTarget as HTMLElement).style.background = "#A67C3D";
                   (e.currentTarget as HTMLElement).style.transform = "rotate(90deg)";
                 }}
                 onMouseLeave={e => {
-                  (e.currentTarget as HTMLElement).style.background = "#0E0E0E";
+                  (e.currentTarget as HTMLElement).style.background = "#6B2033";
                   (e.currentTarget as HTMLElement).style.transform = "none";
                 }}
               >
@@ -219,7 +219,7 @@ export default function WelcomePopup() {
 
               {!sent ? (
                 <>
-                  <span style={{ fontFamily: FONT, fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: "#B59672", marginBottom: "14px" }}>
+                  <span style={{ fontFamily: FONT, fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: "#A67C3D", marginBottom: "14px" }}>
                     Primeira compra?
                   </span>
 
@@ -246,7 +246,7 @@ export default function WelcomePopup() {
                           right: 0,
                           bottom: "0.08em",
                           height: "0.16em",
-                          background: "#B59672",
+                          background: "#A67C3D",
                           opacity: 0.5,
                           borderRadius: "2px",
                         }}
@@ -281,7 +281,7 @@ export default function WelcomePopup() {
                         transition: "border-color 0.25s ease, background 0.25s ease",
                       }}
                       onFocus={e => {
-                        e.currentTarget.style.borderColor = "#B59672";
+                        e.currentTarget.style.borderColor = "#A67C3D";
                         e.currentTarget.style.background = "#FFFFFF";
                       }}
                       onBlur={e => {
@@ -295,7 +295,7 @@ export default function WelcomePopup() {
                       style={{
                         width: "54px",
                         flexShrink: 0,
-                        background: "#0E0E0E",
+                        background: "#6B2033",
                         border: "none",
                         borderRadius: "6px",
                         color: "#FFFFFF",
@@ -305,8 +305,8 @@ export default function WelcomePopup() {
                         justifyContent: "center",
                         transition: "background 0.25s ease",
                       }}
-                      onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = "#B59672")}
-                      onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = "#0E0E0E")}
+                      onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = "#A67C3D")}
+                      onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = "#6B2033")}
                     >
                       <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M5 12h14M12 5l7 7-7 7" />
@@ -334,7 +334,7 @@ export default function WelcomePopup() {
                 </>
               ) : (
                 <div style={{ animation: "fbgPopIn 0.45s cubic-bezier(0.16,1,0.3,1)" }}>
-                  <span style={{ fontFamily: FONT, fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: "#B59672", display: "block", marginBottom: "14px" }}>
+                  <span style={{ fontFamily: FONT, fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: "#A67C3D", display: "block", marginBottom: "14px" }}>
                     Bem-vindo à FBG
                   </span>
                   <h2 style={{ fontFamily: FONT, fontWeight: 900, fontSize: "clamp(1.4rem, 2.6vw, 2rem)", letterSpacing: "-0.03em", color: "#141414", margin: "0 0 16px" }}>
@@ -350,7 +350,7 @@ export default function WelcomePopup() {
                       width: "100%",
                       padding: "18px 20px",
                       background: "transparent",
-                      border: "1.5px dashed #B59672",
+                      border: "1.5px dashed #A67C3D",
                       borderRadius: "6px",
                       cursor: "pointer",
                       marginBottom: "16px",
@@ -359,7 +359,7 @@ export default function WelcomePopup() {
                     <span style={{ fontFamily: FONT, fontWeight: 900, fontSize: "1.3rem", letterSpacing: "0.1em", color: "#141414" }}>
                       {CUPOM}
                     </span>
-                    <span style={{ fontFamily: FONT, fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#B59672" }}>
+                    <span style={{ fontFamily: FONT, fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.16em", textTransform: "uppercase", color: "#A67C3D" }}>
                       {copied ? "Copiado!" : "Copiar"}
                     </span>
                   </button>
@@ -375,7 +375,7 @@ export default function WelcomePopup() {
                       justifyContent: "center",
                       gap: "10px",
                       padding: "16px 30px",
-                      background: "#0E0E0E",
+                      background: "#6B2033",
                       color: "#FFFFFF",
                       textDecoration: "none",
                       borderRadius: "6px",

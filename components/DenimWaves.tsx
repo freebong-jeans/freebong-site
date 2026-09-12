@@ -47,7 +47,7 @@ const FRAG = /* glsl */ `
     // Paleta índigo denim
     vec3 deep   = vec3(0.043, 0.071, 0.153); // índigo profundo
     vec3 mid    = vec3(0.106, 0.173, 0.361); // índigo médio
-    vec3 warm   = vec3(0.710, 0.588, 0.447); // dourado FBG (#B59672)
+    vec3 warm   = vec3(0.710, 0.588, 0.447); // dourado FBG (#A67C3D)
 
     // Trama de sarja diagonal (twill)
     float twill = smoothstep(0.42, 0.58, fract((vUv.x - vUv.y) * 120.0));

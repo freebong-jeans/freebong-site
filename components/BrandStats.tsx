@@ -61,7 +61,7 @@ function Stat({ value, label, suffix, raw, active, index }: { value: number; lab
         }}
       >
         {display}
-        <span style={{ color: "#B59672" }}>{suffix}</span>
+        <span style={{ color: "#A67C3D" }}>{suffix}</span>
       </span>
       <span
         style={{

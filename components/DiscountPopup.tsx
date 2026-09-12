@@ -146,14 +146,14 @@ export default function DiscountPopup() {
           {/* Linha dourada no topo */}
           <div style={{
             position: "absolute", top: 0, left: 0, right: 0, height: "3px",
-            background: "linear-gradient(90deg, #B59672, #6B2033)",
+            background: "linear-gradient(90deg, #A67C3D, #6B2033)",
           }} />
 
           {!success ? (
             <>
               <span style={{
                 fontSize: "0.56rem", fontWeight: 700, letterSpacing: "0.22em",
-                textTransform: "uppercase", color: "#B59672",
+                textTransform: "uppercase", color: "#A67C3D",
                 fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
                 display: "block", marginBottom: "14px",
               }}>
@@ -169,7 +169,7 @@ export default function DiscountPopup() {
                 marginBottom: "12px",
               }}>
                 Você Ganhou<br />
-                <span style={{ color: "#B59672" }}>10% OFF</span>
+                <span style={{ color: "#A67C3D" }}>10% OFF</span>
               </h2>
 
               <p style={{
@@ -206,15 +206,15 @@ export default function DiscountPopup() {
                     type="checkbox"
                     checked={agreed}
                     onChange={(e) => setAgreed(e.target.checked)}
-                    style={{ marginTop: "2px", accentColor: "#B59672", flexShrink: 0 }}
+                    style={{ marginTop: "2px", accentColor: "#A67C3D", flexShrink: 0 }}
                   />
                   <span style={{ fontSize: "0.72rem", color: "rgba(10,10,10,0.35)", lineHeight: 1.6 }}>
                     Li e aceito os{" "}
-                    <a href="/termos" style={{ color: "#B59672", textDecoration: "underline", textUnderlineOffset: "3px" }}>
+                    <a href="/termos" style={{ color: "#A67C3D", textDecoration: "underline", textUnderlineOffset: "3px" }}>
                       Termos de Uso
                     </a>{" "}
                     e estou ciente da{" "}
-                    <a href="/privacidade" style={{ color: "#B59672", textDecoration: "underline", textUnderlineOffset: "3px" }}>
+                    <a href="/privacidade" style={{ color: "#A67C3D", textDecoration: "underline", textUnderlineOffset: "3px" }}>
                       Política de Privacidade
                     </a>
                   </span>
@@ -224,7 +224,7 @@ export default function DiscountPopup() {
                   type="submit"
                   disabled={!agreed || !email}
                   style={{
-                    background: agreed && email ? "#0E0E0E" : "rgba(10,10,10,0.15)",
+                    background: agreed && email ? "#6B2033" : "rgba(10,10,10,0.15)",
                     color: agreed && email ? "#FFFFFF" : "rgba(10,10,10,0.3)",
                     border: "none",
                     padding: "15px",
@@ -238,10 +238,10 @@ export default function DiscountPopup() {
                     width: "100%",
                   }}
                   onMouseEnter={(e) => {
-                    if (agreed && email) (e.currentTarget as HTMLButtonElement).style.background = "#B59672";
+                    if (agreed && email) (e.currentTarget as HTMLButtonElement).style.background = "#A67C3D";
                   }}
                   onMouseLeave={(e) => {
-                    if (agreed && email) (e.currentTarget as HTMLButtonElement).style.background = "#0E0E0E";
+                    if (agreed && email) (e.currentTarget as HTMLButtonElement).style.background = "#6B2033";
                   }}
                 >
                   Cadastrar E-mail
@@ -253,12 +253,12 @@ export default function DiscountPopup() {
             <div style={{ textAlign: "center" }}>
               <div style={{
                 width: "56px", height: "56px", borderRadius: "50%",
-                border: "1.5px solid #B59672",
+                border: "1.5px solid #A67C3D",
                 display: "flex", alignItems: "center", justifyContent: "center",
                 margin: "0 auto 20px",
               }}>
                 <svg width="22" height="22" viewBox="0 0 24 24" fill="none"
-                  stroke="#B59672" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  stroke="#A67C3D" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                   <polyline points="20 6 9 17 4 12" />
                 </svg>
               </div>
@@ -285,8 +285,8 @@ export default function DiscountPopup() {
                 style={{
                   display: "flex", alignItems: "center", justifyContent: "space-between",
                   width: "100%",
-                  border: "1.5px dashed rgba(181,150,114,0.5)",
-                  background: "rgba(181,150,114,0.06)",
+                  border: "1.5px dashed rgba(166,124,61,0.5)",
+                  background: "rgba(166,124,61,0.06)",
                   padding: "14px 20px",
                   cursor: "pointer",
                   gap: "12px",
@@ -297,13 +297,13 @@ export default function DiscountPopup() {
                   fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
                   fontWeight: 900, fontStyle: "italic",
                   fontSize: "1.4rem", letterSpacing: "0.12em",
-                  color: "#B59672",
+                  color: "#A67C3D",
                 }}>
                   {COUPON}
                 </span>
                 <span style={{
                   fontSize: "0.56rem", fontWeight: 700, letterSpacing: "0.18em",
-                  textTransform: "uppercase", color: copied ? "#B59672" : "rgba(10,10,10,0.35)",
+                  textTransform: "uppercase", color: copied ? "#A67C3D" : "rgba(10,10,10,0.35)",
                   fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
                   transition: "color 0.2s ease",
                 }}>
@@ -314,14 +314,14 @@ export default function DiscountPopup() {
               <button
                 onClick={close}
                 style={{
-                  width: "100%", background: "#0E0E0E", border: "none",
+                  width: "100%", background: "#6B2033", border: "none",
                   padding: "14px",
                   fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.22em",
                   textTransform: "uppercase", fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
                   color: "#FFFFFF", cursor: "pointer",
                 }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "#B59672")}
-                onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "#0E0E0E")}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "#A67C3D")}
+                onMouseLeave={(e) => ((e.currentTarget as HTMLButtonElement).style.background = "#6B2033")}
               >
                 Ver Coleção →
               </button>

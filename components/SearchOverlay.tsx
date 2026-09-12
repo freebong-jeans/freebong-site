@@ -178,8 +178,8 @@ export default function SearchOverlay({ open, onClose }: Props) {
                       transition: "border-color 0.2s ease, color 0.2s ease",
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLButtonElement).style.borderColor = "#B59672";
-                      (e.currentTarget as HTMLButtonElement).style.color = "#B59672";
+                      (e.currentTarget as HTMLButtonElement).style.borderColor = "#A67C3D";
+                      (e.currentTarget as HTMLButtonElement).style.color = "#A67C3D";
                     }}
                     onMouseLeave={(e) => {
                       (e.currentTarget as HTMLButtonElement).style.borderColor = "rgba(10,10,10,0.12)";

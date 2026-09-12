@@ -39,7 +39,7 @@ export default function FooterLogo3D() {
     .map((_, i) => {
       const d = i + 1;
       const gold = i < 3;
-      const c = gold ? `rgba(181,150,114,${0.5 - i * 0.12})` : `rgba(0,0,0,${0.55 - (i - 3) * 0.06})`;
+      const c = gold ? `rgba(166,124,61,${0.5 - i * 0.12})` : `rgba(0,0,0,${0.55 - (i - 3) * 0.06})`;
       return `${d * 1.5}px ${d * 2}px 0 ${c}`;
     })
     .join(", ");
@@ -69,7 +69,7 @@ export default function FooterLogo3D() {
           letterSpacing: "-0.05em",
           lineHeight: 1.0,
           color: "#0E0E0E",
-          WebkitTextStroke: "1px rgba(181,150,114,0.35)",
+          WebkitTextStroke: "1px rgba(166,124,61,0.35)",
           textShadow: depth,
           transform: `rotateX(${12 + tilt.x}deg) rotateY(${tilt.y}deg)`,
           transformStyle: "preserve-3d",

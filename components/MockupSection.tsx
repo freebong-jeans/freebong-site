@@ -57,7 +57,7 @@ function IPhone3D({
         style={{
           position: "absolute",
           inset: "-14%",
-          background: "radial-gradient(ellipse at 50% 50%, rgba(181,150,114,0.13) 0%, transparent 66%)",
+          background: "radial-gradient(ellipse at 50% 50%, rgba(166,124,61,0.13) 0%, transparent 66%)",
           filter: "blur(30px)",
           pointerEvents: "none",
           zIndex: 0,
@@ -386,7 +386,7 @@ export default function MockupSection() {
                 >
                   FBG NO SEU
                   <br />
-                  <span style={{ color: "#B59672" }}>BOLSO.</span>
+                  <span style={{ color: "#6B2033" }}>BOLSO.</span>
                 </h2>
               </div>
             </div>
@@ -402,7 +402,7 @@ export default function MockupSection() {
                 style={{
                   width: "36px",
                   height: "2px",
-                  background: "linear-gradient(90deg,#B59672,#6B2033)",
+                  background: "linear-gradient(90deg,#A67C3D,#6B2033)",
                   margin: "clamp(14px,2vw,20px) 0",
                 }}
               />
@@ -467,32 +467,32 @@ export default function MockupSection() {
                   alignItems: "center",
                   gap: "10px",
                   padding: "12px 18px",
-                  border: "1px solid rgba(181,150,114,0.4)",
+                  border: "1px solid rgba(166,124,61,0.4)",
                   textDecoration: "none",
                   transition: "border-color 0.25s ease, background 0.25s ease",
                 }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "#B59672";
-                  el.style.background = "rgba(181,150,114,0.1)";
+                  el.style.borderColor = "#A67C3D";
+                  el.style.background = "rgba(166,124,61,0.1)";
                 }}
                 onMouseLeave={(e) => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "rgba(181,150,114,0.4)";
+                  el.style.borderColor = "rgba(166,124,61,0.4)";
                   el.style.background = "transparent";
                 }}
               >
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B59672" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A67C3D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                   <rect x="2" y="2" width="20" height="20" rx="5"/>
                   <circle cx="12" cy="12" r="4"/>
-                  <circle cx="17.5" cy="6.5" r="1" fill="#B59672" stroke="none"/>
+                  <circle cx="17.5" cy="6.5" r="1" fill="#A67C3D" stroke="none"/>
                 </svg>
                 <span
                   style={{
                     fontSize: "0.62rem",
                     letterSpacing: "0.16em",
                     textTransform: "uppercase",
-                    color: "#B59672",
+                    color: "#A67C3D",
                     fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
                     fontWeight: 700,
                   }}
@@ -534,7 +534,7 @@ export default function MockupSection() {
                   borderRadius: "50%",
                   background: "rgba(14,14,14,0.9)",
                   backdropFilter: "blur(10px)",
-                  border: `1px solid ${muted ? "rgba(255,255,255,0.18)" : "#B59672"}`,
+                  border: `1px solid ${muted ? "rgba(255,255,255,0.18)" : "#A67C3D"}`,
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -551,7 +551,7 @@ export default function MockupSection() {
                     <line x1="17" y1="9" x2="23" y2="15"/>
                   </svg>
                 ) : (
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#B59672" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#A67C3D" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
                     <path d="M15.54 8.46a5 5 0 0 1 0 7.07"/>
                     <path d="M19.07 4.93a10 10 0 0 1 0 14.14"/>

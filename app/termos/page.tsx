@@ -18,7 +18,7 @@ export default function TermosPage() {
           </Link>
         </nav>
 
-        <span style={{ fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#B59672", display: "block", marginBottom: "16px" }}>
+        <span style={{ fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#A67C3D", display: "block", marginBottom: "16px" }}>
           Documento Legal
         </span>
 
@@ -74,10 +74,10 @@ export default function TermosPage() {
           ))}
         </div>
 
-        <div style={{ marginTop: "60px", padding: "28px 32px", background: "#F8F5F0", borderLeft: "3px solid #B59672" }}>
+        <div style={{ marginTop: "60px", padding: "28px 32px", background: "#F8F5F0", borderLeft: "3px solid #A67C3D" }}>
           <p style={{ fontSize: "0.82rem", color: "rgba(0,0,0,0.6)", lineHeight: 1.7, margin: 0 }}>
             Dúvidas sobre nossos termos?{" "}
-            <a href="https://wa.me/message/3ROGXK7TIP7TC1" target="_blank" rel="noopener noreferrer" style={{ color: "#B59672", textDecoration: "underline" }}>
+            <a href="https://wa.me/message/3ROGXK7TIP7TC1" target="_blank" rel="noopener noreferrer" style={{ color: "#A67C3D", textDecoration: "underline" }}>
               Fale conosco pelo WhatsApp
             </a>
             .

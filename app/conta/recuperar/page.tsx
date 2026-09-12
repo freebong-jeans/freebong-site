@@ -18,25 +18,25 @@ export default function RecuperarPage() {
             fontWeight: 900, fontStyle: "italic", fontSize: "1.6rem",
             letterSpacing: "-0.04em", color: "#141414",
           }}>
-            FBG<span style={{ color: "#B59672" }}>›</span>
+            FBG<span style={{ color: "#A67C3D" }}>›</span>
           </span>
         </Link>
 
         {/* Icon */}
         <div style={{
           width: "64px", height: "64px", borderRadius: "50%",
-          border: "1.5px solid rgba(181,150,114,0.3)",
+          border: "1.5px solid rgba(166,124,61,0.3)",
           display: "flex", alignItems: "center", justifyContent: "center",
           margin: "0 auto 24px",
-          background: "rgba(181,150,114,0.06)",
+          background: "rgba(166,124,61,0.06)",
         }}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B59672" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A67C3D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
             <path d="M7 11V7a5 5 0 0 1 10 0v4" />
           </svg>
         </div>
 
-        <span style={{ fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#B59672", display: "block", marginBottom: "12px" }}>
+        <span style={{ fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#A67C3D", display: "block", marginBottom: "12px" }}>
           Em breve
         </span>
 
@@ -60,21 +60,21 @@ export default function RecuperarPage() {
           style={{
             display: "inline-flex", alignItems: "center", gap: "10px",
             padding: "16px 32px",
-            background: "#0E0E0E", color: "#FFFFFF",
+            background: "#6B2033", color: "#FFFFFF",
             fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.18em",
             textTransform: "uppercase", textDecoration: "none",
             borderRadius: "4px",
             transition: "background 0.2s ease",
             marginBottom: "20px",
           }}
-          onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#B59672"}
+          onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#A67C3D"}
           onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "#F1EFEA"}
         >
           Falar no WhatsApp
         </a>
 
         <div style={{ marginTop: "16px" }}>
-          <Link href="/conta" style={{ fontSize: "0.72rem", color: "#B59672", textDecoration: "none", fontWeight: 600 }}>
+          <Link href="/conta" style={{ fontSize: "0.72rem", color: "#A67C3D", textDecoration: "none", fontWeight: 600 }}>
             ← Voltar ao login
           </Link>
         </div>

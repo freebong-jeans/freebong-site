@@ -32,7 +32,7 @@ export default function CookieBanner() {
         left: 0,
         right: 0,
         zIndex: 900,
-        background: "rgba(10,10,10,0.97)",
+        background: "rgba(107,32,51,0.97)",
         borderTop: "1px solid rgba(255,255,255,0.08)",
         backdropFilter: "blur(16px)",
         padding: "clamp(16px,2.5vw,24px) clamp(20px,5vw,80px)",
@@ -75,7 +75,7 @@ export default function CookieBanner() {
             e analisar nosso tráfego.{" "}
             <Link
               href="/privacidade"
-              style={{ color: "#B59672", textDecoration: "underline", textUnderlineOffset: "3px" }}
+              style={{ color: "#E9CFA6", textDecoration: "underline", textUnderlineOffset: "3px" }}
             >
               Política de Privacidade
             </Link>
@@ -125,7 +125,7 @@ export default function CookieBanner() {
               transition: "background 0.2s ease, color 0.2s ease",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = "#B59672";
+              (e.currentTarget as HTMLButtonElement).style.background = "#A67C3D";
               (e.currentTarget as HTMLButtonElement).style.color = "#FFFFFF";
             }}
             onMouseLeave={(e) => {

@@ -39,7 +39,7 @@ export default function DiscoveryNav() {
             color: "#141414",
             transition: "background 0.22s ease",
           }}
-          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = "rgba(181,150,114,0.06)")}
+          onMouseEnter={e => ((e.currentTarget as HTMLElement).style.background = "rgba(166,124,61,0.06)")}
           onMouseLeave={e => ((e.currentTarget as HTMLElement).style.background = "transparent")}
         >
           <span
@@ -65,7 +65,7 @@ export default function DiscoveryNav() {
             >
               {label}
             </span>
-            <span style={{ color: "#B59672", fontSize: "0.75rem", flexShrink: 0, marginLeft: "6px" }}>→</span>
+            <span style={{ color: "#A67C3D", fontSize: "0.75rem", flexShrink: 0, marginLeft: "6px" }}>→</span>
           </span>
         </Link>
       ))}

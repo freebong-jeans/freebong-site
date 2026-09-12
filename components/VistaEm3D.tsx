@@ -8,7 +8,7 @@ const ModelViewer3D = dynamic(() => import("@/components/ModelViewer3D"), {
   ssr: false,
   loading: () => (
     <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", background: "#F5F3F0" }}>
-      <div style={{ width: "36px", height: "36px", border: "2px solid #e8e3dc", borderTopColor: "#B59672", borderRadius: "50%", animation: "fbg3d-spin 1s linear infinite" }} />
+      <div style={{ width: "36px", height: "36px", border: "2px solid #e8e3dc", borderTopColor: "#A67C3D", borderRadius: "50%", animation: "fbg3d-spin 1s linear infinite" }} />
     </div>
   ),
 });
@@ -36,15 +36,15 @@ export default function VistaEm3D() {
 
           {/* Info */}
           <div>
-            <p style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#B59672", marginBottom: "12px", fontFamily: "'Helvetica Neue', Helvetica, sans-serif" }}>
+            <p style={{ fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "#A67C3D", marginBottom: "12px", fontFamily: "'Helvetica Neue', Helvetica, sans-serif" }}>
               Experiência 3D
             </p>
             <h2 style={{ fontFamily: "'Helvetica Neue', Helvetica, sans-serif", fontWeight: 900, fontStyle: "italic", fontSize: "clamp(2rem,4.5vw,3.6rem)", letterSpacing: "-0.03em", lineHeight: 1.02, textTransform: "uppercase", color: "#141414", marginBottom: "20px" }}>
               KIT FBG<br />
-              <span style={{ color: "#B59672" }}>COMPLETO</span>
+              <span style={{ color: "#A67C3D" }}>COMPLETO</span>
             </h2>
 
-            <div style={{ width: "32px", height: "2px", background: "#B59672", marginBottom: "20px" }} />
+            <div style={{ width: "32px", height: "2px", background: "#A67C3D", marginBottom: "20px" }} />
 
             <p style={{ fontSize: "0.88rem", lineHeight: 1.75, color: "rgba(0,0,0,0.5)", maxWidth: "380px", marginBottom: "24px", fontFamily: "'Helvetica Neue', Helvetica, sans-serif" }}>
               Calça, jaqueta, blusa e cueca FBG: o outfit completo em visualização 3D interativa. Arraste para ver cada detalhe do tecido, costura e acabamento premium.
@@ -71,7 +71,7 @@ export default function VistaEm3D() {
               <p style={{ fontFamily: "'Helvetica Neue', Helvetica, sans-serif", fontWeight: 900, fontSize: "2.2rem", letterSpacing: "-0.03em", color: "#141414", lineHeight: 1 }}>
                 R$ 899<span style={{ fontSize: "1.1rem", color: "rgba(0,0,0,0.4)" }}>,90</span>
               </p>
-              <p style={{ fontSize: "0.68rem", color: "#B59672", fontWeight: 600, marginTop: "4px", fontFamily: "'Helvetica Neue', Helvetica, sans-serif" }}>Economize R$ 149,60 no kit</p>
+              <p style={{ fontSize: "0.68rem", color: "#A67C3D", fontWeight: 600, marginTop: "4px", fontFamily: "'Helvetica Neue', Helvetica, sans-serif" }}>Economize R$ 149,60 no kit</p>
             </div>
 
             {/* CTAs */}
@@ -79,7 +79,7 @@ export default function VistaEm3D() {
               <Link
                 href="/colecao"
                 style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", gap: "8px", padding: "14px 32px", background: "#F1EFEA", color: "#0E0E0E", border: "1px solid #F1EFEA", fontSize: "0.72rem", fontWeight: 700, letterSpacing: "0.14em", textTransform: "uppercase", textDecoration: "none", fontFamily: "'Helvetica Neue', Helvetica, sans-serif", transition: "background 0.2s, border-color 0.2s" }}
-                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "#B59672"; (e.currentTarget as HTMLElement).style.borderColor = "#B59672"; }}
+                onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = "#A67C3D"; (e.currentTarget as HTMLElement).style.borderColor = "#A67C3D"; }}
                 onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = "#F1EFEA"; (e.currentTarget as HTMLElement).style.borderColor = "#F1EFEA"; }}
               >
                 Montar meu Kit →
