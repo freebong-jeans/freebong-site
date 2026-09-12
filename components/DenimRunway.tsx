@@ -11,7 +11,6 @@
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useProducts } from "@/lib/hooks/useProducts";
 
 /* Looks do desfile — fotos 4K do ensaio oficial (pasta Fotos/),
    mapeadas por peça. Processadas para web em /images/campaign. */
@@ -65,16 +64,16 @@ export default function DenimRunway() {
   const [isMobile, setIsMobile] = useState(false);
   const touchRef = useRef({ startX: 0, startY: 0 });
 
-  /* As fotos do ensaio continuam sendo material da marca; o nome, o preco e
-     o link de cada card vem da loja, entao nenhum card leva para uma peca
-     que nao existe mais. */
-  const { products } = useProducts();
-  const items = RUNWAY_PHOTOS
-    .map((src, i) => {
-      const p = products[i];
-      return p ? { ...p, runwayImg: { src } } : null;
-    })
-    .filter((p): p is NonNullable<typeof p> => Boolean(p));
+  /* Lookbook: as fotos do ensaio sao da marca e mostram o look inteiro
+     (jaqueta + calca, por exemplo). Por isso o card nao anuncia uma peca
+     especifica - anunciar levava a rotular uma foto de jaqueta como
+     "Calca Cargo". Quem quiser comprar segue para a colecao. */
+  const items = RUNWAY_PHOTOS.map((src, i) => ({
+    id: `look-${i + 1}`,
+    numero: String(i + 1).padStart(2, "0"),
+    runwayImg: { src },
+    alt: `Look ${i + 1} da coleção FBG Junho 2026`,
+  }));
   const n = items.length;
 
   useEffect(() => {
@@ -134,20 +133,11 @@ export default function DenimRunway() {
 
   if (!current) return null;
 
-  const price = parseFloat(current.variants[0]?.price ?? "0").toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-  const refSlug = current.tags[current.tags.length - 1] ?? "";
-  const [refPrefix, ...refRest] = refSlug.toUpperCase().split("-");
-  const refLabel = refRest.length ? `${refPrefix} ${refRest.join("-")}` : refPrefix;
-  /* primeira frase da descrição + composição extraída */
-  const blurb = current.description.split(". ")[0].replace(/\.$/, "") + ".";
-  const compMatch = current.description.match(/Composição: ([^.]+)\./);
-  const composicao = compMatch ? compMatch[1] : null;
 
   /* ── Mobile carousel ── */
   if (isMobile && !reduced) {
     const mc = items[mobileIdx];
     if (!mc) return null;
-    const mPrice = parseFloat(mc.variants[0]?.price ?? "0").toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
     return (
       <section
         style={{ background: "#F5F5F3" }}
@@ -159,7 +149,7 @@ export default function DenimRunway() {
           {mc.runwayImg && (
             <Image
               src={mc.runwayImg.src}
-              alt={mc.title}
+              alt={mc.alt}
               fill
               priority
               sizes="100vw"
@@ -208,7 +198,7 @@ export default function DenimRunway() {
               fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
             }}
           >
-            {mc.productType}
+            Jeans Collection · Junho 2026
           </span>
           <h3
             style={{
@@ -222,22 +212,11 @@ export default function DenimRunway() {
               margin: "0 0 16px",
             }}
           >
-            {mc.title.replace(/\s*\(.*\)\s*/, "")}
+            Look {mc.numero}
           </h3>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "18px", marginBottom: "24px" }}>
-            <span
-              style={{
-                fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
-                fontWeight: 800,
-                fontSize: "1.15rem",
-                color: "#B59672",
-                letterSpacing: "-0.01em",
-              }}
-            >
-              {mPrice}
-            </span>
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", marginBottom: "24px" }}>
             <Link
-              href={`/produtos/${mc.handle}`}
+              href="/colecao"
               style={{
                 fontSize: "0.55rem",
                 fontWeight: 700,
@@ -250,7 +229,7 @@ export default function DenimRunway() {
                 fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
               }}
             >
-              Ver peça
+              Ver coleção
             </Link>
           </div>
 
@@ -303,11 +282,11 @@ export default function DenimRunway() {
         <div style={{ textAlign: "center", marginBottom: "32px" }}><Eyebrow /></div>
         <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(200px,1fr))", gap: "14px", maxWidth: "1100px", margin: "0 auto" }}>
           {items.map(pd => (
-            <Link key={pd.handle} href={`/produtos/${pd.handle}`} style={{ textDecoration: "none" }}>
+            <Link key={pd.id} href="/colecao" style={{ textDecoration: "none" }}>
               <div style={{ position: "relative", aspectRatio: "3/4" }}>
-                {pd.images[0] && <Image src={pd.images[0].src} alt={pd.title} fill style={{ objectFit: "cover" }} sizes="25vw" />}
+                <Image src={pd.runwayImg.src} alt={pd.alt} fill style={{ objectFit: "cover" }} sizes="25vw" />
               </div>
-              <p style={{ color: "#141414", fontSize: "0.75rem", fontWeight: 700, marginTop: "8px", fontFamily: "'Helvetica Neue', Helvetica, sans-serif" }}>{pd.title}</p>
+              <p style={{ color: "#141414", fontSize: "0.75rem", fontWeight: 700, marginTop: "8px", fontFamily: "'Helvetica Neue', Helvetica, sans-serif" }}>Look {pd.numero}</p>
             </Link>
           ))}
         </div>
@@ -414,7 +393,7 @@ export default function DenimRunway() {
 
               return (
                 <div
-                  key={pd.handle}
+                  key={pd.id}
                   style={{
                     position: "absolute",
                     inset: 0,
@@ -442,7 +421,7 @@ export default function DenimRunway() {
                   >
                     <Image
                       src={img.src}
-                      alt={pd.title}
+                      alt={pd.alt}
                       fill
                       sizes="(max-width: 900px) 76vw, 32vw"
                       priority
@@ -512,7 +491,7 @@ export default function DenimRunway() {
                 fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
               }}
             >
-              {current.productType} · {refLabel}
+              Jeans Collection · Junho 2026
             </span>
             <h3
               style={{
@@ -526,7 +505,7 @@ export default function DenimRunway() {
                 margin: 0,
               }}
             >
-              {current.title.replace(/\s*\(.*\)\s*/, "")}
+              Look {current.numero}
             </h3>
             <p
               className="rw-blurb"
@@ -539,73 +518,31 @@ export default function DenimRunway() {
                 fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
               }}
             >
-              {blurb}
+              Denim premium, desde 2013.
             </p>
-            {composicao && (
-              <span
-                style={{
-                  display: "inline-block",
-                  marginTop: "10px",
-                  padding: "6px 10px",
-                  border: "1px solid rgba(0,0,0,0.14)",
-                  fontSize: "0.55rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.14em",
-                  textTransform: "uppercase",
-                  color: "rgba(0,0,0,0.5)",
-                  fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
-                }}
-              >
-                {composicao}
-              </span>
-            )}
             <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: "16px", marginTop: "14px", flexWrap: "wrap" }} className="rw-cta-row">
-              <span style={{ fontFamily: "'Helvetica Neue', Helvetica, sans-serif", fontWeight: 800, fontSize: "clamp(0.95rem, 1.6vw, 1.2rem)", color: "#B59672" }}>
-                {price}
-              </span>
               <Link
-                href={`/produtos/${current.handle}`}
+                href="/colecao"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "8px",
+                  padding: "11px 20px",
+                  background: "#0E0E0E",
+                  color: "#FFFFFF",
                   fontSize: "0.6rem",
                   fontWeight: 700,
-                  letterSpacing: "0.18em",
+                  letterSpacing: "0.16em",
                   textTransform: "uppercase",
-                  color: "#141414",
                   textDecoration: "none",
-                  borderBottom: "1.5px solid rgba(181,150,114,0.6)",
-                  paddingBottom: "3px",
                   fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
                 }}
               >
-                Ver peça
+                Ver coleção
                 <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                   <path d="M5 12h14M12 5l7 7-7 7" />
                 </svg>
               </Link>
-              {textIdx === n - 1 && (
-                <Link
-                  href="/colecao"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "8px",
-                    padding: "11px 20px",
-                    background: "#0E0E0E",
-                    color: "#FFFFFF",
-                    fontSize: "0.6rem",
-                    fontWeight: 700,
-                    letterSpacing: "0.16em",
-                    textTransform: "uppercase",
-                    textDecoration: "none",
-                    fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
-                  }}
-                >
-                  Coleção completa
-                </Link>
-              )}
             </div>
           </div>
         </div>
