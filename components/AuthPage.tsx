@@ -38,13 +38,13 @@ function FloatInput({
         style={{
           width: "100%",
           padding: "22px 16px 8px",
-          border: `1.5px solid ${focused ? "#A67C3D" : "rgba(0,0,0,0.12)"}`,
+          border: `1.5px solid ${focused ? "#B0864A" : "rgba(0,0,0,0.12)"}`,
           borderRadius: "6px",
           fontSize: "0.93rem",
           background: "#FFFFFF",
           outline: "none",
           transition: "border-color 0.2s ease, box-shadow 0.2s ease",
-          boxShadow: focused ? "0 0 0 3px rgba(166,124,61,0.12)" : "none",
+          boxShadow: focused ? "0 0 0 3px rgba(176,134,74,0.12)" : "none",
           fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
           color: "#141414",
         }}
@@ -60,7 +60,7 @@ function FloatInput({
           fontWeight: raised ? 700 : 400,
           letterSpacing: raised ? "0.1em" : "normal",
           textTransform: raised ? "uppercase" : "none",
-          color: focused ? "#A67C3D" : "rgba(0,0,0,0.38)",
+          color: focused ? "#B0864A" : "rgba(0,0,0,0.38)",
           transition: "all 0.22s cubic-bezier(0.16,1,0.3,1)",
           pointerEvents: "none",
           fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
@@ -129,7 +129,7 @@ export default function AuthPage() {
           }}>
             FBG
           </span>
-          <span style={{ color: "#A67C3D", fontSize: "0.85rem", marginLeft: "1px" }}>›</span>
+          <span style={{ color: "#B0864A", fontSize: "0.85rem", marginLeft: "1px" }}>›</span>
         </Link>
 
         <Link href="/" style={{
@@ -186,7 +186,7 @@ export default function AuthPage() {
           <ul style={{ listStyle: "none", display: "flex", flexDirection: "column", gap: "16px" }}>
             {BENEFITS.map((b) => (
               <li key={b} style={{ display: "flex", alignItems: "center", gap: "14px" }}>
-                <span style={{ color: "#A67C3D", fontSize: "0.55rem", flexShrink: 0 }}>✦</span>
+                <span style={{ color: "#B0864A", fontSize: "0.55rem", flexShrink: 0 }}>✦</span>
                 <span style={{
                   fontSize: "0.82rem",
                   color: "rgba(0,0,0,0.6)",
@@ -277,12 +277,12 @@ export default function AuthPage() {
             {submitted && (
               <div style={{
                 padding: "28px 24px", textAlign: "center",
-                border: "1px solid rgba(166,124,61,0.25)",
-                borderRadius: "8px", background: "rgba(166,124,61,0.04)",
+                border: "1px solid rgba(176,134,74,0.25)",
+                borderRadius: "8px", background: "rgba(176,134,74,0.04)",
                 marginBottom: "20px",
               }}>
-                <div style={{ width: "44px", height: "44px", borderRadius: "50%", border: "1.5px solid #A67C3D", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px" }}>
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#A67C3D" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                <div style={{ width: "44px", height: "44px", borderRadius: "50%", border: "1.5px solid #B0864A", display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 16px" }}>
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#B0864A" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
                     <polyline points="20 6 9 17 4 12" />
                   </svg>
                 </div>
@@ -346,7 +346,7 @@ export default function AuthPage() {
               {mode === "login" && (
                 <div style={{ textAlign: "right", marginTop: "-10px", marginBottom: "20px" }}>
                   <Link href="/conta/recuperar" style={{
-                    fontSize: "0.7rem", color: "#A67C3D", textDecoration: "none",
+                    fontSize: "0.7rem", color: "#B0864A", textDecoration: "none",
                     fontWeight: 600, letterSpacing: "0.06em",
                     fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                   }}>
@@ -366,7 +366,7 @@ export default function AuthPage() {
                     type="checkbox"
                     checked={news}
                     onChange={(e) => setNews(e.target.checked)}
-                    style={{ width: "15px", height: "15px", accentColor: "#A67C3D", cursor: "pointer", marginTop: "1px", flexShrink: 0 }}
+                    style={{ width: "15px", height: "15px", accentColor: "#B0864A", cursor: "pointer", marginTop: "1px", flexShrink: 0 }}
                   />
                   <span style={{ fontSize: "0.72rem", lineHeight: 1.6, color: "rgba(0,0,0,0.55)", fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif" }}>
                     Quero receber cupons, promoções e novidades exclusivas da FBG
@@ -417,7 +417,7 @@ export default function AuthPage() {
                   onClick={() => switchMode(mode === "login" ? "register" : "login")}
                   style={{
                     background: "none", border: "none", padding: 0,
-                    color: "#A67C3D", fontWeight: 700, fontSize: "0.75rem",
+                    color: "#B0864A", fontWeight: 700, fontSize: "0.75rem",
                     cursor: "pointer", textDecoration: "underline",
                     fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                   }}
@@ -433,9 +433,9 @@ export default function AuthPage() {
                   fontFamily: "'Helvetica Neue', Helvetica, Arial, sans-serif",
                 }}>
                   Ao criar sua conta você concorda com os{" "}
-                  <Link href="/termos" style={{ color: "#A67C3D", textDecoration: "underline" }}>Termos de Uso</Link>{" "}
+                  <Link href="/termos" style={{ color: "#B0864A", textDecoration: "underline" }}>Termos de Uso</Link>{" "}
                   e a{" "}
-                  <Link href="/privacidade" style={{ color: "#A67C3D", textDecoration: "underline" }}>Política de Privacidade</Link>.
+                  <Link href="/privacidade" style={{ color: "#B0864A", textDecoration: "underline" }}>Política de Privacidade</Link>.
                 </p>
               )}
             </form>

@@ -125,7 +125,7 @@ export default function CookieBanner() {
               transition: "background 0.2s ease, color 0.2s ease",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = "#A67C3D";
+              (e.currentTarget as HTMLButtonElement).style.background = "#B0864A";
               (e.currentTarget as HTMLButtonElement).style.color = "#FFFFFF";
             }}
             onMouseLeave={(e) => {

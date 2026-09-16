@@ -111,13 +111,13 @@ export default function ParceirosPage() {
         <div style={{ position: "absolute", inset: 0, background: "linear-gradient(to top, rgba(0,0,0,0.92) 0%, rgba(0,0,0,0.3) 55%, rgba(0,0,0,0.5) 100%)" }} />
 
         <div className="container-fbg" style={{ position: "absolute", inset: 0, display: "flex", flexDirection: "column", justifyContent: "flex-end", paddingBottom: "clamp(36px,6vw,72px)", zIndex: 2 }}>
-          <span style={{ fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.28em", textTransform: "uppercase", color: "#A67C3D", marginBottom: "16px", opacity: heroReady ? 1 : 0, transition: "opacity 0.8s ease 0.1s" }}>
+          <span style={{ fontSize: "0.6rem", fontWeight: 700, letterSpacing: "0.28em", textTransform: "uppercase", color: "#B0864A", marginBottom: "16px", opacity: heroReady ? 1 : 0, transition: "opacity 0.8s ease 0.1s" }}>
             Parceiros FBG
           </span>
 
           <h1 style={{ fontWeight: 900, fontSize: "clamp(2.2rem,6.5vw,5rem)", letterSpacing: "-0.04em", lineHeight: 1.02, textTransform: "uppercase", color: "#FFFFFF", margin: 0, maxWidth: "17ch", textWrap: "balance" }}>
             <MaskLine shown={heroReady} delay={200}>A FBG está</MaskLine>
-            <MaskLine shown={heroReady} delay={320} color="#A67C3D">mais perto do que</MaskLine>
+            <MaskLine shown={heroReady} delay={320} color="#B0864A">mais perto do que</MaskLine>
             <MaskLine shown={heroReady} delay={440}>você imagina.</MaskLine>
           </h1>
 
@@ -133,7 +133,7 @@ export default function ParceirosPage() {
         <div className="container-fbg">
           <div className="fbg-loc-grid">
             <div>
-              <span style={{ display: "block", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: "#A67C3D", marginBottom: "12px" }}>
+              <span style={{ display: "block", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: "#B0864A", marginBottom: "12px" }}>
                 Localizador
               </span>
               <h2 style={{ fontWeight: 900, fontSize: "clamp(1.7rem,3.6vw,2.8rem)", letterSpacing: "-0.035em", lineHeight: 1.04, textTransform: "uppercase", color: "#141414", margin: "0 0 16px", textWrap: "balance" }}>
@@ -193,7 +193,7 @@ export default function ParceirosPage() {
                     minWidth: 0,
                     transition: "border-color 0.25s ease, background 0.25s ease",
                   }}
-                  onFocus={e => { e.currentTarget.style.borderColor = "#A67C3D"; e.currentTarget.style.background = "#FFFFFF"; }}
+                  onFocus={e => { e.currentTarget.style.borderColor = "#B0864A"; e.currentTarget.style.background = "#FFFFFF"; }}
                   onBlur={e => { e.currentTarget.style.borderColor = "transparent"; e.currentTarget.style.background = "#F4F3F1"; }}
                 />
               </div>
@@ -220,7 +220,7 @@ export default function ParceirosPage() {
                 }}
                 onMouseEnter={e => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.background = "#A67C3D";
+                  el.style.background = "#B0864A";
                   el.style.transform = "translateY(-2px)";
                 }}
                 onMouseLeave={e => {
@@ -247,7 +247,7 @@ export default function ParceirosPage() {
       {/* ══ PRESENÇA NACIONAL ══ */}
       <section style={{ padding: "clamp(48px,7vw,88px) 0", borderBottom: "1px solid rgba(10,10,10,0.08)" }}>
         <div className="container-fbg">
-          <span style={{ display: "block", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: "#A67C3D", marginBottom: "12px" }}>
+          <span style={{ display: "block", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: "#B0864A", marginBottom: "12px" }}>
             Presença nacional
           </span>
           <h2 style={{ fontWeight: 900, fontSize: "clamp(1.6rem,3.4vw,2.6rem)", letterSpacing: "-0.035em", textTransform: "uppercase", color: "#141414", margin: "0 0 clamp(28px,4vw,44px)" }}>
@@ -266,7 +266,7 @@ export default function ParceirosPage() {
       <section style={{ padding: "clamp(48px,7vw,88px) 0", background: "#FFFFFF" }}>
         <div className="container-fbg">
           <div style={{ maxWidth: "56ch", marginBottom: "clamp(32px,4vw,52px)" }}>
-            <span style={{ display: "block", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: "#A67C3D", marginBottom: "12px" }}>
+            <span style={{ display: "block", fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.24em", textTransform: "uppercase", color: "#B0864A", marginBottom: "12px" }}>
               Seja parceiro
             </span>
             <h2 style={{ fontWeight: 900, fontSize: "clamp(1.7rem,3.6vw,2.8rem)", letterSpacing: "-0.035em", lineHeight: 1.05, textTransform: "uppercase", color: "#141414", margin: "0 0 16px", textWrap: "balance" }}>
@@ -306,7 +306,7 @@ export default function ParceirosPage() {
               }}
               onMouseEnter={e => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.background = "#A67C3D";
+                el.style.background = "#B0864A";
                 el.style.transform = "translateY(-2px)";
               }}
               onMouseLeave={e => {
@@ -339,7 +339,7 @@ export default function ParceirosPage() {
                 textTransform: "uppercase",
                 transition: "border-color 0.3s ease",
               }}
-              onMouseEnter={e => ((e.currentTarget as HTMLElement).style.borderColor = "#A67C3D")}
+              onMouseEnter={e => ((e.currentTarget as HTMLElement).style.borderColor = "#B0864A")}
               onMouseLeave={e => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(10,10,10,0.18)")}
             >
               Programa de revenda
@@ -425,7 +425,7 @@ function RegiaoCard({ nome, estados, destaque, index }: { nome: string; estados:
         <span style={{ fontWeight: 900, fontSize: "1.1rem", letterSpacing: "-0.02em", textTransform: "uppercase", color: "#141414" }}>
           {nome}
         </span>
-        <span style={{ fontWeight: 800, fontSize: "0.85rem", color: "#A67C3D" }}>
+        <span style={{ fontWeight: 800, fontSize: "0.85rem", color: "#B0864A" }}>
           {estados.length}
         </span>
       </div>
@@ -439,7 +439,7 @@ function RegiaoCard({ nome, estados, destaque, index }: { nome: string; estados:
               fontWeight: 700,
               letterSpacing: "0.08em",
               padding: "4px 8px",
-              background: "rgba(166,124,61,0.12)",
+              background: "rgba(176,134,74,0.12)",
               color: "#8B6F47",
               borderRadius: "3px",
             }}
@@ -480,7 +480,7 @@ function BeneficioCard({ num, title, body, index }: { num: string; title: string
         transition: `opacity 0.7s ease ${index * 100}ms, transform 0.7s cubic-bezier(0.16,1,0.3,1) ${index * 100}ms`,
       }}
     >
-      <span style={{ display: "block", fontWeight: 900, fontSize: "0.85rem", color: "#A67C3D", marginBottom: "12px", letterSpacing: "0.06em" }}>
+      <span style={{ display: "block", fontWeight: 900, fontSize: "0.85rem", color: "#B0864A", marginBottom: "12px", letterSpacing: "0.06em" }}>
         {num}
       </span>
       <h3 style={{ fontWeight: 900, fontSize: "1.05rem", letterSpacing: "-0.02em", textTransform: "uppercase", color: "#141414", margin: "0 0 10px" }}>

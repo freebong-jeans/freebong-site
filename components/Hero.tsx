@@ -96,7 +96,7 @@ export default function Hero() {
               fontWeight: 700,
               letterSpacing: "0.26em",
               textTransform: "uppercase",
-              color: "#A67C3D",
+              color: "#B0864A",
               marginBottom: "18px",
               opacity: ready ? 1 : 0,
               transform: ready ? "none" : "translateY(10px)",
@@ -124,7 +124,7 @@ export default function Hero() {
             }}
           >
             Liberdade que{" "}
-            <span style={{ color: "#A67C3D" }}>se veste.</span>
+            <span style={{ color: "#B0864A" }}>se veste.</span>
           </h1>
 
           <p
@@ -173,7 +173,7 @@ export default function Hero() {
                   transition: "background 0.25s ease",
                 }}
                 onMouseEnter={(e) => {
-                  (e.currentTarget as HTMLElement).style.background = "#A67C3D";
+                  (e.currentTarget as HTMLElement).style.background = "#B0864A";
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLElement).style.background = "#fff";
@@ -206,8 +206,8 @@ export default function Hero() {
                 }}
                 onMouseEnter={(e) => {
                   const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "#A67C3D";
-                  el.style.background = "rgba(166,124,61,0.12)";
+                  el.style.borderColor = "#B0864A";
+                  el.style.background = "rgba(176,134,74,0.12)";
                 }}
                 onMouseLeave={(e) => {
                   const el = e.currentTarget as HTMLElement;
@@ -280,7 +280,7 @@ export default function Hero() {
               display: block;
               font-size: 0.58rem;
               font-weight: 600;
-              color: #A67C3D;
+              color: #B0864A;
               letter-spacing: 0.1em;
               text-transform: uppercase;
               font-family: 'Helvetica Neue', Helvetica, sans-serif;
@@ -322,10 +322,10 @@ export default function Hero() {
             }
           }
           .hro-cta-btn:hover {
-            background: #A67C3D;
+            background: #B0864A;
             color: #111111;
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(166,124,61,0.35);
+            box-shadow: 0 8px 24px rgba(176,134,74,0.35);
           }
           .hro-header {
             max-width: 1440px;
@@ -357,7 +357,7 @@ export default function Hero() {
               fontWeight: 700,
               letterSpacing: "0.22em",
               textTransform: "uppercase",
-              color: "#A67C3D",
+              color: "#B0864A",
               marginBottom: "8px",
               fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
             }}>
@@ -421,7 +421,7 @@ export default function Hero() {
                     const overlay = el.querySelector(".prod-overlay") as HTMLElement;
                     if (imgEl) imgEl.style.transform = "scale(1.06)";
                     if (overlay) overlay.style.opacity = "1";
-                    el.style.borderColor = "rgba(166,124,61,0.4)";
+                    el.style.borderColor = "rgba(176,134,74,0.4)";
                     el.style.transform = "translateY(-2px)";
                   }}
                   onMouseLeave={e => {

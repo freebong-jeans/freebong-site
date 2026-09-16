@@ -127,7 +127,7 @@ export default function Navbar() {
                     relative text-[11px] font-semibold tracking-[0.18em] uppercase
                     transition-colors duration-300
                     after:absolute after:bottom-0 after:left-0
-                    after:h-[1px] after:w-0 after:bg-[#A67C3D]
+                    after:h-[1px] after:w-0 after:bg-[#B0864A]
                     after:transition-[width] after:duration-300
                     hover:after:w-full
                     text-white hover:text-white
@@ -158,7 +158,7 @@ export default function Navbar() {
             <Link
               href="/conta"
               aria-label="Minha conta"
-              className={`flex transition-colors duration-300 ${onContaPage ? "text-[#A67C3D]" : "text-white/70 hover:text-white"}`}
+              className={`flex transition-colors duration-300 ${onContaPage ? "text-[#B0864A]" : "text-white/70 hover:text-white"}`}
             >
               <PersonIcon />
             </Link>
@@ -266,7 +266,7 @@ export default function Navbar() {
                   <span style={{ fontFamily: "'Helvetica Neue', Helvetica, sans-serif", fontWeight: 900, fontSize: "1.1rem", letterSpacing: "-0.02em", textTransform: "uppercase", color: "#111" }}>
                     {cat.label}
                   </span>
-                  <span style={{ fontFamily: "'Helvetica Neue', Helvetica, sans-serif", fontWeight: 700, fontSize: "0.6rem", letterSpacing: "0.14em", color: "#A67C3D" }}>
+                  <span style={{ fontFamily: "'Helvetica Neue', Helvetica, sans-serif", fontWeight: 700, fontSize: "0.6rem", letterSpacing: "0.14em", color: "#B0864A" }}>
                     {cat.count} REFS
                   </span>
                 </div>
@@ -303,7 +303,7 @@ export default function Navbar() {
                   fontWeight: 700,
                   letterSpacing: "0.18em",
                   textTransform: "uppercase",
-                  color: "#A67C3D",
+                  color: "#B0864A",
                   textDecoration: "none",
                   fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
                 }}
@@ -382,7 +382,7 @@ export default function Navbar() {
                 fontSize: "0.58rem",
                 fontWeight: 700,
                 letterSpacing: "0.2em",
-                color: "#A67C3D",
+                color: "#B0864A",
                 fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
               }}>
                 {String(i + 1).padStart(2, "0")}

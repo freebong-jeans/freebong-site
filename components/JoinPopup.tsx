@@ -103,7 +103,7 @@ export default function JoinPopup() {
             }}
           >
             FBG
-            <span style={{ color: "#A67C3D", fontSize: "0.5em", verticalAlign: "super", fontStyle: "normal" }}>›</span>
+            <span style={{ color: "#B0864A", fontSize: "0.5em", verticalAlign: "super", fontStyle: "normal" }}>›</span>
           </span>
         </div>
 
@@ -185,7 +185,7 @@ export default function JoinPopup() {
               transition: "color 0.2s ease",
             }}
             onMouseEnter={(e) => {
-              (e.currentTarget as HTMLButtonElement).style.background = "#A67C3D";
+              (e.currentTarget as HTMLButtonElement).style.background = "#B0864A";
             }}
             onMouseLeave={(e) => {
               (e.currentTarget as HTMLButtonElement).style.background = "#6B2033";
@@ -203,7 +203,7 @@ export default function JoinPopup() {
             left: 0,
             right: 0,
             height: "2px",
-            background: "linear-gradient(90deg, #A67C3D, #6B2033)",
+            background: "linear-gradient(90deg, #B0864A, #6B2033)",
           }}
         />
       </div>

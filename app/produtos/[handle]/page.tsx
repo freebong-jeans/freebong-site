@@ -158,7 +158,7 @@ export default function ProdutoPage() {
           <p style={{ fontSize: "0.65rem", letterSpacing: "0.22em", color: "rgba(10,10,10,0.25)", textTransform: "uppercase", marginBottom: "16px" }}>
             Produto não encontrado
           </p>
-          <Link href="/" style={{ color: "#A67C3D", fontSize: "0.8rem", textDecoration: "none", letterSpacing: "0.1em" }}>
+          <Link href="/" style={{ color: "#B0864A", fontSize: "0.8rem", textDecoration: "none", letterSpacing: "0.1em" }}>
             ← Voltar para a coleção
           </Link>
         </div>
@@ -170,6 +170,23 @@ export default function ProdutoPage() {
   const available = selectedVariant?.available ?? false;
   const norm      = (t: string) => t.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
   const isNew     = product.tags.some((t) => norm(t) === "novidade");
+
+  /* A variante da Shopify vem como "Cor / Tamanho" ("Preto / 40"). Mostrar
+     isso inteiro dentro do quadradinho fica ilegivel, entao cada opcao ganha
+     a sua propria fileira: a de cor so aparece quando a peca tem mais de uma. */
+  const duasOpcoes = (product.variants[0]?.selectedOptions.length ?? 0) >= 2;
+  const corDe = (v: ShopifyProductVariant) =>
+    duasOpcoes ? (v.selectedOptions[0]?.value ?? "") : "";
+  const tamanhoDe = (v: ShopifyProductVariant) =>
+    v.selectedOptions.length
+      ? (v.selectedOptions[v.selectedOptions.length - 1]?.value ?? v.title)
+      : v.title;
+
+  const cores = Array.from(new Set(product.variants.map(corDe))).filter(Boolean);
+  const corAtual = selectedVariant ? corDe(selectedVariant) : cores[0] ?? "";
+  const variantesVisiveis = cores.length > 1
+    ? product.variants.filter((v) => corDe(v) === corAtual)
+    : product.variants;
 
   /* Ficha técnica extraída da descrição do catálogo */
   /* Ficha tecnica montada com o que a Shopify realmente tem cadastrado.
@@ -188,7 +205,6 @@ export default function ProdutoPage() {
     { label: "Modelagem",       value: modLabel },
     { label: "Disponibilidade", value: pronta ? "Pronta entrega" : "" },
     { label: "Composição",      value: composicao ?? "" },
-    { label: "Grade",           value: product.variants.map(v => v.title).join(" · ") },
     { label: "Categoria",       value: product.productType },
   ].filter((s) => s.value);
 
@@ -249,7 +265,7 @@ export default function ProdutoPage() {
                 fontWeight: 800,
                 letterSpacing: "0.24em",
                 textTransform: "uppercase",
-                color: "#A67C3D",
+                color: "#B0864A",
                 display: "block",
                 marginBottom: "16px",
               }}
@@ -278,7 +294,7 @@ export default function ProdutoPage() {
               style={{
                 width: "36px",
                 height: "2px",
-                background: "linear-gradient(90deg,#A67C3D,#6B2033)",
+                background: "linear-gradient(90deg,#B0864A,#6B2033)",
                 marginBottom: "20px",
               }}
             />
@@ -290,7 +306,7 @@ export default function ProdutoPage() {
                   fontSize: "clamp(2rem,3.5vw,2.8rem)",
                   fontWeight: 900,
                   letterSpacing: "-0.02em",
-                  color: available ? "#A67C3D" : "rgba(10,10,10,0.3)",
+                  color: available ? "#B0864A" : "rgba(10,10,10,0.3)",
                   display: "block",
                 }}
               >
@@ -333,8 +349,8 @@ export default function ProdutoPage() {
                 >
                   Escolha seu tamanho
                   {selectedVariant && (
-                    <span style={{ color: "#A67C3D", marginLeft: "12px", fontSize: "1.1em" }}>
-                      {selectedVariant.title}
+                    <span style={{ color: "#B0864A", marginLeft: "12px", fontSize: "1.1em" }}>
+                      {tamanhoDe(selectedVariant)}
                     </span>
                   )}
                 </span>
@@ -344,7 +360,7 @@ export default function ProdutoPage() {
                     fontSize: "clamp(0.65rem, 1.8vw, 0.8rem)",
                     letterSpacing: "0.12em",
                     textTransform: "uppercase",
-                    color: "#A67C3D",
+                    color: "#B0864A",
                     textDecoration: "underline",
                     textUnderlineOffset: "4px",
                     transition: "opacity 0.2s",
@@ -361,8 +377,43 @@ export default function ProdutoPage() {
                 </button>
               </div>
 
+              {cores.length > 1 && (
+                <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>
+                  {cores.map((c) => {
+                    const ativa = c === corAtual;
+                    const disponivel = product.variants.some((v) => corDe(v) === c && v.available);
+                    return (
+                      <button
+                        key={c}
+                        onClick={() => {
+                          const alvo =
+                            product.variants.find((v) => corDe(v) === c && v.available) ??
+                            product.variants.find((v) => corDe(v) === c);
+                          if (alvo) setSelectedVariant(alvo);
+                        }}
+                        disabled={!disponivel}
+                        style={{
+                          padding: "9px 16px",
+                          border: `1.5px solid ${ativa ? "#B0864A" : "rgba(10,10,10,0.15)"}`,
+                          background: ativa ? "rgba(176,134,74,0.1)" : "transparent",
+                          color: !disponivel ? "rgba(10,10,10,0.25)" : ativa ? "#B0864A" : "rgba(10,10,10,0.65)",
+                          fontSize: "0.76rem",
+                          fontWeight: 600,
+                          fontFamily: "inherit",
+                          borderRadius: "4px",
+                          cursor: disponivel ? "pointer" : "not-allowed",
+                          transition: "all 0.25s ease",
+                        }}
+                      >
+                        {c}
+                      </button>
+                    );
+                  })}
+                </div>
+              )}
+
               <div style={{ display: "flex", gap: "12px", flexWrap: "wrap" }}>
-                {product.variants.map((v) => {
+                {variantesVisiveis.map((v) => {
                   const isSelected = v.id === selectedVariant?.id;
                   return (
                     <button
@@ -372,14 +423,14 @@ export default function ProdutoPage() {
                       style={{
                         width: "clamp(52px, 12vw, 72px)",
                         height: "clamp(52px, 12vw, 72px)",
-                        border: `2px solid ${isSelected ? "#A67C3D" : v.available ? "rgba(10,10,10,0.15)" : "rgba(10,10,10,0.08)"}`,
+                        border: `2px solid ${isSelected ? "#B0864A" : v.available ? "rgba(10,10,10,0.15)" : "rgba(10,10,10,0.08)"}`,
                         background: isSelected
-                          ? "linear-gradient(135deg, rgba(166,124,61,0.15) 0%, rgba(107,32,51,0.08) 100%)"
+                          ? "linear-gradient(135deg, rgba(176,134,74,0.15) 0%, rgba(107,32,51,0.08) 100%)"
                           : "rgba(10,10,10,0.02)",
                         color: !v.available
                           ? "rgba(10,10,10,0.12)"
                           : isSelected
-                          ? "#A67C3D"
+                          ? "#B0864A"
                           : "rgba(10,10,10,0.6)",
                         fontSize: "clamp(0.9rem, 2.5vw, 1.1rem)",
                         fontWeight: 800,
@@ -388,13 +439,13 @@ export default function ProdutoPage() {
                         transition: "all 0.3s cubic-bezier(0.16,1,0.3,1)",
                         position: "relative",
                         borderRadius: "4px",
-                        boxShadow: isSelected ? "0 8px 20px rgba(166,124,61,0.25)" : "none",
+                        boxShadow: isSelected ? "0 8px 20px rgba(176,134,74,0.25)" : "none",
                       }}
                       onMouseEnter={e => {
                         if (v.available && !isSelected) {
-                          (e.currentTarget as HTMLElement).style.borderColor = "#A67C3D";
+                          (e.currentTarget as HTMLElement).style.borderColor = "#B0864A";
                           (e.currentTarget as HTMLElement).style.color = "#0E0E0E";
-                          (e.currentTarget as HTMLElement).style.background = "rgba(166,124,61,0.08)";
+                          (e.currentTarget as HTMLElement).style.background = "rgba(176,134,74,0.08)";
                           (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
                         }
                       }}
@@ -407,7 +458,7 @@ export default function ProdutoPage() {
                         }
                       }}
                     >
-                      {v.title}
+                      {tamanhoDe(v)}
                       {/* Linha cruzada para esgotado */}
                       {!v.available && (
                         <div
@@ -476,10 +527,10 @@ export default function ProdutoPage() {
                 style={{
                   width: "100%",
                   padding: "19px",
-                  background: addedToCart ? "rgba(166,124,61,0.12)" : "transparent",
-                  border: `1.5px solid ${addedToCart ? "#A67C3D" : available ? "rgba(10,10,10,0.18)" : "rgba(10,10,10,0.08)"}`,
+                  background: addedToCart ? "rgba(176,134,74,0.12)" : "transparent",
+                  border: `1.5px solid ${addedToCart ? "#B0864A" : available ? "rgba(10,10,10,0.18)" : "rgba(10,10,10,0.08)"}`,
                   borderRadius: "4px",
-                  color: addedToCart ? "#A67C3D" : available ? "#141414" : "rgba(10,10,10,0.25)",
+                  color: addedToCart ? "#B0864A" : available ? "#141414" : "rgba(10,10,10,0.25)",
                   fontFamily: "inherit",
                   fontSize: "clamp(0.7rem, 1.4vw, 0.78rem)",
                   fontWeight: 700,
@@ -494,7 +545,7 @@ export default function ProdutoPage() {
                 }}
                 onMouseEnter={e => {
                   if (!available || addedToCart) return;
-                  (e.currentTarget as HTMLElement).style.borderColor = "#A67C3D";
+                  (e.currentTarget as HTMLElement).style.borderColor = "#B0864A";
                 }}
                 onMouseLeave={e => {
                   if (addedToCart) return;
@@ -667,7 +718,7 @@ export default function ProdutoPage() {
                 fontWeight: 700,
                 letterSpacing: "0.18em",
                 textTransform: "uppercase",
-                color: "#A67C3D",
+                color: "#B0864A",
                 textDecoration: "none",
                 display: "flex",
                 alignItems: "center",
@@ -699,7 +750,7 @@ export default function ProdutoPage() {
                   }}
                   onMouseEnter={e => {
                     const el = e.currentTarget as HTMLElement;
-                    el.style.borderColor = "rgba(166,124,61,0.4)";
+                    el.style.borderColor = "rgba(176,134,74,0.4)";
                     el.style.transform = "translateY(-3px)";
                     const im = el.querySelector(".fbg-rel-img") as HTMLElement | null;
                     if (im) im.style.transform = "scale(1.06)";
@@ -735,7 +786,7 @@ export default function ProdutoPage() {
                             fontStyle: "italic",
                             fontSize: "clamp(1.8rem,4vw,2.8rem)",
                             letterSpacing: "-0.04em",
-                            WebkitTextStroke: "1px rgba(166,124,61,0.18)",
+                            WebkitTextStroke: "1px rgba(176,134,74,0.18)",
                             color: "transparent",
                           }}
                         >

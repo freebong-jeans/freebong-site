@@ -127,7 +127,7 @@ export default function CollectionHero({ total = 0 }: { total?: number }) {
               fontWeight: 700,
               letterSpacing: "0.28em",
               textTransform: "uppercase",
-              color: "#A67C3D",
+              color: "#B0864A",
               marginBottom: "16px",
               opacity: ready ? 1 : 0,
               transition: "opacity 0.8s ease 0.15s",
@@ -156,7 +156,7 @@ export default function CollectionHero({ total = 0 }: { total?: number }) {
               </span>
             </span>
             <span style={{ display: "block", overflow: "hidden", paddingBottom: "0.06em" }}>
-              <span style={{ display: "block", color: "#A67C3D", transform: ready ? "translateY(0)" : "translateY(106%)", transition: "transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.32s" }}>
+              <span style={{ display: "block", color: "#B0864A", transform: ready ? "translateY(0)" : "translateY(106%)", transition: "transform 0.9s cubic-bezier(0.16,1,0.3,1) 0.32s" }}>
                 Um padrão só.
               </span>
             </span>
@@ -195,7 +195,7 @@ export default function CollectionHero({ total = 0 }: { total?: number }) {
               }}
               onMouseEnter={e => {
                 const el = e.currentTarget as HTMLElement;
-                el.style.background = "#A67C3D";
+                el.style.background = "#B0864A";
                 el.style.transform = "translateY(-2px)";
               }}
               onMouseLeave={e => {
@@ -314,7 +314,7 @@ function DoorCard({
         }}
       >
         <div>
-          <span style={{ display: "block", fontFamily: FONT, fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#A67C3D", marginBottom: "6px" }}>
+          <span style={{ display: "block", fontFamily: FONT, fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#B0864A", marginBottom: "6px" }}>
             {count} referências
           </span>
           <span style={{ fontFamily: FONT, fontWeight: 900, fontSize: "clamp(1.3rem,2.4vw,2rem)", letterSpacing: "-0.03em", textTransform: "uppercase", color: "#FFFFFF", lineHeight: 1 }}>

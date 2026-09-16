@@ -11,7 +11,7 @@
   --color-fbg-white:       #FFFFFF;
   --color-fbg-indigo:      #2D3748; /* Mood Indigo — Pantone 19-4024 TCX */
   --color-fbg-red:         #6B2033; /* Red Pear   — Pantone 19-1526 TCX */
-  --color-fbg-sand:        #A67C3D; /* Cuban Sand — Pantone 16-1334 TCX */
+  --color-fbg-sand:        #B0864A; /* Cuban Sand — Pantone 16-1334 TCX */
 
   /* Tons de cinza para uso interno (backgrounds, borders) */
   --color-fbg-gray-100:    #F5F5F3;
@@ -72,7 +72,7 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(100deg, transparent 32%, rgba(166,124,61, 0.12) 50%, transparent 68%);
+  background: linear-gradient(100deg, transparent 32%, rgba(176,134,74, 0.12) 50%, transparent 68%);
   transform: translateX(-100%);
   animation: fbgShimmer 1.6s ease-in-out infinite;
 }
@@ -136,7 +136,7 @@ h1, h2, h3, h4, h5, h6 {
   background: #F0F0F0;
 }
 ::-webkit-scrollbar-thumb {
-  background: #A67C3D;
+  background: #B0864A;
   border-radius: 2px;
 }
 ::-webkit-scrollbar-thumb:hover {
@@ -268,20 +268,20 @@ button {
 /* Glow pulse — para elementos premium */
 @keyframes glowPulse {
   0%, 100% {
-    box-shadow: 0 0 20px rgba(166,124,61,0.3), 0 0 40px rgba(166,124,61,0.1);
+    box-shadow: 0 0 20px rgba(176,134,74,0.3), 0 0 40px rgba(176,134,74,0.1);
   }
   50% {
-    box-shadow: 0 0 30px rgba(166,124,61,0.5), 0 0 60px rgba(166,124,61,0.2);
+    box-shadow: 0 0 30px rgba(176,134,74,0.5), 0 0 60px rgba(176,134,74,0.2);
   }
 }
 
 /* Text glow — para headlines */
 @keyframes textGlow {
   0%, 100% {
-    text-shadow: 0 0 10px rgba(166,124,61,0), 0 0 20px rgba(166,124,61,0);
+    text-shadow: 0 0 10px rgba(176,134,74,0), 0 0 20px rgba(176,134,74,0);
   }
   50% {
-    text-shadow: 0 0 10px rgba(166,124,61,0.3), 0 0 20px rgba(166,124,61,0.15);
+    text-shadow: 0 0 10px rgba(176,134,74,0.3), 0 0 20px rgba(176,134,74,0.15);
   }
 }
 
@@ -364,7 +364,7 @@ button {
 
 .btn-premium:hover {
   transform: translateY(-3px);
-  box-shadow: 0 20px 40px rgba(166,124,61,0.3);
+  box-shadow: 0 20px 40px rgba(176,134,74,0.3);
 }
 
 /* Ripple effect overlay */
@@ -389,7 +389,7 @@ button {
 
 .text-premium:hover {
   letter-spacing: 0.05em;
-  filter: drop-shadow(0 0 8px rgba(166,124,61,0.4));
+  filter: drop-shadow(0 0 8px rgba(176,134,74,0.4));
 }
 
 /* ── Scroll reveal ────────────────────────────────────────────– */

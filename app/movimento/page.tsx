@@ -154,7 +154,7 @@ function VelocityMarquee() {
             padding: "0 1.6rem",
           }}>
             {item}
-            <span style={{ color: "#A67C3D", opacity: 0.4, margin: "0 0.6rem" }}>✦</span>
+            <span style={{ color: "#B0864A", opacity: 0.4, margin: "0 0.6rem" }}>✦</span>
           </span>
         ))}
       </div>
@@ -167,7 +167,7 @@ const PILARES = [
   {
     num: "01",
     title: "Liberdade",
-    color: "#A67C3D",
+    color: "#B0864A",
     image: "/images/products/DSC00877.jpg",
     body: "A asa não é apenas símbolo. É essência. A FBG nasceu do princípio de que moda não aprisiona. Ela liberta quem tem coragem de ser original.",
   },
@@ -342,7 +342,7 @@ const TIMELINE = [
     year: "2013",
     title: "O Começo",
     body: "A FBG nasce em Minas Gerais com uma convicção: o mercado premium não pertence só às grandes marcas. Qualidade e identidade podem vir de quem realmente vive o produto.",
-    color: "#A67C3D",
+    color: "#B0864A",
   },
   {
     year: "2017",
@@ -360,7 +360,7 @@ const TIMELINE = [
     year: "2026",
     title: "Rebranding + Digital",
     body: "Parceria com Baza Brands para consolidar a identidade visual. Novo site. Nova era. O mesmo propósito desde o início: construir padrão, não seguir tendência.",
-    color: "#A67C3D",
+    color: "#B0864A",
   },
 ];
 
@@ -479,14 +479,14 @@ export default function MovimentoPage() {
             <div style={{ width: "1px", height: "40px", background: "rgba(255,255,255,0.15)" }} />
             <Link href="#manifesto" style={{
               fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.22em",
-              textTransform: "uppercase", color: "#A67C3D",
+              textTransform: "uppercase", color: "#B0864A",
               fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
               textDecoration: "none",
               display: "flex", alignItems: "center", gap: "8px",
             }}>
               Descobrir
               <svg width="16" height="16" viewBox="0 0 16 16" fill="none" style={{ animation: "bounce-down 1.6s ease-in-out infinite" }}>
-                <path d="M8 3v10M3 9l5 5 5-5" stroke="#A67C3D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M8 3v10M3 9l5 5 5-5" stroke="#B0864A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
             </Link>
           </div>
@@ -512,7 +512,7 @@ export default function MovimentoPage() {
             alignItems: "center",
             justifyContent: "center",
             cursor: "pointer",
-            color: muted ? "rgba(255,255,255,0.45)" : "#A67C3D",
+            color: muted ? "rgba(255,255,255,0.45)" : "#B0864A",
             transition: "color 0.25s ease, border-color 0.25s ease, background 0.25s ease",
             opacity: heroLoaded ? 1 : 0,
           }}
@@ -567,7 +567,7 @@ export default function MovimentoPage() {
           <SplitChar text="SE CRIA." delay={250} inView={s1.inView}
             style={hn({ fontSize: DISPLAY, color: "#0E0E0E" })} />
           <SplitChar text="SE CONSTRÓI." delay={340} inView={s1.inView}
-            style={hn({ fontSize: DISPLAY, color: "#A67C3D", paddingLeft: "clamp(1.5rem,6vw,8rem)" })} />
+            style={hn({ fontSize: DISPLAY, color: "#B0864A", paddingLeft: "clamp(1.5rem,6vw,8rem)" })} />
         </div>
 
         <FadeUp inView={s1.inView} delay={560}>
@@ -632,7 +632,7 @@ export default function MovimentoPage() {
             <div style={{ overflow: "hidden" }}>
               <span style={{
                 ...hn({ fontSize: DISPLAY, display: "inline-block" }),
-                background: "linear-gradient(100deg, #0E0E0E 0%, #A67C3D 55%, #6B2033 100%)",
+                background: "linear-gradient(100deg, #0E0E0E 0%, #B0864A 55%, #6B2033 100%)",
                 WebkitBackgroundClip: "text",
                 WebkitTextFillColor: "transparent",
                 backgroundClip: "text",
@@ -642,7 +642,7 @@ export default function MovimentoPage() {
             </div>
             <div style={{ overflow: "hidden" }}>
               <span style={{
-                ...hn({ fontSize: DISPLAY, color: "#A67C3D", display: "inline-block" }),
+                ...hn({ fontSize: DISPLAY, color: "#B0864A", display: "inline-block" }),
                 transform: s3.inView ? "translateY(0)" : "translateY(105%)",
                 transition: "transform 0.75s cubic-bezier(0.16,1,0.3,1) 560ms",
               }}>CONSTRUIR PADRÃO.</span>
@@ -651,7 +651,7 @@ export default function MovimentoPage() {
 
           <div style={{
             width: "36px", height: "2px",
-            background: "linear-gradient(90deg,#A67C3D,#6B2033)",
+            background: "linear-gradient(90deg,#B0864A,#6B2033)",
             marginTop: "clamp(28px,4vw,44px)",
             transformOrigin: "left",
             transform: s3.inView ? "scaleX(1)" : "scaleX(0)",
@@ -729,7 +729,7 @@ export default function MovimentoPage() {
             <SplitChar text="ORIGINAL COMO" delay={100} inView={s5.inView}
               style={hn({ fontSize: "clamp(2rem,5vw,4.8rem)", color: "#0E0E0E", textAlign: "center" })} />
             <SplitChar text="QUEM VESTE." delay={260} inView={s5.inView}
-              style={hn({ fontSize: "clamp(2rem,5vw,4.8rem)", color: "#A67C3D", textAlign: "center" })} />
+              style={hn({ fontSize: "clamp(2rem,5vw,4.8rem)", color: "#B0864A", textAlign: "center" })} />
           </div>
 
           <FadeUp inView={s5.inView} delay={520}>
@@ -746,7 +746,7 @@ export default function MovimentoPage() {
                 className="group relative inline-flex items-center justify-center gap-3 overflow-hidden"
                 style={{ padding: "15px 36px", background: "#6B2033" }}
               >
-                <span className="absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" style={{ background: "#A67C3D" }} />
+                <span className="absolute inset-0 -translate-x-full group-hover:translate-x-0 transition-transform duration-500 ease-out" style={{ background: "#B0864A" }} />
                 <span className="relative text-[11px] font-black tracking-[0.25em] uppercase text-white group-hover:text-black transition-colors duration-200"
                   style={{ fontFamily: "'Helvetica Neue', Helvetica, sans-serif" }}>
                   Explorar Coleção

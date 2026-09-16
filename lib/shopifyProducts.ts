@@ -14,10 +14,16 @@ export interface ShopifyImage {
   altText: string | null;
 }
 
+export interface ShopifyOptionSelecionada {
+  name: string;
+  value: string;
+}
+
 export interface ShopifyProductVariant {
   id: string;
   title: string;
   sku: string;
+  selectedOptions: ShopifyOptionSelecionada[];
   price: string;
   available: boolean;
   image: ShopifyImage | null;
@@ -53,6 +59,7 @@ const PRODUCT_FIELDS = `
         title
         sku
         availableForSale
+        selectedOptions { name value }
         price { amount }
         image { id url altText }
       }
@@ -97,6 +104,10 @@ function mapProduct(node: any): ShopifyProduct {
         id: String(v.id ?? ""),
         title: v.title ?? "",
         sku: v.sku ?? "",
+        selectedOptions: (v.selectedOptions ?? []).map((o: any) => ({
+          name: String(o?.name ?? ""),
+          value: String(o?.value ?? ""),
+        })),
         price: String(v.price?.amount ?? "0"),
         available: Boolean(v.availableForSale),
         image: v.image ? mapImage(v.image) : null,

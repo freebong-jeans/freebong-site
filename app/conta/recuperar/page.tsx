@@ -18,25 +18,25 @@ export default function RecuperarPage() {
             fontWeight: 900, fontStyle: "italic", fontSize: "1.6rem",
             letterSpacing: "-0.04em", color: "#141414",
           }}>
-            FBG<span style={{ color: "#A67C3D" }}>›</span>
+            FBG<span style={{ color: "#B0864A" }}>›</span>
           </span>
         </Link>
 
         {/* Icon */}
         <div style={{
           width: "64px", height: "64px", borderRadius: "50%",
-          border: "1.5px solid rgba(166,124,61,0.3)",
+          border: "1.5px solid rgba(176,134,74,0.3)",
           display: "flex", alignItems: "center", justifyContent: "center",
           margin: "0 auto 24px",
-          background: "rgba(166,124,61,0.06)",
+          background: "rgba(176,134,74,0.06)",
         }}>
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#A67C3D" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#B0864A" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
             <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
             <path d="M7 11V7a5 5 0 0 1 10 0v4" />
           </svg>
         </div>
 
-        <span style={{ fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#A67C3D", display: "block", marginBottom: "12px" }}>
+        <span style={{ fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#B0864A", display: "block", marginBottom: "12px" }}>
           Em breve
         </span>
 
@@ -67,14 +67,14 @@ export default function RecuperarPage() {
             transition: "background 0.2s ease",
             marginBottom: "20px",
           }}
-          onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#A67C3D"}
+          onMouseEnter={e => (e.currentTarget as HTMLElement).style.background = "#B0864A"}
           onMouseLeave={e => (e.currentTarget as HTMLElement).style.background = "#F1EFEA"}
         >
           Falar no WhatsApp
         </a>
 
         <div style={{ marginTop: "16px" }}>
-          <Link href="/conta" style={{ fontSize: "0.72rem", color: "#A67C3D", textDecoration: "none", fontWeight: 600 }}>
+          <Link href="/conta" style={{ fontSize: "0.72rem", color: "#B0864A", textDecoration: "none", fontWeight: 600 }}>
             ← Voltar ao login
           </Link>
         </div>

@@ -289,7 +289,7 @@ export default function OMovimento() {
               inView={s1.inView}
               style={hn({
                 fontSize: DISPLAY,
-                color: "#A67C3D",
+                color: "#B0864A",
                 paddingLeft: "clamp(0.75rem,3vw,4rem)",
               })}
             />
@@ -318,7 +318,7 @@ export default function OMovimento() {
                   alignItems: "center",
                   gap: "8px",
                   padding: "clamp(12px, 1.8vw, 16px) clamp(28px, 4vw, 48px)",
-                  background: "linear-gradient(135deg, #A67C3D 0%, #8B6F47 100%)",
+                  background: "linear-gradient(135deg, #B0864A 0%, #8B6F47 100%)",
                   color: "#0E0E0E",
                   textDecoration: "none",
                   borderRadius: "3px",
@@ -327,16 +327,16 @@ export default function OMovimento() {
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
                   transition: "all 0.3s ease",
-                  boxShadow: "0 8px 24px rgba(166,124,61,0.25)",
+                  boxShadow: "0 8px 24px rgba(176,134,74,0.25)",
                   whiteSpace: "nowrap",
                 }}
                 onMouseEnter={(e) => {
                   (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
-                  (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 32px rgba(166,124,61,0.35)";
+                  (e.currentTarget as HTMLElement).style.boxShadow = "0 12px 32px rgba(176,134,74,0.35)";
                 }}
                 onMouseLeave={(e) => {
                   (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
-                  (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(166,124,61,0.25)";
+                  (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(176,134,74,0.25)";
                 }}
               >
                 Ver Coleção
@@ -438,7 +438,7 @@ export default function OMovimento() {
                   }}
                 >
                   {stat.value}
-                  <span style={{ fontSize: "0.5em", color: "#A67C3D", marginLeft: "2px" }}>{stat.suffix}</span>
+                  <span style={{ fontSize: "0.5em", color: "#B0864A", marginLeft: "2px" }}>{stat.suffix}</span>
                 </div>
                 <p style={{ fontSize: "0.8rem", color: "rgba(0,0,0,0.6)", margin: "0", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em" }}>
                   {stat.label}
@@ -481,7 +481,7 @@ export default function OMovimento() {
               inView={s5.inView}
               style={hn({
                 fontSize: "clamp(1.8rem,3.5vw,2.8rem)",
-                color: "#A67C3D",
+                color: "#B0864A",
               })}
             />
           </div>

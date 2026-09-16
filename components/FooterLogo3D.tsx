@@ -39,7 +39,7 @@ export default function FooterLogo3D() {
     .map((_, i) => {
       const d = i + 1;
       const gold = i < 3;
-      const c = gold ? `rgba(166,124,61,${0.5 - i * 0.12})` : `rgba(0,0,0,${0.55 - (i - 3) * 0.06})`;
+      const c = gold ? `rgba(176,134,74,${0.5 - i * 0.12})` : `rgba(0,0,0,${0.55 - (i - 3) * 0.06})`;
       return `${d * 1.5}px ${d * 2}px 0 ${c}`;
     })
     .join(", ");

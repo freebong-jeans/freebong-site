@@ -238,7 +238,7 @@ export default function LookBuilder() {
     fillLight.position.set(-3.5, 2.5, 2.5);
     scene.add(fillLight);
 
-    const rimLight = new THREE.DirectionalLight("#A67C3D", 1.1);
+    const rimLight = new THREE.DirectionalLight("#B0864A", 1.1);
     rimLight.position.set(0, 2.5, -5);
     scene.add(rimLight);
 
@@ -329,7 +329,7 @@ export default function LookBuilder() {
           flexShrink: 0,
           padding: "clamp(12px, 3vw, 20px) clamp(16px, 4vw, 24px)",
           paddingTop: "clamp(96px, 13vw, 112px)",
-          borderBottom: "1px solid rgba(166,124,61,0.1)",
+          borderBottom: "1px solid rgba(176,134,74,0.1)",
           background: "rgba(0,0,0,0.3)",
           backdropFilter: "blur(8px)",
           display: "flex",
@@ -338,7 +338,7 @@ export default function LookBuilder() {
         }}
       >
         <div>
-          <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.2em", color: "#A67C3D", margin: 0, textTransform: "uppercase" }}>
+          <p style={{ fontSize: "0.65rem", fontWeight: 700, letterSpacing: "0.2em", color: "#B0864A", margin: 0, textTransform: "uppercase" }}>
             Monte Seu Look
           </p>
           <h1 style={{ fontWeight: 900, fontSize: "clamp(1.2rem, 2.5vw, 1.8rem)", color: "#fff", margin: "4px 0 0", lineHeight: 1 }}>
@@ -349,9 +349,9 @@ export default function LookBuilder() {
           onClick={() => setShowMobileMenu(!showMobileMenu)}
           style={{
             display: "none",
-            background: "rgba(166,124,61,0.12)",
-            border: "1px solid rgba(166,124,61,0.25)",
-            color: "#A67C3D",
+            background: "rgba(176,134,74,0.12)",
+            border: "1px solid rgba(176,134,74,0.25)",
+            color: "#B0864A",
             width: "40px",
             height: "40px",
             borderRadius: "4px",
@@ -374,12 +374,12 @@ export default function LookBuilder() {
             display: "none",
             flexDirection: "column",
             background: "rgba(0,0,0,0.2)",
-            borderRight: "1px solid rgba(166,124,61,0.1)",
+            borderRight: "1px solid rgba(176,134,74,0.1)",
           }}
           className="hidden md:flex md:w-80"
         >
           {/* Category Tabs */}
-          <div style={{ display: "flex", gap: "4px", padding: "8px", borderBottom: "1px solid rgba(166,124,61,0.1)", background: "rgba(0,0,0,0.1)" }}>
+          <div style={{ display: "flex", gap: "4px", padding: "8px", borderBottom: "1px solid rgba(176,134,74,0.1)", background: "rgba(0,0,0,0.1)" }}>
             {Object.entries(clothingItems).map(([key, cat]) => (
               <button
                 key={key}
@@ -387,10 +387,10 @@ export default function LookBuilder() {
                 style={{
                   flex: 1,
                   padding: "10px 8px",
-                  background: activeCategory === key ? "rgba(166,124,61,0.1)" : "transparent",
-                  border: activeCategory === key ? "1px solid rgba(166,124,61,0.3)" : "1px solid transparent",
+                  background: activeCategory === key ? "rgba(176,134,74,0.1)" : "transparent",
+                  border: activeCategory === key ? "1px solid rgba(176,134,74,0.3)" : "1px solid transparent",
                   borderRadius: "3px",
-                  color: activeCategory === key ? "#A67C3D" : cat.available ? "rgba(255,255,255,0.5)" : "rgba(255,255,255,0.2)",
+                  color: activeCategory === key ? "#B0864A" : cat.available ? "rgba(255,255,255,0.5)" : "rgba(255,255,255,0.2)",
                   fontSize: "0.65rem",
                   fontWeight: 600,
                   textTransform: "uppercase",
@@ -420,8 +420,8 @@ export default function LookBuilder() {
                     gap: "10px",
                     padding: "8px 10px",
                     marginBottom: "6px",
-                    background: isSelected ? "rgba(166,124,61,0.12)" : "rgba(255,255,255,0.02)",
-                    border: isSelected ? "1px solid rgba(166,124,61,0.3)" : "1px solid rgba(255,255,255,0.05)",
+                    background: isSelected ? "rgba(176,134,74,0.12)" : "rgba(255,255,255,0.02)",
+                    border: isSelected ? "1px solid rgba(176,134,74,0.3)" : "1px solid rgba(255,255,255,0.05)",
                     borderRadius: "4px",
                     cursor: "pointer",
                     transition: "all 0.2s ease",
@@ -429,7 +429,7 @@ export default function LookBuilder() {
                   onMouseEnter={(e) => {
                     if (!isSelected) {
                       (e.currentTarget as HTMLElement).style.background = "rgba(255,255,255,0.04)";
-                      (e.currentTarget as HTMLElement).style.borderColor = "rgba(166,124,61,0.2)";
+                      (e.currentTarget as HTMLElement).style.borderColor = "rgba(176,134,74,0.2)";
                     }
                   }}
                   onMouseLeave={(e) => {
@@ -452,7 +452,7 @@ export default function LookBuilder() {
                     <p style={{ fontSize: "0.7rem", fontWeight: 600, color: isSelected ? "#fff" : "rgba(255,255,255,0.6)", margin: 0, textTransform: "uppercase", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
                       {p.title}
                     </p>
-                    <p style={{ fontSize: "0.65rem", color: "#A67C3D", margin: "2px 0 0", fontWeight: 600 }}>
+                    <p style={{ fontSize: "0.65rem", color: "#B0864A", margin: "2px 0 0", fontWeight: 600 }}>
                       {parseFloat(p.variants[0]?.price ?? "0").toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
                     </p>
                   </div>
@@ -481,7 +481,7 @@ export default function LookBuilder() {
             display: "none",
             flexDirection: "column",
             background: "rgba(0,0,0,0.2)",
-            borderLeft: "1px solid rgba(166,124,61,0.1)",
+            borderLeft: "1px solid rgba(176,134,74,0.1)",
             padding: "clamp(8px, 2vw, 16px)",
           }}
           className="hidden lg:flex"
@@ -492,7 +492,7 @@ export default function LookBuilder() {
                 <h3 style={{ fontSize: "0.9rem", fontWeight: 700, color: "#fff", margin: 0, marginBottom: "6px", textTransform: "uppercase" }}>
                   {currentProduct.title}
                 </h3>
-                <p style={{ fontSize: "1.3rem", fontWeight: 900, color: "#A67C3D", margin: 0 }}>
+                <p style={{ fontSize: "1.3rem", fontWeight: 900, color: "#B0864A", margin: 0 }}>
                   {price}
                 </p>
               </div>
@@ -501,13 +501,13 @@ export default function LookBuilder() {
                 {currentProduct.description}
               </p>
 
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", padding: "10px", background: "rgba(166,124,61,0.08)", borderRadius: "3px", border: "1px solid rgba(166,124,61,0.1)", fontSize: "0.7rem" }}>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "8px", padding: "10px", background: "rgba(176,134,74,0.08)", borderRadius: "3px", border: "1px solid rgba(176,134,74,0.1)", fontSize: "0.7rem" }}>
                 <div>
-                  <p style={{ fontWeight: 600, color: "#A67C3D", margin: 0, textTransform: "uppercase" }}>Material</p>
+                  <p style={{ fontWeight: 600, color: "#B0864A", margin: 0, textTransform: "uppercase" }}>Material</p>
                   <p style={{ color: "rgba(255,255,255,0.6)", margin: "2px 0 0" }}>100% Algodão</p>
                 </div>
                 <div>
-                  <p style={{ fontWeight: 600, color: "#A67C3D", margin: 0, textTransform: "uppercase" }}>Corte</p>
+                  <p style={{ fontWeight: 600, color: "#B0864A", margin: 0, textTransform: "uppercase" }}>Corte</p>
                   <p style={{ color: "rgba(255,255,255,0.6)", margin: "2px 0 0" }}>Slim Fit</p>
                 </div>
               </div>
@@ -516,7 +516,7 @@ export default function LookBuilder() {
                 style={{
                   width: "100%",
                   padding: "12px",
-                  background: "linear-gradient(135deg, #A67C3D 0%, #8B6F47 100%)",
+                  background: "linear-gradient(135deg, #B0864A 0%, #8B6F47 100%)",
                   border: "none",
                   borderRadius: "3px",
                   color: "#000",
@@ -550,7 +550,7 @@ export default function LookBuilder() {
             left: 0,
             right: 0,
             background: "rgba(0,0,0,0.95)",
-            borderTop: "1px solid rgba(166,124,61,0.2)",
+            borderTop: "1px solid rgba(176,134,74,0.2)",
             maxHeight: "50vh",
             overflowY: "auto",
             zIndex: 50,
@@ -575,8 +575,8 @@ export default function LookBuilder() {
                     alignItems: "center",
                     gap: "8px",
                     padding: "10px",
-                    background: isSelected ? "rgba(166,124,61,0.15)" : "rgba(255,255,255,0.03)",
-                    border: isSelected ? "1px solid rgba(166,124,61,0.4)" : "1px solid rgba(255,255,255,0.1)",
+                    background: isSelected ? "rgba(176,134,74,0.15)" : "rgba(255,255,255,0.03)",
+                    border: isSelected ? "1px solid rgba(176,134,74,0.4)" : "1px solid rgba(255,255,255,0.1)",
                     borderRadius: "4px",
                     cursor: "pointer",
                   }}
@@ -595,14 +595,14 @@ export default function LookBuilder() {
               <h3 style={{ fontSize: "0.9rem", fontWeight: 700, color: "#fff", margin: "0 0 4px", textTransform: "uppercase" }}>
                 {currentProduct.title}
               </h3>
-              <p style={{ fontSize: "1.2rem", fontWeight: 900, color: "#A67C3D", margin: "0 0 12px" }}>
+              <p style={{ fontSize: "1.2rem", fontWeight: 900, color: "#B0864A", margin: "0 0 12px" }}>
                 {price}
               </p>
               <button
                 style={{
                   width: "100%",
                   padding: "12px",
-                  background: "linear-gradient(135deg, #A67C3D 0%, #8B6F47 100%)",
+                  background: "linear-gradient(135deg, #B0864A 0%, #8B6F47 100%)",
                   border: "none",
                   borderRadius: "3px",
                   color: "#000",

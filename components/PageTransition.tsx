@@ -122,7 +122,7 @@ export function PageTransitionProvider({ children }: { children: React.ReactNode
             right: 0,
             height: "2px",
             background:
-              "linear-gradient(90deg, transparent 0%, #A67C3D 30%, #6B2033 70%, transparent 100%)",
+              "linear-gradient(90deg, transparent 0%, #B0864A 30%, #6B2033 70%, transparent 100%)",
           }}
         />
         <div
@@ -133,7 +133,7 @@ export function PageTransitionProvider({ children }: { children: React.ReactNode
             right: 0,
             height: "2px",
             background:
-              "linear-gradient(90deg, transparent 0%, #6B2033 30%, #A67C3D 70%, transparent 100%)",
+              "linear-gradient(90deg, transparent 0%, #6B2033 30%, #B0864A 70%, transparent 100%)",
           }}
         />
 
@@ -172,7 +172,7 @@ export function PageTransitionProvider({ children }: { children: React.ReactNode
               fontSize: "0.55rem",
               letterSpacing: "0.34em",
               textTransform: "uppercase",
-              color: "#A67C3D",
+              color: "#B0864A",
               opacity: 0,
             }}
           >

@@ -37,7 +37,7 @@ export default function GlobeViz() {
         .width(sz)
         .height(sz)
         .globeImageUrl("//cdn.jsdelivr.net/npm/three-globe/example/img/earth-night.jpg")
-        .arcColor(() => "#A67C3D")
+        .arcColor(() => "#B0864A")
         .arcDashLength(ARC_REL_LEN)
         .arcDashGap(2)
         .arcDashInitialGap(1)
@@ -46,7 +46,7 @@ export default function GlobeViz() {
         .ringColor((d: any) =>
           d.__hq
             ? (t: number) => `rgba(34,197,94,${0.8 * (1 - t)})`
-            : (t: number) => `rgba(166,124,61,${1 - t})`
+            : (t: number) => `rgba(176,134,74,${1 - t})`
         )
         .ringMaxRadius(RINGS_MAX_R)
         .ringPropagationSpeed(RING_PROPAGATION_SPEED)

@@ -171,12 +171,12 @@ export default function ProductGallery3D({
         {/* Badges */}
         <div style={{ position: "absolute", top: "16px", left: "16px", display: "flex", flexDirection: "column", gap: "6px", zIndex: 5, pointerEvents: "none" }}>
           {isNew && (
-            <span style={{ fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "5px 10px", background: "#A67C3D", color: "#0E0E0E" }}>
+            <span style={{ fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "5px 10px", background: "#B0864A", color: "#0E0E0E" }}>
               Novidade
             </span>
           )}
           {isProgramacao && (
-            <span style={{ fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "5px 10px", background: "rgba(0,0,0,0.75)", color: "#A67C3D", border: "1px solid rgba(166,124,61,0.4)" }}>
+            <span style={{ fontSize: "0.55rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", padding: "5px 10px", background: "rgba(0,0,0,0.75)", color: "#B0864A", border: "1px solid rgba(176,134,74,0.4)" }}>
               Programação
             </span>
           )}
@@ -234,7 +234,7 @@ export default function ProductGallery3D({
                   width: i === active ? "18px" : "6px",
                   height: "3px",
                   borderRadius: "2px",
-                  background: i === active ? "#A67C3D" : "rgba(10,10,10,0.35)",
+                  background: i === active ? "#B0864A" : "rgba(10,10,10,0.35)",
                   transition: "all 0.3s cubic-bezier(0.16,1,0.3,1)",
                 }}
               />
@@ -262,7 +262,7 @@ export default function ProductGallery3D({
               style={{
                 width: "72px",
                 aspectRatio: "3/4",
-                border: `1px solid ${i === active ? "#A67C3D" : "rgba(10,10,10,0.1)"}`,
+                border: `1px solid ${i === active ? "#B0864A" : "rgba(10,10,10,0.1)"}`,
                 opacity: i === active ? 1 : 0.65,
                 padding: 0,
                 cursor: "pointer",
@@ -322,8 +322,8 @@ function GalleryArrow({ dir, disabled, onClick }: { dir: "prev" | "next"; disabl
       }}
       onMouseEnter={e => {
         if (!disabled) {
-          (e.currentTarget as HTMLElement).style.background = "rgba(166,124,61,0.85)";
-          (e.currentTarget as HTMLElement).style.borderColor = "#A67C3D";
+          (e.currentTarget as HTMLElement).style.background = "rgba(176,134,74,0.85)";
+          (e.currentTarget as HTMLElement).style.borderColor = "#B0864A";
         }
       }}
       onMouseLeave={e => {

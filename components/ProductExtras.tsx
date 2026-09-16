@@ -74,14 +74,14 @@ export function SizeGuideModal({
           maxHeight: "86vh",
           overflowY: "auto",
           background: "#FFFFFF",
-          border: "1px solid rgba(166,124,61,0.25)",
+          border: "1px solid rgba(176,134,74,0.25)",
           padding: "clamp(24px,4vw,40px)",
           animation: "fbgCascade 0.35s cubic-bezier(0.16,1,0.3,1)",
         }}
       >
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: "20px" }}>
           <div>
-            <span style={{ fontSize: "0.56rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#A67C3D", display: "block", marginBottom: "8px", fontFamily: FONT }}>
+            <span style={{ fontSize: "0.56rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#B0864A", display: "block", marginBottom: "8px", fontFamily: FONT }}>
               Guia de medidas
             </span>
             <h3 style={{ fontFamily: FONT, fontWeight: 900, fontSize: "1.4rem", letterSpacing: "-0.02em", textTransform: "uppercase", color: "#141414", margin: 0 }}>
@@ -99,11 +99,11 @@ export function SizeGuideModal({
           </button>
         </div>
 
-        <div style={{ padding: "14px 16px", background: "rgba(166,124,61,0.08)", border: "1px solid rgba(166,124,61,0.2)", marginBottom: "22px" }}>
+        <div style={{ padding: "14px 16px", background: "rgba(176,134,74,0.08)", border: "1px solid rgba(176,134,74,0.2)", marginBottom: "22px" }}>
           <span style={{ fontSize: "0.56rem", fontWeight: 700, letterSpacing: "0.18em", textTransform: "uppercase", color: "rgba(10,10,10,0.45)", display: "block", marginBottom: "6px", fontFamily: FONT }}>
             Grade disponível
           </span>
-          <span style={{ fontFamily: FONT, fontWeight: 800, fontSize: "1.05rem", color: "#A67C3D", letterSpacing: "0.06em" }}>{sizes}</span>
+          <span style={{ fontFamily: FONT, fontWeight: 800, fontSize: "1.05rem", color: "#B0864A", letterSpacing: "0.06em" }}>{sizes}</span>
         </div>
 
         <span style={{ fontSize: "0.56rem", fontWeight: 700, letterSpacing: "0.2em", textTransform: "uppercase", color: "rgba(10,10,10,0.35)", display: "block", marginBottom: "14px", fontFamily: FONT }}>
@@ -111,7 +111,7 @@ export function SizeGuideModal({
         </span>
         {steps.map((s, i) => (
           <div key={s.t} style={{ display: "flex", gap: "14px", marginBottom: "14px", alignItems: "flex-start" }}>
-            <span style={{ flexShrink: 0, width: "24px", height: "24px", borderRadius: "50%", border: "1px solid rgba(166,124,61,0.5)", color: "#A67C3D", fontSize: "0.62rem", fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: FONT }}>
+            <span style={{ flexShrink: 0, width: "24px", height: "24px", borderRadius: "50%", border: "1px solid rgba(176,134,74,0.5)", color: "#B0864A", fontSize: "0.62rem", fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center", fontFamily: FONT }}>
               {i + 1}
             </span>
             <div>
@@ -121,7 +121,7 @@ export function SizeGuideModal({
           </div>
         ))}
 
-        <div style={{ marginTop: "20px", padding: "14px 16px", background: "rgba(10,10,10,0.03)", borderLeft: "3px solid #A67C3D" }}>
+        <div style={{ marginTop: "20px", padding: "14px 16px", background: "rgba(10,10,10,0.03)", borderLeft: "3px solid #B0864A" }}>
           <span style={{ fontSize: "0.8rem", lineHeight: 1.7, color: "rgba(10,10,10,0.6)" }}>{fitTip}</span>
         </div>
 
@@ -137,8 +137,8 @@ export function SizeGuideModal({
             marginTop: "22px",
             padding: "14px",
             background: "transparent",
-            border: "1px solid rgba(166,124,61,0.4)",
-            color: "#A67C3D",
+            border: "1px solid rgba(176,134,74,0.4)",
+            color: "#B0864A",
             fontSize: "0.62rem",
             fontWeight: 700,
             letterSpacing: "0.18em",
@@ -213,7 +213,7 @@ export function TrustBadges() {
             border: "1px solid rgba(10,10,10,0.06)",
           }}
         >
-          <span style={{ color: "#A67C3D" }}>{it.icon}</span>
+          <span style={{ color: "#B0864A" }}>{it.icon}</span>
           <span style={{ fontFamily: FONT, fontWeight: 700, fontSize: "0.62rem", letterSpacing: "0.06em", textTransform: "uppercase", color: "rgba(10,10,10,0.75)", lineHeight: 1.4 }}>
             {it.label}
           </span>
@@ -280,7 +280,7 @@ export function CompleteLook({
   return (
     <div style={{ borderTop: "1px solid rgba(10,10,10,0.06)", padding: "clamp(40px,6vw,72px) 0" }}>
       <div className="container-fbg" style={{ padding: "0 1.5rem" }}>
-        <span style={{ fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#A67C3D", display: "block", marginBottom: "6px", fontFamily: FONT }}>
+        <span style={{ fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#B0864A", display: "block", marginBottom: "6px", fontFamily: FONT }}>
           Complete o look
         </span>
         <h2 style={{ fontFamily: FONT, fontWeight: 900, fontStyle: "italic", fontSize: "clamp(1.4rem,2.8vw,2rem)", letterSpacing: "-0.03em", textTransform: "uppercase", color: "#0E0E0E", margin: "0 0 clamp(20px,3vw,32px)", lineHeight: 1 }}>
@@ -295,7 +295,7 @@ export function CompleteLook({
               <div
                 key={p.handle}
                 style={{ background: "#FFFFFF", border: "1px solid rgba(10,10,10,0.06)", overflow: "hidden", transition: "border-color 0.3s ease" }}
-                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(166,124,61,0.4)")}
+                onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(176,134,74,0.4)")}
                 onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.borderColor = "rgba(10,10,10,0.06)")}
               >
                 <button
@@ -309,7 +309,7 @@ export function CompleteLook({
                 <div style={{ padding: "14px 16px 16px" }}>
                   <p style={{ fontFamily: FONT, fontWeight: 700, fontSize: "0.82rem", color: "#0E0E0E", margin: "0 0 4px", lineHeight: 1.3 }}>{p.title}</p>
                   <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginTop: "8px" }}>
-                    <span style={{ fontFamily: FONT, fontWeight: 800, fontSize: "0.85rem", color: "#A67C3D" }}>{price}</span>
+                    <span style={{ fontFamily: FONT, fontWeight: 800, fontSize: "0.85rem", color: "#B0864A" }}>{price}</span>
                     <button
                       onClick={() => onAdd(p)}
                       style={{
@@ -318,8 +318,8 @@ export function CompleteLook({
                         gap: "6px",
                         padding: "8px 14px",
                         background: "transparent",
-                        border: "1px solid rgba(166,124,61,0.5)",
-                        color: "#A67C3D",
+                        border: "1px solid rgba(176,134,74,0.5)",
+                        color: "#B0864A",
                         fontSize: "0.56rem",
                         fontWeight: 700,
                         letterSpacing: "0.14em",
@@ -330,13 +330,13 @@ export function CompleteLook({
                       }}
                       onMouseEnter={(e) => {
                         const el = e.currentTarget as HTMLElement;
-                        el.style.background = "#A67C3D";
+                        el.style.background = "#B0864A";
                         el.style.color = "#FFFFFF";
                       }}
                       onMouseLeave={(e) => {
                         const el = e.currentTarget as HTMLElement;
                         el.style.background = "transparent";
-                        el.style.color = "#A67C3D";
+                        el.style.color = "#B0864A";
                       }}
                     >
                       + Adicionar
@@ -383,7 +383,7 @@ export function FloatingWhatsApp({ product }: { product: ShopifyProduct }) {
         gap: "10px",
         padding: "13px 16px",
         background: "#FFFFFF",
-        border: "1px solid rgba(166,124,61,0.5)",
+        border: "1px solid rgba(176,134,74,0.5)",
         borderRadius: "100px",
         color: "#141414",
         textDecoration: "none",
@@ -393,7 +393,7 @@ export function FloatingWhatsApp({ product }: { product: ShopifyProduct }) {
         transition: "transform 0.6s cubic-bezier(0.16,1,0.3,1), opacity 0.5s ease",
       }}
     >
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="#A67C3D">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="#B0864A">
         <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.67-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.076 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421-7.403h-.004a9.87 9.87 0 00-4.841 1.26c-1.514.867-2.748 2.052-3.626 3.477-.878 1.425-1.337 3.012-1.336 4.635.001 1.592.315 3.138.926 4.56l-1.056 3.842 3.95-1.041c1.334.716 2.823 1.095 4.337 1.096h.004c5.098 0 9.237-4.14 9.237-9.238 0-2.468-.987-4.787-2.779-6.532-1.79-1.745-4.112-2.706-6.612-2.706" />
       </svg>
       <span

@@ -17,7 +17,7 @@ export default function TickerBar() {
     <div
       style={{
         background: "#6B2033",
-        borderBottom: "1px solid rgba(166,124,61,0.22)",
+        borderBottom: "1px solid rgba(176,134,74,0.22)",
         overflow: "hidden",
         height: "40px",
         display: "flex",

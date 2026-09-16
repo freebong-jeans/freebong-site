@@ -51,7 +51,7 @@ export default function EssenceSection() {
             fontWeight: 900,
             letterSpacing: "0.24em",
             textTransform: "uppercase",
-            color: "#A67C3D",
+            color: "#B0864A",
             fontFamily: FONT,
             opacity: shown ? 1 : 0,
             transition: "opacity 0.8s ease",
@@ -94,7 +94,7 @@ export default function EssenceSection() {
                   backgroundClip: "text",
                   WebkitTextFillColor: "transparent",
                   /* cor sólida por baixo enquanto a foto não domina */
-                  color: i === 1 ? "#A67C3D" : "#141414",
+                  color: i === 1 ? "#B0864A" : "#141414",
                   filter: hover === i ? "none" : "grayscale(1) contrast(1.15) brightness(0.72)",
                   opacity: hover === i ? 1 : 0.94,
                   transform: shown ? "translateY(0)" : "translateY(108%)",

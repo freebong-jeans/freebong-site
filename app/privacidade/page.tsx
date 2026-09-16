@@ -18,7 +18,7 @@ export default function PrivacidadePage() {
           </Link>
         </nav>
 
-        <span style={{ fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#A67C3D", display: "block", marginBottom: "16px" }}>
+        <span style={{ fontSize: "0.58rem", fontWeight: 700, letterSpacing: "0.22em", textTransform: "uppercase", color: "#B0864A", display: "block", marginBottom: "16px" }}>
           Documento Legal
         </span>
 
@@ -70,10 +70,10 @@ export default function PrivacidadePage() {
           ))}
         </div>
 
-        <div style={{ marginTop: "60px", padding: "28px 32px", background: "#F8F5F0", borderLeft: "3px solid #A67C3D" }}>
+        <div style={{ marginTop: "60px", padding: "28px 32px", background: "#F8F5F0", borderLeft: "3px solid #B0864A" }}>
           <p style={{ fontSize: "0.82rem", color: "rgba(0,0,0,0.6)", lineHeight: 1.7, margin: 0 }}>
             Esta política está em constante atualização. Em caso de dúvidas,{" "}
-            <a href="https://wa.me/message/3ROGXK7TIP7TC1" target="_blank" rel="noopener noreferrer" style={{ color: "#A67C3D", textDecoration: "underline" }}>
+            <a href="https://wa.me/message/3ROGXK7TIP7TC1" target="_blank" rel="noopener noreferrer" style={{ color: "#B0864A", textDecoration: "underline" }}>
               fale conosco pelo WhatsApp
             </a>
             .

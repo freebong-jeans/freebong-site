@@ -187,7 +187,7 @@ export default function Footer() {
                 <button
                   type="submit"
                   style={{
-                    background: "#A67C3D",
+                    background: "#B0864A",
                     border: "none",
                     padding: "14px 20px",
                     cursor: "pointer",
@@ -201,7 +201,7 @@ export default function Footer() {
                     whiteSpace: "nowrap",
                   }}
                   onMouseEnter={(e) => ((e.currentTarget as HTMLElement).style.background = "#c8a882")}
-                  onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#A67C3D")}
+                  onMouseLeave={(e) => ((e.currentTarget as HTMLElement).style.background = "#B0864A")}
                 >
                   Inscrever
                 </button>
