@@ -12,6 +12,7 @@ import ProductGallery3D from "@/components/ProductGallery3D";
 import { SizeGuideModal, TrustBadges, CompleteLook } from "@/components/ProductExtras";
 import { useCart } from "@/context/CartContext";
 import { linkWhatsApp } from "@/lib/whatsapp";
+import { criarCheckoutUrl } from "@/lib/shopifyCheckout";
 
 /* ─── Helpers ──────────────────────────────────────────── */
 function formatPrice(price: string) {
@@ -78,6 +79,8 @@ export default function ProdutoPage() {
   const [selectedVariant, setSelectedVariant] = useState<ShopifyProductVariant | null>(null);
   const [addedToCart, setAddedToCart] = useState(false);
   const [sizeGuideOpen, setSizeGuideOpen] = useState(false);
+  const [indoPagar, setIndoPagar] = useState(false);
+  const [erroPagar, setErroPagar] = useState(false);
 
   /* Seleciona primeiro variant disponível ao carregar */
   useEffect(() => {
@@ -103,9 +106,24 @@ export default function ProdutoPage() {
     setTimeout(() => setAddedToCart(false), 2200);
   }
 
-  /* Comprar agora: monta o pedido e abre o WhatsApp comercial */
-  function handleBuyNow() {
-    if (!selectedVariant || !selectedVariant.available || !product) return;
+  /* Comprar agora: leva direto ao checkout da Shopify, com pagamento. */
+  async function handleBuyNow() {
+    if (!selectedVariant || !selectedVariant.available || !product || indoPagar) return;
+    setIndoPagar(true);
+    setErroPagar(false);
+    try {
+      const url = await criarCheckoutUrl([{ variantId: selectedVariant.id, quantity: 1 }]);
+      window.location.href = url;
+    } catch (err) {
+      console.error("Erro ao abrir o checkout da Shopify:", err);
+      setErroPagar(true);
+      setIndoPagar(false);
+    }
+  }
+
+  /* Alternativa: fechar o pedido pela conversa do WhatsApp. */
+  function pedirPeloWhatsApp() {
+    if (!selectedVariant || !product) return;
     const ref = product.productType || product.tags[0] || "";
     const msg =
       `Olá! Quero comprar:\n\n` +
@@ -486,8 +504,7 @@ export default function ProdutoPage() {
               {/* COMPRAR AGORA — primário */}
               <button
                 onClick={handleBuyNow}
-                disabled={!available}
-                className="fbg-cta-primary"
+                disabled={!available || indoPagar}
                 style={{
                   width: "100%",
                   padding: "20px",
@@ -517,8 +534,20 @@ export default function ProdutoPage() {
                   el.style.boxShadow = "none";
                 }}
               >
-                <span style={{ position: "relative", zIndex: 1 }}>Comprar agora</span>
+                <span style={{ position: "relative", zIndex: 1 }}>
+                  {indoPagar ? "Abrindo pagamento..." : "Comprar agora"}
+                </span>
               </button>
+
+              {erroPagar && (
+                <p style={{
+                  fontSize: "0.72rem", lineHeight: 1.55, color: "#6B2033",
+                  background: "rgba(107,32,51,0.07)", border: "1px solid rgba(107,32,51,0.22)",
+                  padding: "10px 12px", borderRadius: "4px", margin: 0,
+                }}>
+                  Não foi possível abrir o pagamento agora. Tente de novo ou fale com a gente pelo WhatsApp.
+                </p>
+              )}
 
               {/* ADICIONAR AO CARRINHO — secundário */}
               <button
@@ -563,6 +592,29 @@ export default function ProdutoPage() {
                 ) : (
                   "Adicionar ao carrinho"
                 )}
+              </button>
+              <button
+                onClick={pedirPeloWhatsApp}
+                disabled={!selectedVariant}
+                style={{
+                  width: "100%",
+                  padding: "13px",
+                  background: "transparent",
+                  border: "none",
+                  color: "rgba(10,10,10,0.45)",
+                  fontFamily: "inherit",
+                  fontSize: "0.7rem",
+                  fontWeight: 600,
+                  letterSpacing: "0.1em",
+                  cursor: selectedVariant ? "pointer" : "not-allowed",
+                  textDecoration: "underline",
+                  textUnderlineOffset: "4px",
+                  transition: "color 0.2s ease",
+                }}
+                onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = "#1BA751")}
+                onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = "rgba(10,10,10,0.45)")}
+              >
+                Prefiro pedir pelo WhatsApp
               </button>
             </div>
 

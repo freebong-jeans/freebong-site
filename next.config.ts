@@ -32,7 +32,9 @@ const nextConfig: NextConfig = {
           { key: "Strict-Transport-Security", value: "max-age=63072000; includeSubDomains; preload" },
           // O globo 3D da página de revendedores carrega a lib globe.gl por um <script> externo
           // do jsDelivr: sem liberar esse host aqui o CSP bloqueia o script e o globo some.
-          { key: "Content-Security-Policy", value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self' https://*.myshopify.com https://fbg-jeans.vercel.app https://cdn.jsdelivr.net; font-src 'self' data:; frame-ancestors 'none';" },
+          // connect-src precisa de *.myshopify.com: e por ali que o site busca os
+          // produtos e abre o checkout com pagamento.
+          { key: "Content-Security-Policy", value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob: https:; media-src 'self' blob:; connect-src 'self' https://*.myshopify.com https://cdn.jsdelivr.net; font-src 'self' data:; frame-ancestors 'none';" },
         ],
       },
       {

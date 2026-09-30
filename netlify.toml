@@ -1,0 +1,22 @@
+# Hospedagem na Netlify.
+#
+# O site saiu da Vercel porque a conta la foi desligada (erro 451
+# DEPLOYMENT_DISABLED). O plano gratuito da Netlify permite uso comercial,
+# ao contrario do plano Hobby da Vercel.
+#
+# Os cabecalhos de seguranca, os redirects e o cache continuam definidos em
+# next.config.ts, que vale em qualquer hospedagem. Aqui fica so o necessario
+# para a Netlify construir o projeto.
+#
+# O plugin oficial do Next.js cuida da pagina dinamica (/produtos/[handle])
+# e da rota de API (/api/subscribe).
+
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[build.environment]
+  NODE_VERSION = "22"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"

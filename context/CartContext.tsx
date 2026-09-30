@@ -1,7 +1,7 @@
 "use client";
 
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
-import { getShopifyClient } from "@/lib/shopifyClient";
+import { criarCheckoutUrl } from "@/lib/shopifyCheckout";
 
 export type CartItem = {
   id: string;
@@ -19,6 +19,7 @@ type CartContextType = {
   count: number;
   drawerOpen: boolean;
   checkingOut: boolean;
+  erroCheckout: string | null;
   openDrawer: () => void;
   closeDrawer: () => void;
   addItem: (item: Omit<CartItem, "quantity">) => void;
@@ -29,7 +30,7 @@ type CartContextType = {
 };
 
 const CartCtx = createContext<CartContextType>({
-  items: [], count: 0, drawerOpen: false, checkingOut: false,
+  items: [], count: 0, drawerOpen: false, checkingOut: false, erroCheckout: null,
   openDrawer: () => {}, closeDrawer: () => {},
   addItem: () => {}, removeItem: () => {}, updateQty: () => {}, clearCart: () => {},
   checkout: async () => {},
@@ -40,6 +41,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [hydrated, setHydrated] = useState(false);
   const [checkingOut, setCheckingOut] = useState(false);
+  const [erroCheckout, setErroCheckout] = useState<string | null>(null);
 
   useEffect(() => {
     try {
@@ -80,25 +82,24 @@ export function CartProvider({ children }: { children: ReactNode }) {
   async function checkout() {
     if (items.length === 0 || checkingOut) return;
     setCheckingOut(true);
+    setErroCheckout(null);
     try {
-      const client = getShopifyClient();
-      const shopifyCheckout = await client.checkout.create();
-      const lineItems = items.map(item => ({
-        variantId: item.variantId,
-        quantity: item.quantity,
-      }));
-      const updated = await client.checkout.addLineItems(shopifyCheckout.id, lineItems);
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      window.location.href = (updated as any).webUrl;
+      const url = await criarCheckoutUrl(
+        items.map((item) => ({ variantId: item.variantId, quantity: item.quantity }))
+      );
+      window.location.href = url;
     } catch (err) {
-      console.error("Erro ao criar checkout Shopify:", err);
+      console.error("Erro ao abrir o checkout da Shopify:", err);
+      setErroCheckout(
+        err instanceof Error ? err.message : "Nao foi possivel abrir o pagamento."
+      );
       setCheckingOut(false);
     }
   }
 
   return (
     <CartCtx.Provider value={{
-      items, count, drawerOpen, checkingOut,
+      items, count, drawerOpen, checkingOut, erroCheckout,
       openDrawer: () => setDrawerOpen(true),
       closeDrawer: () => setDrawerOpen(false),
       addItem,
