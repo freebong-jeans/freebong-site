@@ -8,8 +8,11 @@
  * O endereco devolvido em checkoutUrl fica sempre no DOMINIO PRINCIPAL
  * configurado na Shopify (Configuracoes > Dominios). Se esse dominio
  * estiver apontando para a hospedagem do site em vez de apontar para a
- * Shopify, o cliente cai num redirecionamento que nao chega ao pagamento:
- * nao ha correcao possivel pelo codigo, e preciso ajustar la.
+ * Shopify, o cliente cai num redirecionamento que nao chega ao pagamento.
+ * O dominio principal da Shopify precisa ser um subdominio que aponta para
+ * ela (loja.freebong.com.br, CNAME shops.myshopify.com). Os redirects de
+ * /cart e /checkouts em next.config.ts cobrem links que ainda saiam no
+ * dominio do site.
  */
 
 const API_VERSION = "2025-01";

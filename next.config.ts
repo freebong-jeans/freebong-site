@@ -54,9 +54,16 @@ const nextConfig: NextConfig = {
 
   /* ── Redirects & Rewrites ──────────────────────── */
   async redirects() {
+    // O checkout da Shopify sai no dominio principal da loja. Se esse dominio
+    // for o mesmo do site (freebong.com.br, que aponta para a Netlify), o
+    // cliente cai em /cart/c/... ou /checkouts/... aqui e ve 404. Estes
+    // redirects mandam esses caminhos para o dominio que aponta para a Shopify.
+    const lojaShopify = process.env.NEXT_PUBLIC_SHOPIFY_CHECKOUT_DOMAIN || "loja.freebong.com.br";
     return [
       { source: "/shop", destination: "/colecao", permanent: true },
       { source: "/collection", destination: "/colecao", permanent: true },
+      { source: "/cart/:path*", destination: `https://${lojaShopify}/cart/:path*`, permanent: false },
+      { source: "/checkouts/:path*", destination: `https://${lojaShopify}/checkouts/:path*`, permanent: false },
     ];
   },
 
