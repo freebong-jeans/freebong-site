@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { useState } from "react";
 import FooterLogo3D from "@/components/FooterLogo3D";
+import { enviarLead } from "@/lib/leads";
 
 const LINKS = {
   colecao: [
@@ -11,17 +12,18 @@ const LINKS = {
     { label: "Jaquetas",       href: "/colecao?categoria=jaqueta" },
     { label: "Kits Completos", href: "/colecao" },
   ],
-  marca: [
-    { label: "O Movimento",    href: "/movimento" },
-    { label: "Nossa História", href: "/movimento" },
-    { label: "Parceiros FBG",  href: "/parceiros" },
-    { label: "Seja Revendedor",href: "/revendedores" },
-    { label: "Comunidade FBG", href: "https://wa.me/message/3ROGXK7TIP7TC1" },
+  institucional: [
+    { label: "A Marca",            href: "/movimento" },
+    { label: "Seja um Revendedor", href: "/revendedores" },
+    { label: "Parceiros FBG",      href: "/parceiros" },
+    { label: "Comunidade FBG",     href: "https://wa.me/message/3ROGXK7TIP7TC1" },
   ],
+  // /tamanhos, /politica-trocas e /rastrear nao existem: os links levavam
+  // ao 404. Trocas fica nos Termos; medidas e rastreio, no WhatsApp/Correios.
   suporte: [
-    { label: "Tamanhos & Medidas", href: "/tamanhos" },
-    { label: "Trocas & Devoluções",href: "/politica-trocas" },
-    { label: "Rastrear Pedido",    href: "/rastrear" },
+    { label: "Tamanhos & Medidas", href: "https://wa.me/message/3ROGXK7TIP7TC1" },
+    { label: "Trocas & Devoluções",href: "/termos" },
+    { label: "Rastrear Pedido",    href: "https://rastreamento.correios.com.br/app/index.php" },
     { label: "Fale Conosco",       href: "https://wa.me/message/3ROGXK7TIP7TC1" },
   ],
 };
@@ -66,12 +68,10 @@ export default function Footer() {
     e.preventDefault();
     if (!email) return;
     try {
-      await fetch("/api/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-    } catch {}
+      await enviarLead("newsletter-rodape", { email });
+    } catch (err) {
+      console.error("Erro ao salvar o e-mail:", err);
+    }
     setSent(true);
     setEmail("");
   }
@@ -336,10 +336,10 @@ export default function Footer() {
                 marginBottom: "16px",
               }}
             >
-              Marca
+              Institucional
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: 0, display: "flex", flexDirection: "column", gap: "10px" }}>
-              {LINKS.marca.map((l) => (
+              {LINKS.institucional.map((l) => (
                 <li key={l.label}>
                   <Link
                     href={l.href}

@@ -4,6 +4,7 @@ import { useEffect } from "react";
 import Image from "next/image";
 import { useCart } from "@/context/CartContext";
 import { linkWhatsApp, mensagemPedido } from "@/lib/whatsapp";
+import { FRETE_GRATIS_MINIMO } from "@/lib/loja";
 
 export default function CartDrawer() {
   const { items, count, drawerOpen, closeDrawer, removeItem, updateQty, checkout, checkingOut, erroCheckout } = useCart();
@@ -177,15 +178,15 @@ export default function CartDrawer() {
         {/* Footer */}
         {items.length > 0 && (
           <div style={{ padding: "20px 24px calc(32px + env(safe-area-inset-bottom, 0px))", borderTop: "1px solid rgba(10,10,10,0.07)", flexShrink: 0 }}>
-            {total < 299 && (
+            {total < FRETE_GRATIS_MINIMO && (
               <div style={{ marginBottom: "16px" }}>
                 <p style={{ fontSize: "0.62rem", color: "rgba(10,10,10,0.35)", marginBottom: "6px", letterSpacing: "0.06em", margin: "0 0 6px" }}>
                   Falta <span style={{ color: "#B0864A" }}>
-                    {(299 - total).toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
+                    {(FRETE_GRATIS_MINIMO - total).toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
                   </span> para frete grátis
                 </p>
                 <div style={{ height: "2px", background: "rgba(10,10,10,0.07)", borderRadius: "2px" }}>
-                  <div style={{ height: "100%", borderRadius: "2px", background: "#B0864A", width: `${Math.min((total / 299) * 100, 100)}%`, transition: "width 0.4s ease" }} />
+                  <div style={{ height: "100%", borderRadius: "2px", background: "#B0864A", width: `${Math.min((total / FRETE_GRATIS_MINIMO) * 100, 100)}%`, transition: "width 0.4s ease" }} />
                 </div>
               </div>
             )}

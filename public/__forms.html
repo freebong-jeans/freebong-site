@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head><meta charset="utf-8"><title>Formularios FBG</title></head>
+  <body>
+    <!--
+      Arquivo so para a Netlify detectar os formularios no deploy.
+      O site envia os cadastros para ca por fetch (lib/leads.ts); os
+      cadastros aparecem no painel da Netlify, em Forms.
+    -->
+    <form name="boas-vindas" data-netlify="true" netlify-honeypot="empresa" hidden>
+      <input type="text" name="nome">
+      <input type="email" name="email">
+      <input type="tel" name="telefone">
+      <input type="text" name="aniversario">
+      <input type="text" name="consentimento">
+      <input type="text" name="empresa">
+    </form>
+    <form name="newsletter-rodape" data-netlify="true" netlify-honeypot="empresa" hidden>
+      <input type="email" name="email">
+      <input type="text" name="empresa">
+    </form>
+  </body>
+</html>
