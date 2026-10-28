@@ -6,6 +6,7 @@ import Image from "next/image";
 import { useProducts } from "@/lib/hooks/useProducts";
 import DenimWaves from "@/components/DenimWaves";
 import Magnetic from "@/components/Magnetic";
+import { PARCELAS_SEM_JUROS } from "@/lib/loja";
 
 /* Destaques curados — mix de linhas do catálogo Junho 2026 */
 /* A vitrine da home mostra pecas reais da loja. Antes vinha de uma lista
@@ -530,7 +531,7 @@ export default function Hero() {
                       }}>
                         {price}
                       </p>
-                      <span className="hro-parcel">12× sem juros</span>
+                      <span className="hro-parcel">{PARCELAS_SEM_JUROS}× sem juros</span>
                     </div>
                   </div>
                 </Link>

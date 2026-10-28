@@ -1,7 +1,7 @@
 "use client";
 
 /**
- * FooterLogo3D — assinatura FBG gigante em 3D no fim da página.
+ * FooterLogo3D — logo oficial FBG grande, em 3D, no fim da página.
  * Profundidade real por camadas de sombra + inclinação que segue
  * o mouse (desktop) e oscilação lenta contínua. Sem WebGL: leve.
  */
@@ -34,15 +34,15 @@ export default function FooterLogo3D() {
     setTilt({ x: -py * 14, y: px * 18 });
   };
 
-  /* profundidade: 10 camadas de sombra, do dourado ao preto */
-  const depth = Array.from({ length: 10 })
-    .map((_, i) => {
-      const d = i + 1;
-      const gold = i < 3;
-      const c = gold ? `rgba(176,134,74,${0.5 - i * 0.12})` : `rgba(0,0,0,${0.55 - (i - 3) * 0.06})`;
-      return `${d * 1.5}px ${d * 2}px 0 ${c}`;
-    })
-    .join(", ");
+  /* profundidade: camadas de sombra, do dourado ao preto, seguindo o
+     contorno da logo (drop-shadow respeita a transparencia do PNG) */
+  const depth = [
+    "drop-shadow(0 0 1px rgba(233,207,166,0.7))",
+    "drop-shadow(2px 3px 0 rgba(176,134,74,0.5))",
+    "drop-shadow(3px 4px 0 rgba(176,134,74,0.3))",
+    "drop-shadow(6px 9px 0 rgba(0,0,0,0.45))",
+    "drop-shadow(10px 16px 14px rgba(0,0,0,0.35))",
+  ].join(" ");
 
   return (
     <div
@@ -60,17 +60,19 @@ export default function FooterLogo3D() {
         userSelect: "none",
       }}
     >
-      <span
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        src="/images/logo-fbg-black.png"
+        alt=""
+        width={1400}
+        height={485}
+        loading="lazy"
+        draggable={false}
+        className="fbg-logo-3d"
         style={{
-          fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
-          fontWeight: 900,
-          fontStyle: "italic",
-          fontSize: "clamp(5rem, 22vw, 17rem)",
-          letterSpacing: "-0.05em",
-          lineHeight: 1.0,
-          color: "#0E0E0E",
-          WebkitTextStroke: "1.5px rgba(233,207,166,0.55)",
-          textShadow: depth,
+          width: "min(78vw, 760px)",
+          height: "auto",
+          filter: depth,
           transform: `rotateX(${12 + tilt.x}deg) rotateY(${tilt.y}deg)`,
           transformStyle: "preserve-3d",
           transition: "transform 0.5s cubic-bezier(0.16,1,0.3,1)",
@@ -78,16 +80,14 @@ export default function FooterLogo3D() {
           willChange: "transform",
           display: "block",
         }}
-      >
-        FBG
-      </span>
+      />
       <style>{`
         @keyframes fbg3dIdle {
-          0%, 100% { filter: brightness(1); }
-          50%      { filter: brightness(1.25); }
+          0%, 100% { opacity: 1; }
+          50%      { opacity: 0.88; }
         }
         @media (prefers-reduced-motion: reduce) {
-          div[aria-hidden] span { animation: none !important; }
+          .fbg-logo-3d { animation: none !important; }
         }
       `}</style>
     </div>

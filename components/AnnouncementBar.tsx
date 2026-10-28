@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
+import { CUPOM_BOAS_VINDAS, DESCONTO_BOAS_VINDAS, freteGratisTexto } from "@/lib/loja";
 
 const MESSAGES = [
-  "USE O CUPOM  BEMVINDO10  E GANHE 10% OFF NA PRIMEIRA COMPRA",
-  "FRETE GRÁTIS EM COMPRAS ACIMA DE R$ 299",
+  `USE O CUPOM  ${CUPOM_BOAS_VINDAS}  E GANHE ${DESCONTO_BOAS_VINDAS}% OFF NA PRIMEIRA COMPRA`,
+  `FRETE GRÁTIS EM COMPRAS ACIMA DE ${freteGratisTexto}`,
   "PREMIUM QUALITY SINCE 2013 · FBG JEANS WEAR",
 ];
 

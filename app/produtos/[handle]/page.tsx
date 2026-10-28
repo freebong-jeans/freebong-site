@@ -13,6 +13,7 @@ import { SizeGuideModal, TrustBadges, CompleteLook } from "@/components/ProductE
 import { useCart } from "@/context/CartContext";
 import { linkWhatsApp } from "@/lib/whatsapp";
 import { criarCheckoutUrl } from "@/lib/shopifyCheckout";
+import { freteGratisTexto } from "@/lib/loja";
 
 /* ─── Helpers ──────────────────────────────────────────── */
 function formatPrice(price: string) {
@@ -670,7 +671,7 @@ export default function ProdutoPage() {
               </Accordion>
               <Accordion title="Entrega & Frete">
                 Envio para todo o Brasil via Correios ou transportadora. Prazo de 3 a 8 dias úteis.
-                Frete grátis acima de R$ 299.
+                Frete grátis acima de {freteGratisTexto}.
               </Accordion>
               <Accordion title="Troca & Devolução">
                 Troca garantida em até 30 dias após o recebimento. Produto deve estar sem uso

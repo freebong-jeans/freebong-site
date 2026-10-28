@@ -13,6 +13,7 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { useProducts } from "@/lib/hooks/useProducts";
 import type { ShopifyProduct } from "@/lib/hooks/useProducts";
+import { freteGratisTexto } from "@/lib/loja";
 
 const FONT = "'Helvetica Neue', Helvetica, sans-serif";
 const WHATSAPP = "https://wa.me/message/3ROGXK7TIP7TC1";
@@ -161,7 +162,7 @@ export function TrustBadges() {
   const items = [
     {
       label: "Envio para todo o Brasil",
-      sub: "Frete grátis acima de R$ 299",
+      sub: `Frete grátis acima de ${freteGratisTexto}`,
       icon: (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
           <path d="M5 17h-2v-11a1 1 0 0 1 1 -1h9v12m-4 0h6m4 0h2v-6h-8m0 -5h5l3 5" />
