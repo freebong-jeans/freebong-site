@@ -186,39 +186,6 @@ export default function Hero() {
                 </svg>
               </Link>
             </Magnetic>
-            <Magnetic>
-              <Link
-                href="/revendedores"
-                style={{
-                  display: "inline-flex",
-                  alignItems: "center",
-                  gap: "10px",
-                  padding: "16px clamp(28px,4vw,48px)",
-                  background: "transparent",
-                  border: "1px solid rgba(255,255,255,0.35)",
-                  color: "#fff",
-                  fontSize: "0.68rem",
-                  fontWeight: 700,
-                  letterSpacing: "0.18em",
-                  textTransform: "uppercase",
-                  textDecoration: "none",
-                  fontFamily: "'Helvetica Neue', Helvetica, sans-serif",
-                  transition: "border-color 0.25s ease, background 0.25s ease",
-                }}
-                onMouseEnter={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "#B0864A";
-                  el.style.background = "rgba(176,134,74,0.12)";
-                }}
-                onMouseLeave={(e) => {
-                  const el = e.currentTarget as HTMLElement;
-                  el.style.borderColor = "rgba(255,255,255,0.35)";
-                  el.style.background = "transparent";
-                }}
-              >
-                Seja revendedor
-              </Link>
-            </Magnetic>
           </div>
         </div>
 
