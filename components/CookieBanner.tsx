@@ -2,8 +2,9 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { CONSENTIMENTO_CHAVE, CONSENTIMENTO_EVENTO } from "@/lib/rastreio";
 
-const STORAGE_KEY = "fbg_cookie_consent";
+const STORAGE_KEY = CONSENTIMENTO_CHAVE;
 
 export default function CookieBanner() {
   const [visible, setVisible] = useState(false);
@@ -18,6 +19,8 @@ export default function CookieBanner() {
 
   function dismiss(choice: "accepted" | "rejected") {
     localStorage.setItem(STORAGE_KEY, choice);
+    // Liga o GTM e o Pixel na hora, sem esperar o proximo carregamento.
+    window.dispatchEvent(new Event(CONSENTIMENTO_EVENTO));
     setClosing(true);
     setTimeout(() => { setVisible(false); setClosing(false); }, 500);
   }
