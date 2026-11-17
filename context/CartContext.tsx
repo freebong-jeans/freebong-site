@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useEffect, useState, ReactNode } from "react";
 import { criarCheckoutUrl } from "@/lib/shopifyCheckout";
+import { rastrear } from "@/lib/rastreio";
 
 export type CartItem = {
   id: string;
@@ -58,6 +59,7 @@ export function CartProvider({ children }: { children: ReactNode }) {
   const count = items.reduce((s, i) => s + i.quantity, 0);
 
   function addItem(item: Omit<CartItem, "quantity">) {
+    rastrear("AddToCart", [{ produtoId: item.id, varianteId: item.variantId, nome: item.title, preco: parseFloat(item.price), quantidade: 1 }]);
     setItems(prev => {
       const existing = prev.find(i => i.variantId === item.variantId);
       if (existing) {
@@ -83,6 +85,10 @@ export function CartProvider({ children }: { children: ReactNode }) {
     if (items.length === 0 || checkingOut) return;
     setCheckingOut(true);
     setErroCheckout(null);
+    rastrear(
+      "InitiateCheckout",
+      items.map((i) => ({ produtoId: i.id, varianteId: i.variantId, nome: i.title, preco: parseFloat(i.price), quantidade: i.quantity }))
+    );
     try {
       const url = await criarCheckoutUrl(
         items.map((item) => ({ variantId: item.variantId, quantity: item.quantity }))

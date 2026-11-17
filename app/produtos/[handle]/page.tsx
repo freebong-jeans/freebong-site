@@ -14,6 +14,7 @@ import { useCart } from "@/context/CartContext";
 import { linkWhatsApp } from "@/lib/whatsapp";
 import { criarCheckoutUrl } from "@/lib/shopifyCheckout";
 import { freteGratisTexto } from "@/lib/loja";
+import { rastrear } from "@/lib/rastreio";
 
 /* ─── Helpers ──────────────────────────────────────────── */
 function formatPrice(price: string) {
@@ -83,6 +84,14 @@ export default function ProdutoPage() {
   const [indoPagar, setIndoPagar] = useState(false);
   const [erroPagar, setErroPagar] = useState(false);
 
+  /* ViewContent: uma vez por produto aberto */
+  useEffect(() => {
+    if (!product) return;
+    const v = product.variants.find(x => x.available) ?? product.variants[0];
+    if (!v) return;
+    rastrear("ViewContent", [{ produtoId: product.id, varianteId: v.id, nome: product.title, preco: parseFloat(v.price), quantidade: 1 }]);
+  }, [product]);
+
   /* Seleciona primeiro variant disponível ao carregar */
   useEffect(() => {
     if (product) {
@@ -112,6 +121,7 @@ export default function ProdutoPage() {
     if (!selectedVariant || !selectedVariant.available || !product || indoPagar) return;
     setIndoPagar(true);
     setErroPagar(false);
+    rastrear("InitiateCheckout", [{ produtoId: product.id, varianteId: selectedVariant.id, nome: product.title, preco: parseFloat(selectedVariant.price), quantidade: 1 }]);
     try {
       const url = await criarCheckoutUrl([{ variantId: selectedVariant.id, quantity: 1 }]);
       window.location.href = url;
